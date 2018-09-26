@@ -27,24 +27,22 @@ public class ControllerTest {
     private Controller controller = null;
     private PersonSamling personsamling = null;
     private PrylFactory prylfactory = null;
-    
+    private List<Person> personlista = null;
     
     @Before
     public void setUp() {
-        controller = new Controller(personsamling, prylfactory);
+        controller = new Controller(new PersonSamling(personlista), prylfactory);
     }
     
    
 
     @Test
     public void testSkapaPerson() {
-        System.out.println("skapaPerson");
         String namnpånyperson = "Pelle";
-        Controller instance = null;
-        instance.skapaPerson(namnpånyperson);
-        fail("The test case is a prototype.");
+        controller.skapaPerson(namnpånyperson);
+        //assertTrue("Hittar ingen med det namnet!",);
     }
-
+ /*
     @Test
     public void testSkapaPrylTillPerson() {
         System.out.println("skapaPrylTillPerson");
@@ -53,6 +51,6 @@ public class ControllerTest {
         Controller instance = null;
         instance.skapaPrylTillPerson(namnpåperson, prylargs);
         fail("The test case is a prototype.");
-    }
+    } */
     
 }
