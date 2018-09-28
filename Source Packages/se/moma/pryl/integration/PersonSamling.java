@@ -2,7 +2,7 @@ package se.moma.pryl.integration;
 
 import se.moma.pryl.model.Person;
 import java.util.*;
-import se.moma.pryl.model.Aktie;
+import se.moma.pryl.model.interfaces.Pryl;
 import se.moma.pryl.util.PersonVärdeComparator;
 
 /**
@@ -14,6 +14,7 @@ public class PersonSamling {
     private List<Person> minaPersoner = null;
     private static final int RIKASTE_PERSON = 0;
    
+   
     /**
      * Skapar en ny instans.
      * @param minaPersoner Instans av <code>List<Person></code>.
@@ -21,6 +22,7 @@ public class PersonSamling {
     public PersonSamling(List<Person> minaPersoner) {
 	this.minaPersoner = minaPersoner;
         this.minaPersoner = new ArrayList<>();
+        
     }
     
     /**
@@ -103,7 +105,6 @@ public class PersonSamling {
         StringBuilder stringBuilder = new StringBuilder();
                 for(Person person: minaPersoner) {
                     stringBuilder.append(person.toString());
-                    stringBuilder.append("\n");
                 }
         return stringBuilder.toString();
     }
@@ -115,10 +116,11 @@ public class PersonSamling {
     
     
     public static void main(String[] args) {
-        PersonSamling personSamling = new PersonSamling(new ArrayList<>());
-        Person person = new Person("Olle", new ArrayList<>());
-        person.läggTillPryl(new Aktie("googl", 1000, 1000));
-        personSamling.laggTillPerson(person);
+        List<Person> personLista = null;
+        PersonSamling personSamling = new PersonSamling(personLista);
+        List<Pryl> prylLista = null;
+        personSamling.laggTillPerson(new Person("Olle", prylLista));
+        personSamling.laggTillPerson(new Person("Pelle",prylLista));
         System.out.println(personSamling);
         System.out.println(personSamling.visaAlla());
     }
