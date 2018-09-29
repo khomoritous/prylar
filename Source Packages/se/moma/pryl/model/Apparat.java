@@ -2,8 +2,8 @@ package se.moma.pryl.model;
 
 import se.moma.pryl.model.interfaces.Pryl;
 /**
- * Skapar en <code>Apparat</code> med pris och slitage.
- * @author monde
+ *  Skapar en <code>Apparat</code> med pris och slitage.
+ *  @author monde
  */
 public class Apparat extends Pryl {
     
@@ -26,8 +26,6 @@ public class Apparat extends Pryl {
 	this.slitage = slitage;
     }
 
-   
-    
     
     /**
      * @return Värde på <code>Apparat</code>.
@@ -36,6 +34,7 @@ public class Apparat extends Pryl {
     public int värde() {
 	return (getSlitage() / SLITAGE_FAKTOR) * getPris();
     }
+    
     
     /**
      * @return Textsträngrepresentation av <code>Apparat</code>.
@@ -46,14 +45,21 @@ public class Apparat extends Pryl {
     }
     
     
+    /**
+     * @return Pris på <code>Apparat</code>. 
+     */
     public int getPris() {
         return pris;
     }
 
     
+    /**
+     * @return Slitage på <code>Apparat</code>. 
+     */
     public int getSlitage() {
         return slitage;
     }
+    
     
     public static void main(String[] args) {
         System.out.println(new Apparat("dator", PRIS_PÅ_APPARAT, SLITAGE_PÅ_APPARAT));

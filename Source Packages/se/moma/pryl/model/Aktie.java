@@ -49,11 +49,19 @@ public class Aktie extends Pryl {
     public String toString() { 
         return String.format("namn: %s, antal: %d, pris: %d, värde: %d", super.toString(), getAntal(), getPris(), värde());
     }
-
+    
+    
+    /**
+     * @return Antal <code>Aktie</code>. 
+     */
     public int getAntal() {
         return antal;
     }
-
+    
+    
+    /**
+     * @return  Pris på <code>Aktie</code>. 
+     */
     public int getPris() {
         return pris;
     }

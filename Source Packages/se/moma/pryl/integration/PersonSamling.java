@@ -6,8 +6,8 @@ import se.moma.pryl.model.interfaces.Pryl;
 import se.moma.pryl.util.PersonVärdeComparator;
 
 /**
- * Skapar en samling av <code>Person</code>.
- * @author monde
+ *  Skapar en samling av <code>Person</code>.
+ *  @author monde
  */
 public class PersonSamling {
 
@@ -24,6 +24,7 @@ public class PersonSamling {
         this.minaPersoner = new ArrayList<>();
         
     }
+    
     
     /**
      * @param py Instans av <code>Person</code>.
@@ -42,11 +43,10 @@ public class PersonSamling {
         }
     }
     
+    
     /**
-     * 
      * @param namnPåPerson Namn på <code>Person</code> 
-     * @return <code>True</code>, om <code>Person</code> hittats. <code>False</code>, annars
-     * 
+     * @return <code>True</code>, om <code>Person</code> hittats. <code>False</code>, annars.
      */
     public boolean hittaPerson(String namnPåPerson) {
         for(Person person: minaPersoner) {
@@ -99,7 +99,9 @@ public class PersonSamling {
 	
     
 
-    
+    /**
+     * @return Textsträngsrepresentation av <code>PersonSamling</code>. 
+     */
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

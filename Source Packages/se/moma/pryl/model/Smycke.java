@@ -3,8 +3,8 @@ package se.moma.pryl.model;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
- * Skapar ett <code>Smycke</code> som består av en metall och ädelstenar.
- * @author monde
+ *  Skapar ett <code>Smycke</code> som består av en metall och ädelstenar.
+ *  @author monde
  */
 public class Smycke extends Pryl {
     
@@ -14,6 +14,8 @@ public class Smycke extends Pryl {
     private static final int ÄDELSTENFAKTOR = 700;
     private static final int VÄRDE = 500;
     private static final int ANTAL_VÄRDESTENAR = 100;
+    private static final String GULD = "guld";
+    
     
     /**
      * Skapar ny instans.
@@ -26,26 +28,36 @@ public class Smycke extends Pryl {
 	this.metall = metall;
 	this.ädelstenar = ädelstenar;
     }	
-
+    
+    
+    /**
+     * @return Namn på metall på <code>Smycke</code>
+     */
     public String getMetall() {
         return metall;
     }
 
+    
+    /**
+     * @return  Antal ädelstenar på <code>Smycke</code>.
+     */
     public int getÄdelstenar() {
         return ädelstenar;
     }
+    
     
     /**
      * @return Värdet på <code>Smycke</code>
      */
     @Override
     public int värde() {
-	if(getMetall().equals("Guld")) {
+	if(getMetall().equals(GULD)) {
 		return (VÄRDE * getÄdelstenar()) + GULDFAKTOR;
         }
 	return (VÄRDE * getÄdelstenar()) + ÄDELSTENFAKTOR;
 	
     }
+    
     
     /**
      * @return Teststrängrepresentation av <code>Smycke</code>. 

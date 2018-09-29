@@ -49,4 +49,8 @@ public class Controller {
     private boolean isPersonRegistrerad(String namnpåperson){
        return personSamling.hittaPerson(namnpåperson);
     }
+    
+    
+    
+    
 }
