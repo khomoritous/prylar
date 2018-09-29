@@ -32,7 +32,7 @@ public class Controller {
    
    
     public void skapaPerson(String namnpånyperson) {
-       if(isPersonRegistrerad(namnpånyperson)) throw new IllegalArgumentException(namnpånyperson + "finns redan registrerat!");
+       if(isPersonRegistrerad(namnpånyperson)) throw new IllegalArgumentException(namnpånyperson + " finns redan registrerat!");
        List<Pryl> personPrylar = null;
        personSamling.laggTillPerson(new Person(namnpånyperson, personPrylar));
     }
@@ -48,6 +48,13 @@ public class Controller {
   
     private boolean isPersonRegistrerad(String namnpåperson){
        return personSamling.hittaPerson(namnpåperson);
+    }
+    
+    public static void main(String[] args) {
+        List<Person> personLista = null;
+        PrylFactory prylFactory = null;
+        Controller controller = new Controller(new PersonSamling(personLista), prylFactory);
+        controller.skapaPerson("Kalle");
     }
     
     

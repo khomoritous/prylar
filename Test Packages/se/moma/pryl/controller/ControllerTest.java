@@ -25,7 +25,7 @@ public class ControllerTest {
     
     
     private Controller controller = null;
-    private PersonSamling personsamling = null;
+    private PersonSamling personSamling = null;
     private PrylFactory prylfactory = null;
     private List<Person> personlista = null;
     
@@ -38,9 +38,10 @@ public class ControllerTest {
 
     @Test
     public void testSkapaPerson() {
-        String namnpånyperson = "Pelle";
-        controller.skapaPerson(namnpånyperson);
-        //assertTrue("Hittar ingen med det namnet!",);
+        controller.skapaPerson("Boris");
+        String resultat = personSamling.toString();
+        String expResultat = "Boris";
+        assertTrue("Hittar ingen med det namnet!", resultat.contains(expResultat));
     }
  /*
     @Test
