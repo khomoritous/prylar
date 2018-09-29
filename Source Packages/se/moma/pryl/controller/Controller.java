@@ -8,6 +8,7 @@ package se.moma.pryl.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import se.moma.pryl.integration.PersonSamling;
 import se.moma.pryl.model.Person;
 import se.moma.pryl.model.factory.PrylFactory;
@@ -32,10 +33,12 @@ public class Controller {
    
    
     public void skapaPerson(String namnpånyperson) {
-       if(isPersonRegistrerad(namnpånyperson)) throw new IllegalArgumentException(namnpånyperson + " finns redan registrerat!");
+       validering(namnpånyperson);
        List<Pryl> personPrylar = null;
        personSamling.laggTillPerson(new Person(namnpånyperson, personPrylar));
     }
+
+    
    
     
     public void skapaPrylTillPerson(String namnpåperson, Map<String, String> prylargs) {
@@ -45,7 +48,13 @@ public class Controller {
            throw new IllegalArgumentException("Hittar ingen med det namnet!");
     }
    
-  
+    private void validering(String namnpånyperson) throws IllegalArgumentException {
+        Objects.requireNonNull(namnpånyperson, "Måste ange ett namn!");
+        if (namnpånyperson instanceof String)
+            if (namnpånyperson.equals("")) throw new IllegalArgumentException("Måste ange att namn!");
+               if (isPersonRegistrerad(namnpånyperson)) throw new IllegalArgumentException(namnpånyperson + " finns redan registrerat!");
+    }
+    
     private boolean isPersonRegistrerad(String namnpåperson){
        return personSamling.hittaPerson(namnpåperson);
     }
@@ -55,6 +64,8 @@ public class Controller {
         PrylFactory prylFactory = null;
         Controller controller = new Controller(new PersonSamling(personLista), prylFactory);
         controller.skapaPerson("Kalle");
+        //controller.skapaPerson("Kalle");
+ 
     }
     
     
