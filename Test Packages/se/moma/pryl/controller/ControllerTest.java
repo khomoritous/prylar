@@ -27,22 +27,23 @@ public class ControllerTest {
     private Controller controller = null;
     private PersonSamling personSamling = null;
     private PrylFactory prylfactory = null;
-    private List<Person> personlista = null;
+    private List<Person> personLista = null;
+    private static final String NAMN_PÅ_PERSON = "Boris";
     
     @Before
     public void setUp() {
-        controller = new Controller(new PersonSamling(personlista), prylfactory);
+        personSamling = new PersonSamling(personLista);
+        controller = new Controller(personSamling, prylfactory);
     }
     
    
 
-    @Test
-    public void testSkapaPerson() {
-        controller.skapaPerson("Boris");
-        String resultat = personSamling.toString();
-        String expResultat = "Boris";
-        assertTrue("Hittar ingen med det namnet!", resultat.contains(expResultat));
+    @Test(expected = IllegalArgumentException.class)
+    public void testSkapaPerson_kastar_IllegalArgumentException_för_upptaget_namn() {
+        controller.skapaPerson(NAMN_PÅ_PERSON);
+        controller.skapaPerson(NAMN_PÅ_PERSON);
     }
+    
  /*
     @Test
     public void testSkapaPrylTillPerson() {

@@ -22,24 +22,25 @@ public class Controller {
     
     
     private PersonSamling personSamling = null;
-    private List<Person> personLista = null;
-    PrylFactory prylFactory = null;
+    //private List<Person> personLista = null;
+    private PrylFactory prylFactory = null;
     
     public Controller(PersonSamling personSamling, PrylFactory prylFactory) {
+       List<Person> personLista = null;
        this.personSamling  = new PersonSamling(personLista);
        this.prylFactory = prylFactory;      
        
     } 
    
    
-    public void skapaPerson(String namnpånyperson) {
-       validering(namnpånyperson);
+    public void skapaPerson(String namnPåNyPerson) {
+       validering(namnPåNyPerson);
        List<Pryl> personPrylar = null;
-       personSamling.laggTillPerson(new Person(namnpånyperson, personPrylar));
+       personSamling.laggTillPerson(skapaPersonInstans(namnPåNyPerson, personPrylar));
     }
 
     
-   
+   /*
     
     public void skapaPrylTillPerson(String namnpåperson, Map<String, String> prylargs) {
        if(isPersonRegistrerad(namnpåperson)) {
@@ -47,12 +48,18 @@ public class Controller {
        } else
            throw new IllegalArgumentException("Hittar ingen med det namnet!");
     }
+    */
+    
+    private Person skapaPersonInstans(String namnPåNyPerson, List<Pryl> personPrylar) {
+        return new Person(namnPåNyPerson, personPrylar);
+    }
+    
    
-    private void validering(String namnpånyperson) throws IllegalArgumentException {
-        Objects.requireNonNull(namnpånyperson, "Måste ange ett namn!");
-        if (namnpånyperson instanceof String)
-            if (namnpånyperson.equals("")) throw new IllegalArgumentException("Måste ange att namn!");
-               if (isPersonRegistrerad(namnpånyperson)) throw new IllegalArgumentException(namnpånyperson + " finns redan registrerat!");
+    private void validering(String namnPåNyPerson) throws IllegalArgumentException {
+        Objects.requireNonNull(namnPåNyPerson, "Måste ange ett namn!");
+        if (namnPåNyPerson instanceof String)
+          if (namnPåNyPerson.equals("")) throw new IllegalArgumentException("Måste ange att namn!");
+            if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerat!");
     }
     
     private boolean isPersonRegistrerad(String namnpåperson){

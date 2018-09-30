@@ -37,7 +37,7 @@ public class Main {
             prylargs.put("smycke", smycke);
             prylargs.put("metall", metall);
             prylargs.put("ädelstenar", ädelstenar);
-            controller.skapaPrylTillPerson(namnpåperson, prylargs);
+           // controller.skapaPrylTillPerson(namnpåperson, prylargs);
         }
         
         
