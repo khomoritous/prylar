@@ -29,7 +29,7 @@ public class MainTest {
     
     
     @Test(expected = IllegalArgumentException.class)
-    public void testSomeMethod() {
+    public void testLäggerTillPerson_kastar_undantag_om_person_är_registrerad() {
         controller.skapaPerson(NAMN);
         controller.skapaPerson(NAMN);
     }

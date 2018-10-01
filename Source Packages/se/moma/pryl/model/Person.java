@@ -5,7 +5,8 @@ import java.util.*;
 
 
 /**
- * Skapar en <code>Person</code>  med samling av <code>Pryl</code>.
+ * Skapar en <code>Person</code> med samling av <code>Pryl</code>.
+ * 
  * @author monde
  */
 public class Person {
@@ -19,80 +20,86 @@ public class Person {
     
     
     /**
-     * Skapar en ny instans.
+     * Skapar en ny instans av <code>Person</code>.
+     * 
      * @param namn Namn på <code>Person</code>.
-     * @param minaPrylar Instans av <code> List<Pryl> </code>.
+     * @param minaPrylar Instans av <code>List</code> av <code>Pryl</code>.
      */
     public Person(String namn, List<Pryl> minaPrylar) {
-	this.namn = namn;
-	this.minaPrylar = minaPrylar;
-        this.minaPrylar = new ArrayList<>();
-       
-        
+      this.namn = namn;
+      this.minaPrylar = minaPrylar;
+      this.minaPrylar = new ArrayList<>();
     }
     
-    /*
+    
     /**
      * @return Namn på <code>Person</code>.
      */
     public String getNamn() {
-	return namn;
+      return namn;
     }
+    
     
     /**
      * Lägger till <code>Pryl</code> till samling.
+     * 
      * @param py Instans av <code>Pryl</code>.
      */
-    public void läggTillPryl(Pryl py){
-	minaPrylar.add(py);
+    public void läggTillPryl(Pryl py) {
+      minaPrylar.add(py);
     }
     
+    
     /**
+     * Beräknar värdet på en <code>Person</code> samling av <code>Pryl</code>.
+     * 
      * @return Totala värdet på samling av <code>Pryl</code>.
      */
     public int summaVärde() {
-	int totalSumma = 0;
+      int totalSumma = 0;
 	
-        for(Pryl py: minaPrylar) {
-            totalSumma += py.getVärde();
-        }
-        return totalSumma;
+      for(Pryl py: minaPrylar) {
+        totalSumma += py.getVärde();
+      }
+      return totalSumma;
     }
 
+    
     /**
-     * Sätter <code>Aktie</code> till noll.
+     * Sätter priset för <code>Aktie</code> till noll.
+     * 
      */
     public void setAktierTillNoll() {
-        for(Pryl pryl: minaPrylar) {
-            if(pryl instanceof Aktie) {
-                ((Aktie) pryl).setPrisTillNoll();
-            }
+      for(Pryl pryl: minaPrylar) {
+        if(pryl instanceof Aktie) {
+          ((Aktie) pryl).setPrisTillNoll();
         }
+      }
     }   
     
     
     
     /**
-     * @return <code>Pryl</code> samling.
+     * @return Textsträngrepresentation av namn på <code>Person</code > och samling av <code>Pryl</code>.
      */
     @Override
     public String toString() {
-	StringBuilder stringBuilder = new StringBuilder();
-          stringBuilder.append("person: ");
-          stringBuilder.append(this.getNamn());
-          stringBuilder.append("\n");
-           for(Pryl pryl: minaPrylar) {
-                stringBuilder.append(pryl.toString());
-                stringBuilder.append(",");
-            }
-	return stringBuilder.toString();
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.append("person: ");
+      stringBuilder.append(this.getNamn());
+      stringBuilder.append("\n");
+      for(Pryl pryl: minaPrylar) {
+        stringBuilder.append(pryl.toString());
+        stringBuilder.append(",");
+      }
+      return stringBuilder.toString();
     }
     
     
     public static void main(String[] args) {
-        Person person = new Person(NAMN_PÅ_PERSON, new ArrayList<>());
-        person.läggTillPryl(new Aktie(NAMN, PRIS_PÅ_PRYL, ANTAL_PRYLAR));
-        System.out.println(person);
+      Person person = new Person(NAMN_PÅ_PERSON, new ArrayList<>());
+      person.läggTillPryl(new Aktie(NAMN, PRIS_PÅ_PRYL, ANTAL_PRYLAR));
+      System.out.println(person);
     }
 
 }
