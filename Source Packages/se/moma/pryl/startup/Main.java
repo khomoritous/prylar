@@ -8,7 +8,7 @@ import se.moma.pryl.model.factory.PrylFactory;
 
 public class Main {
     
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         List<Person> lista = null;
         PrylFactory prylfactory = null;
         Map<String, String> prylargs = new HashMap<>();
@@ -17,11 +17,14 @@ public class Main {
         Controller controller = new Controller(personsamling, prylfactory);
 	
         Scanner sc = new Scanner(System.in);
-        System.out.println("Namn på på en person: ");
+        System.out.print("Namn på en person: ");
         String namn = sc.nextLine();
-        prylargs.put("namn", namn);
+        //prylargs.put("namn", namn);
         controller.skapaPerson(namn);
         
+        
+        
+        /*
         System.out.println("Vad heter personen som ska äga prylen? ");
         String namnpåperson = sc.nextLine();
         System.out.println("Vad för sorts pryl ska skapas? ");
@@ -43,7 +46,7 @@ public class Main {
         
      
         
-       
+       */
         
         
 	

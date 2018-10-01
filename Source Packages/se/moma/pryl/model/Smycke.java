@@ -51,7 +51,7 @@ public class Smycke extends Pryl {
      */
     @Override
     public int värde() {
-	if(getMetall().equals(GULD)) {
+	if(getMetall().equalsIgnoreCase(GULD)) {
 		return (VÄRDE * getÄdelstenar()) + GULDFAKTOR;
         }
 	return (VÄRDE * getÄdelstenar()) + ÄDELSTENFAKTOR;

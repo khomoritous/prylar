@@ -24,6 +24,7 @@ public class Controller {
     private PersonSamling personSamling = null;
     //private List<Person> personLista = null;
     private PrylFactory prylFactory = null;
+    private static final String NAMN = "Kalle";
     
     public Controller(PersonSamling personSamling, PrylFactory prylFactory) {
        List<Person> personLista = null;
@@ -34,7 +35,7 @@ public class Controller {
    
    
     public void skapaPerson(String namnPåNyPerson) {
-       validering(namnPåNyPerson);
+      // valideraPersonData(namnPåNyPerson);
        List<Pryl> personPrylar = null;
        personSamling.laggTillPerson(skapaPersonInstans(namnPåNyPerson, personPrylar));
     }
@@ -51,11 +52,12 @@ public class Controller {
     */
     
     private Person skapaPersonInstans(String namnPåNyPerson, List<Pryl> personPrylar) {
+        valideraPersonData(namnPåNyPerson);
         return new Person(namnPåNyPerson, personPrylar);
     }
     
    
-    private void validering(String namnPåNyPerson) throws IllegalArgumentException {
+    private void valideraPersonData(String namnPåNyPerson) throws IllegalArgumentException {
         Objects.requireNonNull(namnPåNyPerson, "Måste ange ett namn!");
         if (namnPåNyPerson instanceof String)
           if (namnPåNyPerson.equals("")) throw new IllegalArgumentException("Måste ange att namn!");
@@ -70,7 +72,7 @@ public class Controller {
         List<Person> personLista = null;
         PrylFactory prylFactory = null;
         Controller controller = new Controller(new PersonSamling(personLista), prylFactory);
-        controller.skapaPerson("Kalle");
+        controller.skapaPerson(NAMN);
         //controller.skapaPerson("Kalle");
  
     }
