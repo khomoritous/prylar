@@ -17,6 +17,7 @@ public class Main {
         Controller controller = new Controller(personsamling, prylfactory);
 	
         Scanner sc = new Scanner(System.in);
+        //SkapaPerson
         System.out.print("Namn på en person: ");
         String namn = sc.nextLine();
         //prylargs.put("namn", namn);
@@ -24,7 +25,7 @@ public class Main {
         
         
         
-        /*
+        //Skapa pryl
         System.out.println("Vad heter personen som ska äga prylen? ");
         String namnpåperson = sc.nextLine();
         System.out.println("Vad för sorts pryl ska skapas? ");
@@ -46,7 +47,7 @@ public class Main {
         
      
         
-       */
+       
         
         
 	
