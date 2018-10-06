@@ -1,9 +1,11 @@
 package se.moma.pryl.model;
 
+import java.util.Objects;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
  * Skapar en <code>Aktie</code> med namn, pris och antal.
+ * 
  * @author monde
  */
 public class Aktie extends Pryl {
@@ -15,18 +17,22 @@ public class Aktie extends Pryl {
     private static final int PRIS_PÅ_AKTIE = 1000;
     
     /**
-     * Skapar en ny instans.
+     * Skapar en ny <code>Aktie</code> instans.
+     * 
      * @param namn Namn på <code>Aktie</code>.
      * @param antal Antal <code>Aktie</code>.
      * @param pris Pris på <code>Aktie</code>.
      */
     public Aktie(String namn, int antal, int pris) {
 	super(namn);
+        Objects.requireNonNull(antal, "Måste ange antal aktier!");
 	this.antal = antal;
+        Objects.requireNonNull(pris, "Måste ange pris på aktier!");
 	this.pris = pris;
     }
     
     /**
+     * Beräknar värde på <code>Aktie</code>.
      * 
      * @return Värde på <code>Aktie</code>.
      */

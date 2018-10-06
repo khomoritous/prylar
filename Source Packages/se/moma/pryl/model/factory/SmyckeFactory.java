@@ -14,21 +14,22 @@ import se.moma.pryl.model.interfaces.Pryl;
 
 /**
  * Är en klass om skapar en <code>Pryl</code> av typ <code>Smycke</code>.
+ * 
  * @author monde
  */
 public class SmyckeFactory implements PrylFactory {
 
+    
     /**
+     * Skapar en <code>Pryl</code>.
+     * 
      * @param argsMap Innehåller argument för skapande av <code>Pryl</code>.
      * @return En instans av <code>Pryl</code>.
      */
     @Override
     public Pryl skapaPryl(Map<String, String> argsMap) {
-        Pryl pryl = null;
-        if(argsMap.containsKey("smycke")) {
-            pryl = new Smycke(argsMap.get("namn"), argsMap.get("metall"), parseInt(argsMap.get("ädelstenar")));
-        }
-        return pryl;
+        
+        return new Smycke(argsMap.get("smycke"), argsMap.get("metall"), parseInt(argsMap.get("ädelstenar")));
     }
 
 }

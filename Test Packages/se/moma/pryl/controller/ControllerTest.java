@@ -5,6 +5,7 @@
  */
 package se.moma.pryl.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.After;
@@ -44,15 +45,19 @@ public class ControllerTest {
         controller.skapaPerson(NAMN_PÅ_PERSON);
     }
     
- /*
+ 
     @Test
     public void testSkapaPrylTillPerson() {
-        System.out.println("skapaPrylTillPerson");
-        String namnpåperson = "";
-        Map<String, String> prylargs = null;
-        Controller instance = null;
-        instance.skapaPrylTillPerson(namnpåperson, prylargs);
+       
+        String namnPåPerson = NAMN_PÅ_PERSON;
+        Map<String, String> prylArgs = new HashMap<>();
+        prylArgs.put("smycke", "ring");
+        prylArgs.put("metall", "platina");
+        prylArgs.put("ädelstenar", "10");
+        controller.skapaPerson(NAMN_PÅ_PERSON);
+        controller.skapaPrylTillPerson(NAMN_PÅ_PERSON, prylArgs);
+        
         fail("The test case is a prototype.");
-    } */
+    } 
     
 }

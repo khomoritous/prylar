@@ -1,9 +1,11 @@
 package se.moma.pryl.model;
 
+import java.util.Objects;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
  *  Skapar ett <code>Smycke</code> som består av en metall och ädelstenar.
+ * 
  *  @author monde
  */
 public class Smycke extends Pryl {
@@ -18,14 +20,18 @@ public class Smycke extends Pryl {
     
     
     /**
-     * Skapar ny instans.
+     * Skapar ny <code>Smycke</code> instans.
+     * 
      * @param namn Namn på <code>Smycke</code>.
      * @param metall Namn på metall av <code>Smycke</code>
      * @param ädelstenar Antal ädelstenar <code>Smycke</code> består av.
      */
     public Smycke(String namn, String metall, int ädelstenar) {
 	super(namn);
+        Objects.requireNonNull(metall, "Måste ange metall på smycke!");
+        if (metall.equalsIgnoreCase("")) throw new IllegalArgumentException("Måste ange metall på smycke!");
 	this.metall = metall;
+        Objects.requireNonNull(ädelstenar, "Måste ange antal ädelstenar!");
 	this.ädelstenar = ädelstenar;
     }	
     

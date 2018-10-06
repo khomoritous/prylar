@@ -17,16 +17,15 @@ import se.moma.pryl.model.interfaces.Pryl;
 public class ApparatFactory implements PrylFactory {
     
     /**
+     * Skapar en <code>Pryl</code>.
+     * 
      * @param argsMap Innehåller argument för skapande av <code>Pryl</code>.
      * @return En instans av <code>Pryl</code>.
      */
     @Override
     public Pryl skapaPryl(Map<String, String> argsMap) {
-        Pryl pryl = null;
-        if(argsMap.containsKey("apparat")) {
-            pryl = new Apparat(argsMap.get("namn"), parseInt(argsMap.get("pris")), parseInt(argsMap.get("slitage")));
-        }
-        return pryl;
+        
+        return new Apparat(argsMap.get("apparat"), parseInt(argsMap.get("pris")), parseInt(argsMap.get("slitage")));
     }
     
     

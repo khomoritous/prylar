@@ -1,4 +1,7 @@
 package se.moma.pryl.model.interfaces;
+
+import java.util.Objects;
+
 /**
  * Abstract klass och interface för <code>Pryl</code>.
  * @author monde
@@ -12,6 +15,8 @@ public abstract class Pryl {
      * @param namn Namn på <code>Pryl</code>.
      */
     public Pryl(String namn) {
+        Objects.requireNonNull(namn, "Måste ha ett namn!");
+        if (namn.equalsIgnoreCase("")) throw new IllegalArgumentException("En pryl måste ha ett namn!");
 	this.namn = namn;
     }
     

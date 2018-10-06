@@ -5,12 +5,14 @@
  */
 package se.moma.pryl.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import se.moma.pryl.integration.PersonSamling;
 import se.moma.pryl.model.Person;
 import se.moma.pryl.model.factory.PrylFactory;
+import se.moma.pryl.model.factory.PrylFactoryProducent;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
@@ -22,9 +24,10 @@ import se.moma.pryl.model.interfaces.Pryl;
 public class Controller {
     
     private PersonSamling personSamling = null;
-    //private List<Person> personLista = null;
+    private List<Person> personLista = null;
     private PrylFactory prylFactory = null;
     private static final String NAMN = "Kalle";
+    
     
     
     /**
@@ -34,7 +37,6 @@ public class Controller {
      * @param prylFactory För att skapa <code>Pryl</code>.
      */
     public Controller(PersonSamling personSamling, PrylFactory prylFactory) {
-      List<Person> personLista = null;
       this.personSamling  = new PersonSamling(personLista);
       this.prylFactory = prylFactory;      
     } 
@@ -46,16 +48,26 @@ public class Controller {
      * @param namnPåNyPerson Namn på <code>Person</code>.
      */
     public void skapaPerson(String namnPåNyPerson) {
+      if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerad!");
       List<Pryl> personPrylar = null;
       personSamling.laggTillPerson(skapaPersonInstans(namnPåNyPerson, personPrylar));
     }
 
     
-   
+    /**
+     * Skapar en <code>Pryl</code> till en <code>Person</code>.
+     * 
+     * @param namnPåPerson
+     * @param prylArgs 
+     */
     
-    public void skapaPrylTillPerson(String namnpåperson, Map<String, String> prylargs) {
-       if(isPersonRegistrerad(namnpåperson)) {
-            prylFactory.skapaPryl(prylargs);
+    public void skapaPrylTillPerson(String namnPåPerson, Map<String, String> prylArgs) {
+       if(isPersonRegistrerad(namnPåPerson)) {
+            Person person = personSamling.hämtaPerson(namnPåPerson);
+            prylFactory = PrylFactoryProducent.getFactory(prylArgs);
+            Pryl pryl = prylFactory.skapaPryl(prylArgs);
+            
+            person.läggTillPryl(pryl);
        } else
            throw new IllegalArgumentException("Hittar ingen med det namnet!");
     }
@@ -71,7 +83,6 @@ public class Controller {
       Objects.requireNonNull(namnPåNyPerson, "Måste ange ett namn!");
         if (namnPåNyPerson instanceof String)
           if (namnPåNyPerson.equals("")) throw new IllegalArgumentException("Måste ange att namn!");
-            if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerat!");
     }
     
     
@@ -84,8 +95,21 @@ public class Controller {
       List<Person> personLista = null;
       PrylFactory prylFactory = null;
       Controller controller = new Controller(new PersonSamling(personLista), prylFactory);
+      //skapa person
       controller.skapaPerson(NAMN);
-        //controller.skapaPerson("Kalle");
+      //controller.skapaPerson("Kalle");
+        
+        //skapa pryl
+      Map<String, String> prylArgs = new HashMap<>();
+      
+      prylArgs.put("smycke", "ring");
+      prylArgs.put("metall", "platina");
+      prylArgs.put("ädelstenar", "10");
+      controller.skapaPrylTillPerson(NAMN, prylArgs);
+      
+      
+        
+      
  
     }
     
