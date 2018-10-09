@@ -11,7 +11,8 @@ import se.moma.pryl.model.Apparat;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
- *
+ * Är en factory som skapar en <code>Pryl</code> av typ <code>Apparat</code>.
+ * 
  * @author monde
  */
 public class ApparatFactory implements PrylFactory {

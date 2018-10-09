@@ -6,14 +6,12 @@
 package se.moma.pryl.model.factory;
 
 import static java.lang.Integer.parseInt;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import se.moma.pryl.model.Smycke;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
- * Är en klass om skapar en <code>Pryl</code> av typ <code>Smycke</code>.
+ * Är en factory som skapar en <code>Pryl</code> av typ <code>Smycke</code>.
  * 
  * @author monde
  */

@@ -3,7 +3,8 @@ package se.moma.pryl.model.interfaces;
 import java.util.Objects;
 
 /**
- * Abstract klass och interface för <code>Pryl</code>.
+ * En <code>abstract</code> klass för <code>Pryl</code>.
+ * 
  * @author monde
  */
 public abstract class Pryl {
@@ -12,6 +13,7 @@ public abstract class Pryl {
     
     /**
      * Skapar namn för <code>Pryl</code>.
+     * 
      * @param namn Namn på <code>Pryl</code>.
      */
     public Pryl(String namn) {
@@ -24,6 +26,8 @@ public abstract class Pryl {
     abstract protected int värde();
     
     /**
+     * En <code>Pryl</code> har ett värde.
+     * 
      * @return Värde på <code>Pryl</code>.
      */
     public int getVärde() {

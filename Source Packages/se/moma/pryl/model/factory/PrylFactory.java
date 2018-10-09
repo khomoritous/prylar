@@ -9,7 +9,8 @@ import java.util.Map;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
- * Ett interface för att skapa <code>PrylFactory</code>.
+ * Ett interface för att skapa en <code>PrylFactory</code> som returnerar en <code>Pryl</code>.
+ * 
  * @author monde
  */
 public interface PrylFactory {

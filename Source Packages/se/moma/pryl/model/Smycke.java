@@ -4,7 +4,7 @@ import java.util.Objects;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
- *  Skapar ett <code>Smycke</code> som består av en metall och ädelstenar.
+ *  Skapar ett <code>Smycke</code> som består av en <code>metall</code> och <code>ädelstenar</code>.
  * 
  *  @author monde
  */
@@ -53,7 +53,9 @@ public class Smycke extends Pryl {
     
     
     /**
-     * @return Värdet på <code>Smycke</code>
+     * Beräknar värdet på ett <code>Smycke</code>.
+     * 
+     * @return Värdet på ett <code>Smycke</code>.
      */
     @Override
     public int värde() {

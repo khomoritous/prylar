@@ -6,7 +6,7 @@ import se.moma.pryl.model.interfaces.Pryl;
 import se.moma.pryl.util.PersonVärdeComparator;
 
 /**
- *  Skapar en samling av <code>Person</code>.
+ *  Skapar en <code>PersonSamling</code> av <code>Person</code>.
  * 
  *  @author monde
  */
@@ -28,7 +28,7 @@ public class PersonSamling {
     
     
     /**
-     * Registrerar instans av <code>Person</code>. 
+     * Lägger till instans av <code>Person</code> till <code>PersonSamling</code>. 
      * 
      * @param py Instans av <code>Person</code>.
      */
@@ -38,7 +38,7 @@ public class PersonSamling {
     
     
     /**
-     * Sätter <code>Pryl</code> av <code>Aktie</code> till noll.
+     * Sätter <code>Pryl</code> av typ <code>Aktie</code> till noll.
      */
     public void börsKrasch() {
       for(Person person: minaPersoner) {
@@ -81,7 +81,7 @@ public class PersonSamling {
 
     
     /**
-     * Visar alla <code>Person</code> i <code>PersonSamling</code>.
+     * Visar alla <code>Person</code> i <code>PersonSamling</code> med namn och värde på samling av <code>Pryl</code>.
      * 
      * @return Textsträngrepresentation av <code>Person</code> i <code>PersonSamling</code>.
      */
@@ -96,7 +96,7 @@ public class PersonSamling {
     
 
     /**
-     * Hämtar <code>Person</code> med mest värdefulla samling av <code>Pryl</code>.
+     * Hämtar <code>Person</code> med mest värdefulla samling av <code>Pryl</code> i <code>PersonSamling</code>.
      * 
      * @return <code>Person</code> <code>Person</code> värdefulla samling av <code>Pryl</code>. 
      */
@@ -118,7 +118,7 @@ public class PersonSamling {
       return stringBuilder.toString();
     }
     
-    
+    //kollar om Person är registrerad i PersonSamling.
     private boolean isPersonPresent(Person person, String namnPåPerson) {
        return person.getNamn().equals(namnPåPerson);
     }

@@ -4,7 +4,7 @@ import java.util.Objects;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
- * Skapar en <code>Aktie</code> med namn, pris och antal.
+ * Skapar en <code>Aktie</code> med <code>namn</code>, <code>pris</code> och <code>antal</code>.
  * 
  * @author monde
  */
@@ -32,7 +32,7 @@ public class Aktie extends Pryl {
     }
     
     /**
-     * Beräknar värde på <code>Aktie</code>.
+     * Beräknar värdet på en <code>Aktie</code>.
      * 
      * @return Värde på <code>Aktie</code>.
      */
@@ -42,7 +42,7 @@ public class Aktie extends Pryl {
     }
     
     /**
-     * Sätter pris för <code>Aktie</code> till noll.
+     * Sätter pris för en <code>Aktie</code> till noll.
      */
     public void setPrisTillNoll() {
         pris = 0;

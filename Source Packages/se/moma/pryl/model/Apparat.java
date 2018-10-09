@@ -1,8 +1,10 @@
 package se.moma.pryl.model;
 
 import se.moma.pryl.model.interfaces.Pryl;
+
 /**
- *  Skapar en <code>Apparat</code> med pris och slitage.
+ *  Skapar en <code>Apparat</code> med <code>pris</code> och <code>slitage</code>.
+ * 
  *  @author monde
  */
 public class Apparat extends Pryl {
@@ -15,7 +17,8 @@ public class Apparat extends Pryl {
     
     
     /**
-     * Skapar en ny instans.
+     * Skapar en ny instans av <code>Apparat</code>.
+     * 
      * @param namn Namn på <code>Apparat</code>.
      * @param pris Pris på <code>Apparat</code>.
      * @param slitage Slitage på <code>Apparat</code>.
@@ -28,6 +31,8 @@ public class Apparat extends Pryl {
 
     
     /**
+     * Beräknar värde på <code>Apparat</code>.
+     * 
      * @return Värde på <code>Apparat</code>.
      */
     @Override

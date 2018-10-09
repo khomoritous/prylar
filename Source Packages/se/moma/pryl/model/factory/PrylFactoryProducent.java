@@ -8,7 +8,8 @@ package se.moma.pryl.model.factory;
 import java.util.Map;
 
 /**
- *
+ * Returnerar olika factory av <code>Pryl</code>.
+ * 
  * @author monde
  */
 public class PrylFactoryProducent {
@@ -22,7 +23,7 @@ public class PrylFactoryProducent {
         else if (argsMap.containsKey("apparat"))
           return new ApparatFactory();
         else
-          return null;
+          throw new IllegalArgumentException("Den prylen finns inte!");
     }
     
 }

@@ -11,7 +11,8 @@ import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
- *
+ * Är en factory som skapar en <code>Pryl</code> av typ <code>Aktie</code>.
+ * 
  * @author monde
  */
 public class AktieFactory implements PrylFactory {
