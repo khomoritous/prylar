@@ -45,7 +45,7 @@ public class ControllerTest {
         controller.skapaPerson(NAMN_PÅ_PERSON);
     }
     
- 
+    //ok test, kan göras bättre.
     @Test
     public void testSkapaPrylTillPerson() {
        
@@ -56,8 +56,10 @@ public class ControllerTest {
         prylArgs.put("ädelstenar", "10");
         controller.skapaPerson(NAMN_PÅ_PERSON);
         controller.skapaPrylTillPerson(NAMN_PÅ_PERSON, prylArgs);
+        String resultat = controller.visaPersonSamling();
+        String expResultat = namnPåPerson;
         
-        fail("The test case is a prototype.");
+        assertTrue("Det finns ingen med det namnet!", resultat.contains(expResultat));
     } 
     
 }
