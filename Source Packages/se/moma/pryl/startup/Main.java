@@ -66,6 +66,9 @@ public class Main {
             controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
         } else 
             throw new IllegalArgumentException(namnPåPryl + " finns inte!");
+        
+        
+        
    }
 }
 

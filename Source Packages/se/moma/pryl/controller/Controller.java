@@ -73,6 +73,11 @@ public class Controller {
     }
     
     
+    public String visaPersonSamling() {
+        return personSamling.visaAlla();
+    }
+    
+    
     private Person skapaPersonInstans(String namnPåNyPerson, List<Pryl> personPrylar) {
       valideraPersonData(namnPåNyPerson);
       return new Person(namnPåNyPerson, personPrylar);
@@ -106,6 +111,8 @@ public class Controller {
       prylArgs.put("metall", "platina");
       prylArgs.put("ädelstenar", "10");
       controller.skapaPrylTillPerson(NAMN, prylArgs);
+      
+      System.out.println(controller.visaPersonSamling());
       
       
         
