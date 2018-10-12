@@ -62,19 +62,31 @@ public class Controller {
      */
     
     public void skapaPrylTillPerson(String namnPåPerson, Map<String, String> prylArgs) {
-       if(isPersonRegistrerad(namnPåPerson)) {
-            Person person = personSamling.hämtaPerson(namnPåPerson);
-            prylFactory = PrylFactoryProducent.getFactory(prylArgs);
-            Pryl pryl = prylFactory.skapaPryl(prylArgs);
-            
-            person.läggTillPryl(pryl);
+      if (isPersonRegistrerad(namnPåPerson)) {
+        Person person = personSamling.hämtaPerson(namnPåPerson);
+        prylFactory = PrylFactoryProducent.getFactory(prylArgs);
+        Pryl pryl = prylFactory.skapaPryl(prylArgs);
+        person.läggTillPryl(pryl);
        } else
            throw new IllegalArgumentException("Hittar ingen med det namnet!");
     }
     
-    
+    /**
+     * Visar <code>PersonSamling</code> med <code>Person</code> och samling av <code>Pryl</code>.
+     * 
+     * @return <code>PersonSamling</code>
+     */
     public String visaPersonSamling() {
-        return personSamling.visaAlla();
+      return personSamling.visaAlla();
+    }
+    
+    /**
+     * Visar rikaste <code>Person</code> ur <code>PersonSamling</code>.
+     * 
+     * @return Rikaste <code>Person</code>.
+     */
+    public Person visaRikastePerson() {
+        return personSamling.hämtaRikaste();
     }
     
     
@@ -113,6 +125,7 @@ public class Controller {
       controller.skapaPrylTillPerson(NAMN, prylArgs);
       
       System.out.println(controller.visaPersonSamling());
+      System.out.println(controller.visaRikastePerson());
       
       
         
