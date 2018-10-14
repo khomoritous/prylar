@@ -17,7 +17,7 @@ import se.moma.pryl.model.interfaces.Pryl;
 
 /**
  * Är en <code>Controller</code>. Använder sig av <code>PersonSamling</code> för att skapa
- * instanser av <code>Person</code> och <code>PrylFactory</code> för att skapa instanser av <code>Pryl</code>. 
+ * instanser av <code>Person</code> och <code>PrylFactory</code> för att skapa instanser av <code>Pryl</code> till <code>Person</code>. 
  * 
  * @author monde
  */
@@ -49,8 +49,8 @@ public class Controller {
      */
     public void skapaPerson(String namnPåNyPerson) {
       if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerad!");
-      List<Pryl> personPrylar = null;
-      personSamling.laggTillPerson(skapaPersonInstans(namnPåNyPerson, personPrylar));
+           List<Pryl> personPrylar = null;
+           personSamling.laggTillPerson(skapaPersonInstans(namnPåNyPerson, personPrylar));
     }
 
     
@@ -63,11 +63,11 @@ public class Controller {
     
     public void skapaPrylTillPerson(String namnPåPerson, Map<String, String> prylArgs) {
       if (isPersonRegistrerad(namnPåPerson)) {
-        Person person = personSamling.hämtaPerson(namnPåPerson);
-        prylFactory = PrylFactoryProducent.getFactory(prylArgs);
-        Pryl pryl = prylFactory.skapaPryl(prylArgs);
-        person.läggTillPryl(pryl);
-       } else
+            Person person = personSamling.hämtaPerson(namnPåPerson);
+            prylFactory = PrylFactoryProducent.getFactory(prylArgs);
+            Pryl pryl = prylFactory.skapaPryl(prylArgs);
+            person.läggTillPryl(pryl);
+      } else
            throw new IllegalArgumentException("Hittar ingen med det namnet!");
     }
     
@@ -86,23 +86,23 @@ public class Controller {
      * @return Rikaste <code>Person</code>.
      */
     public Person visaRikastePerson() {
-        return personSamling.hämtaRikaste();
+      return personSamling.hämtaRikaste();
     }
     
-    
+    //returnerar Person
     private Person skapaPersonInstans(String namnPåNyPerson, List<Pryl> personPrylar) {
       valideraPersonData(namnPåNyPerson);
       return new Person(namnPåNyPerson, personPrylar);
     }
     
-   
+    //validerar data för Person
     private void valideraPersonData(String namnPåNyPerson) throws IllegalArgumentException {
       Objects.requireNonNull(namnPåNyPerson, "Måste ange ett namn!");
         if (namnPåNyPerson instanceof String)
           if (namnPåNyPerson.equals("")) throw new IllegalArgumentException("Måste ange att namn!");
     }
     
-    
+    //är Person registrerad?
     private boolean isPersonRegistrerad(String namnpåperson){
       return personSamling.hittaPerson(namnpåperson);
     }
