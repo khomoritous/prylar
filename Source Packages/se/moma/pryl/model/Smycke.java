@@ -37,22 +37,6 @@ public class Smycke extends Pryl {
     
     
     /**
-     * @return Namn på metall på <code>Smycke</code>
-     */
-    public String getMetall() {
-        return metall;
-    }
-
-    
-    /**
-     * @return  Antal ädelstenar på <code>Smycke</code>.
-     */
-    public int getÄdelstenar() {
-        return ädelstenar;
-    }
-    
-    
-    /**
      * Beräknar värdet på ett <code>Smycke</code>.
      * 
      * @return Värdet på ett <code>Smycke</code>.
@@ -73,6 +57,16 @@ public class Smycke extends Pryl {
     @Override
     public String toString() {
          return String.format("namn: %s, metall: %s, antal ädelstenar: %d, värde: %d", super.toString(),getMetall(),getÄdelstenar(), värde());
+    }
+    
+    
+    private String getMetall() {
+        return metall;
+    }
+
+    
+    private int getÄdelstenar() {
+        return ädelstenar;
     }
     
     

@@ -50,18 +50,13 @@ public class Apparat extends Pryl {
     }
     
     
-    /**
-     * @return Pris på <code>Apparat</code>. 
-     */
-    public int getPris() {
+    private int getPris() {
         return pris;
     }
 
     
-    /**
-     * @return Slitage på <code>Apparat</code>. 
-     */
-    public int getSlitage() {
+    
+    private int getSlitage() {
         return slitage;
     }
     

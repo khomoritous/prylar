@@ -49,8 +49,8 @@ public class Controller {
      */
     public void skapaPerson(String namnPåNyPerson) {
       if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerad!");
-           List<Pryl> personPrylar = null;
-           personSamling.laggTillPerson(skapaPersonInstans(namnPåNyPerson, personPrylar));
+        List<Pryl> personPrylar = null;
+        personSamling.laggTillPerson(skapaPersonInstans(namnPåNyPerson, personPrylar));
     }
 
     
@@ -60,16 +60,16 @@ public class Controller {
      * @param namnPåPerson
      * @param prylArgs 
      */
-    
-    public void skapaPrylTillPerson(String namnPåPerson, Map<String, String> prylArgs) {
+     public void skapaPrylTillPerson(String namnPåPerson, Map<String, String> prylArgs) {
       if (isPersonRegistrerad(namnPåPerson)) {
-            Person person = personSamling.hämtaPerson(namnPåPerson);
-            prylFactory = PrylFactoryProducent.getFactory(prylArgs);
-            Pryl pryl = prylFactory.skapaPryl(prylArgs);
-            person.läggTillPryl(pryl);
+        Person person = personSamling.hämtaPerson(namnPåPerson);
+        prylFactory = PrylFactoryProducent.getFactory(prylArgs);
+        Pryl pryl = prylFactory.skapaPryl(prylArgs);
+        person.läggTillPryl(pryl);
       } else
-           throw new IllegalArgumentException("Hittar ingen med det namnet!");
+          throw new IllegalArgumentException("Hittar ingen med det namnet!");
     }
+    
     
     /**
      * Visar <code>PersonSamling</code> med <code>Person</code> och samling av <code>Pryl</code>.
@@ -79,6 +79,7 @@ public class Controller {
     public String visaPersonSamling() {
       return personSamling.visaAlla();
     }
+    
     
     /**
      * Visar rikaste <code>Person</code> ur <code>PersonSamling</code>.
@@ -126,14 +127,5 @@ public class Controller {
       
       System.out.println(controller.visaPersonSamling());
       System.out.println(controller.visaRikastePerson());
-      
-      
-        
-      
- 
     }
-    
-    
-    
-    
 }

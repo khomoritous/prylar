@@ -57,18 +57,14 @@ public class Aktie extends Pryl {
     }
     
     
-    /**
-     * @return Antal <code>Aktie</code>. 
-     */
-    public int getAntal() {
+    
+    private int getAntal() {
         return antal;
     }
     
     
-    /**
-     * @return  Pris på <code>Aktie</code>. 
-     */
-    public int getPris() {
+    
+    private int getPris() {
         return pris;
     }
     
