@@ -24,11 +24,11 @@ public class Aktie extends Pryl {
      * @param pris Pris på <code>Aktie</code>.
      */
     public Aktie(String namn, int antal, int pris) {
-	super(namn);
-        Objects.requireNonNull(antal, "Måste ange antal aktier!");
-	this.antal = antal;
-        Objects.requireNonNull(pris, "Måste ange pris på aktier!");
-	this.pris = pris;
+	    super(namn);
+      Objects.requireNonNull(antal, "Måste ange antal aktier!");
+	    this.antal = antal;
+      Objects.requireNonNull(pris, "Måste ange pris på aktier!");
+	    this.pris = pris;
     }
     
     /**
@@ -38,14 +38,14 @@ public class Aktie extends Pryl {
      */
     @Override
     public int värde() {
-        return antal*pris;
+      return antal*pris;
     }
     
     /**
      * Sätter pris för en <code>Aktie</code> till noll.
      */
     public void setPrisTillNoll() {
-        pris = 0;
+      pris = 0;
     }
     
     /**
@@ -53,23 +53,23 @@ public class Aktie extends Pryl {
      */
     @Override
     public String toString() { 
-        return String.format("namn: %s, antal: %d, pris: %d, värde: %d", super.toString(), getAntal(), getPris(), värde());
+      return String.format("namn: %s, antal: %d, pris: %d, värde: %d", super.toString(), getAntal(), getPris(), värde());
     }
     
     
     
     private int getAntal() {
-        return antal;
+      return antal;
     }
     
     
     
     private int getPris() {
-        return pris;
+      return pris;
     }
     
     public static void main(String[] args) {
-        System.out.println(new Aktie(NAMN_PÅ_AKTIE, ANTAL_AKTIER, PRIS_PÅ_AKTIE));
+      System.out.println(new Aktie(NAMN_PÅ_AKTIE, ANTAL_AKTIER, PRIS_PÅ_AKTIE));
     }
     
 }

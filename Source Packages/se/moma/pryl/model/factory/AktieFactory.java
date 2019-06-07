@@ -21,13 +21,12 @@ public class AktieFactory implements PrylFactory {
     /**
      * Skapar en <code>Pryl</code>.
      * 
-     * @param argsMap Innehåller argument för skapande av <code>Pryl</code>.
+     * @param argsMap Innehåller argument för skapande av <code>Aktie</code>.
      * @return En instans av <code>Pryl</code>.
      */
     @Override
     public Pryl skapaPryl(Map<String, String> argsMap) {
-        
-        return new Aktie(argsMap.get("aktie"), parseInt(argsMap.get("antal")), parseInt(argsMap.get("pris")));
+      return new Aktie(argsMap.get("aktie"), parseInt(argsMap.get("antal")), parseInt(argsMap.get("pris")));
     }
     
 }

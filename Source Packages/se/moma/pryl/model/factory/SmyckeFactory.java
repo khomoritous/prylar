@@ -21,13 +21,12 @@ public class SmyckeFactory implements PrylFactory {
     /**
      * Skapar en <code>Pryl</code>.
      * 
-     * @param argsMap Innehåller argument för skapande av <code>Pryl</code>.
+     * @param argsMap Innehåller argument för skapande av <code>Smycke</code>.
      * @return En instans av <code>Pryl</code>.
      */
     @Override
     public Pryl skapaPryl(Map<String, String> argsMap) {
-        
-        return new Smycke(argsMap.get("smycke"), argsMap.get("metall"), parseInt(argsMap.get("ädelstenar")));
+      return new Smycke(argsMap.get("smycke"), argsMap.get("metall"), parseInt(argsMap.get("ädelstenar")));
     }
 
 }

@@ -17,9 +17,9 @@ public abstract class Pryl {
      * @param namn Namn på <code>Pryl</code>.
      */
     public Pryl(String namn) {
-        Objects.requireNonNull(namn, "Måste ha ett namn!");
-        if (namn.equalsIgnoreCase("")) throw new IllegalArgumentException("En pryl måste ha ett namn!");
-	this.namn = namn;
+      Objects.requireNonNull(namn, "Måste ha ett namn!");
+      if (namn.equalsIgnoreCase("")) throw new IllegalArgumentException("En pryl måste ha ett namn!");
+	    this.namn = namn;
     }
     
     
@@ -31,7 +31,7 @@ public abstract class Pryl {
      * @return Värde på <code>Pryl</code>.
      */
     public int getVärde() {
-        return värde();
+      return värde();
     }
     
     /**
@@ -39,7 +39,7 @@ public abstract class Pryl {
      */
     @Override
     public String toString() {
-        return ""+ namn; 
+      return ""+ namn; 
     }
 }
 

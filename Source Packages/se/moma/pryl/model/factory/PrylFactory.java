@@ -21,5 +21,4 @@ public interface PrylFactory {
      */
     Pryl skapaPryl(Map<String, String> argsMap);
     
-    
 }

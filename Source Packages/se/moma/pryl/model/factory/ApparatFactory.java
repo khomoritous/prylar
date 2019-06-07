@@ -20,13 +20,12 @@ public class ApparatFactory implements PrylFactory {
     /**
      * Skapar en <code>Pryl</code>.
      * 
-     * @param argsMap Innehåller argument för skapande av <code>Pryl</code>.
+     * @param argsMap Innehåller argument för skapande av <code>Apparat</code>.
      * @return En instans av <code>Pryl</code>.
      */
     @Override
     public Pryl skapaPryl(Map<String, String> argsMap) {
-        
-        return new Apparat(argsMap.get("apparat"), parseInt(argsMap.get("pris")), parseInt(argsMap.get("slitage")));
+      return new Apparat(argsMap.get("apparat"), parseInt(argsMap.get("pris")), parseInt(argsMap.get("slitage")));
     }
     
     

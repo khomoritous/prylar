@@ -27,12 +27,12 @@ public class Smycke extends Pryl {
      * @param ädelstenar Antal ädelstenar <code>Smycke</code> består av.
      */
     public Smycke(String namn, String metall, int ädelstenar) {
-	super(namn);
-        Objects.requireNonNull(metall, "Måste ange metall på smycke!");
-        if (metall.equalsIgnoreCase("")) throw new IllegalArgumentException("Måste ange metall på smycke!");
-	this.metall = metall;
-        Objects.requireNonNull(ädelstenar, "Måste ange antal ädelstenar!");
-	this.ädelstenar = ädelstenar;
+	    super(namn);
+      Objects.requireNonNull(metall, "Måste ange metall på smycke!");
+      if (metall.equalsIgnoreCase("")) throw new IllegalArgumentException("Måste ange metall på smycke!");
+	    this.metall = metall;
+      Objects.requireNonNull(ädelstenar, "Måste ange antal ädelstenar!");
+	    this.ädelstenar = ädelstenar;
     }	
     
     
@@ -43,11 +43,10 @@ public class Smycke extends Pryl {
      */
     @Override
     public int värde() {
-	if(getMetall().equalsIgnoreCase(GULD)) {
-		return (VÄRDE * getÄdelstenar()) + GULDFAKTOR;
-        }
-	return (VÄRDE * getÄdelstenar()) + ÄDELSTENFAKTOR;
-	
+	    if(getMetall().equalsIgnoreCase(GULD)) {
+		    return (VÄRDE * getÄdelstenar()) + GULDFAKTOR;
+      }
+	    return (VÄRDE * getÄdelstenar()) + ÄDELSTENFAKTOR;
     }
     
     
@@ -56,21 +55,21 @@ public class Smycke extends Pryl {
      */
     @Override
     public String toString() {
-         return String.format("namn: %s, metall: %s, antal ädelstenar: %d, värde: %d", super.toString(),getMetall(),getÄdelstenar(), värde());
+      return String.format("namn: %s, metall: %s, antal ädelstenar: %d, värde: %d", super.toString(),getMetall(),getÄdelstenar(), värde());
     }
     
     
     private String getMetall() {
-        return metall;
+      return metall;
     }
 
     
     private int getÄdelstenar() {
-        return ädelstenar;
+      return ädelstenar;
     }
     
     
     public static void main(String[] args) {
-        System.out.println(new Smycke("pärlan", "platina", ANTAL_VÄRDESTENAR));
+      System.out.println(new Smycke("pärlan", "platina", ANTAL_VÄRDESTENAR));
     }
 }

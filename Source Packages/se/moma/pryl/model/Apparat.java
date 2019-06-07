@@ -24,9 +24,9 @@ public class Apparat extends Pryl {
      * @param slitage Slitage på <code>Apparat</code>.
      */
     public Apparat(String namn, int pris, int slitage) {
-	super(namn);
-	this.pris = pris;
-	this.slitage = slitage;
+	    super(namn);
+	    this.pris = pris;
+	    this.slitage = slitage;
     }
 
     
@@ -37,7 +37,7 @@ public class Apparat extends Pryl {
      */
     @Override
     public int värde() {
-	return (getSlitage() / SLITAGE_FAKTOR) * getPris();
+	    return (getSlitage() / SLITAGE_FAKTOR) * getPris();
     }
     
     
@@ -46,23 +46,23 @@ public class Apparat extends Pryl {
      */
     @Override
     public String toString() {
-         return String.format("namn: %s, pris: %d, slitage: %d", super.toString(),getPris(), getSlitage(), värde());
+      return String.format("namn: %s, pris: %d, slitage: %d", super.toString(),getPris(), getSlitage(), värde());
     }
     
     
     private int getPris() {
-        return pris;
+      return pris;
     }
 
     
     
     private int getSlitage() {
-        return slitage;
+      return slitage;
     }
     
     
     public static void main(String[] args) {
-        System.out.println(new Apparat("dator", PRIS_PÅ_APPARAT, SLITAGE_PÅ_APPARAT));
+      System.out.println(new Apparat("dator", PRIS_PÅ_APPARAT, SLITAGE_PÅ_APPARAT));
     }
 
     

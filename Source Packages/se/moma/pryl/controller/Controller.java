@@ -68,7 +68,7 @@ public class Controller {
         person.läggTillPryl(pryl);
       } else
           throw new IllegalArgumentException("Hittar ingen med det namnet!");
-    }
+     }
     
     
     /**
