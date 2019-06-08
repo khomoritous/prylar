@@ -2,6 +2,7 @@ package se.moma.pryl.integration;
 
 import se.moma.pryl.model.Person;
 import java.util.*;
+import static java.util.Comparator.comparing;
 import se.moma.pryl.model.interfaces.Pryl;
 import se.moma.pryl.util.PersonVärdeComparator;
 
@@ -102,6 +103,7 @@ public class PersonSamling {
      */
     public Person hämtaRikaste() {
       minaPersoner.sort(new PersonVärdeComparator());
+      //minaPersoner.sort(comparing(Person::summaVärde));
       return minaPersoner.get(RIKASTE_PERSON);
     }
    
@@ -131,7 +133,7 @@ public class PersonSamling {
         List<Pryl> prylLista = null;
         personSamling.laggTillPerson(new Person("Olle", prylLista));
         personSamling.laggTillPerson(new Person("Pelle",prylLista));
-        System.out.println(personSamling);
+        //System.out.println(personSamling);
         System.out.println(personSamling.visaAlla());
     }
 }

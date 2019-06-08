@@ -26,8 +26,9 @@ public class Person {
      * @param minaPrylar Instans av <code>List</code> av <code>Pryl</code>.
      */
     public Person(String namn, List<Pryl> minaPrylar) {
+      if (namn.equalsIgnoreCase("")) throw new IllegalArgumentException("Måste ange ett namn!");
       this.namn = namn;
-      this.minaPrylar = minaPrylar;
+      this.minaPrylar = Objects.requireNonNull(minaPrylar, "minaPrylar");
       this.minaPrylar = new ArrayList<>();
     }
     

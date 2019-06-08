@@ -25,9 +25,9 @@ public class Aktie extends Pryl {
      */
     public Aktie(String namn, int antal, int pris) {
 	    super(namn);
-      Objects.requireNonNull(antal, "Måste ange antal aktier!");
+      if (antal < 0) throw new IllegalArgumentException("Ange antal större än 0!");
 	    this.antal = antal;
-      Objects.requireNonNull(pris, "Måste ange pris på aktier!");
+      if (pris < 0) throw new IllegalArgumentException("Ange pris större än 0!");
 	    this.pris = pris;
     }
     

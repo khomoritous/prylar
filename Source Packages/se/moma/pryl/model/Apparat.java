@@ -25,7 +25,9 @@ public class Apparat extends Pryl {
      */
     public Apparat(String namn, int pris, int slitage) {
 	    super(namn);
+      if (pris <= 0) throw new IllegalArgumentException("Ange pris större än 0!");
 	    this.pris = pris;
+      if (slitage <= 0 ) throw new IllegalArgumentException("Ange slitage större än 0!");
 	    this.slitage = slitage;
     }
 

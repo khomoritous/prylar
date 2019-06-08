@@ -11,7 +11,11 @@ import se.moma.pryl.model.interfaces.Pryl;
 public class Smycke extends Pryl {
     
     private String metall = null;
+    private String namn = null;
     private int ädelstenar;
+    
+    private static final String METALL = "platina";
+    private static final String NAMN = "pärlan";
     private static final int GULDFAKTOR = 2000;
     private static final int ÄDELSTENFAKTOR = 700;
     private static final int VÄRDE = 500;
@@ -28,10 +32,9 @@ public class Smycke extends Pryl {
      */
     public Smycke(String namn, String metall, int ädelstenar) {
 	    super(namn);
-      Objects.requireNonNull(metall, "Måste ange metall på smycke!");
       if (metall.equalsIgnoreCase("")) throw new IllegalArgumentException("Måste ange metall på smycke!");
 	    this.metall = metall;
-      Objects.requireNonNull(ädelstenar, "Måste ange antal ädelstenar!");
+      if (ädelstenar < 0) throw new IllegalArgumentException("Antal ädelstenar får inte vara negativt!");
 	    this.ädelstenar = ädelstenar;
     }	
     
@@ -70,6 +73,6 @@ public class Smycke extends Pryl {
     
     
     public static void main(String[] args) {
-      System.out.println(new Smycke("pärlan", "platina", ANTAL_VÄRDESTENAR));
+      System.out.println(new Smycke(NAMN, METALL, ANTAL_VÄRDESTENAR));
     }
 }
