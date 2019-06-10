@@ -19,8 +19,10 @@ public class SmyckeTest {
     private Smycke guldSmycke = null;
     private final static String TYP_AV_SMYCKE = "Halsband";
     private final static String METALL = "Platina";
+    private final static String NotValidMetall = "";
     private final static String METALL_GULD = "Guld";
     private final static int ANTAL_ÄDELSTENAR = 10;
+    private final static int NON_VALID_ANTAL_ÄDELSTENAR = -1;
     private final static int ÄDELSTEN_FAKTOR = 700;
     private final static int ÄDELSTEN_VÄRDE = 500;
     private final static int GULDFAKTOR = 2000;
@@ -30,6 +32,17 @@ public class SmyckeTest {
     public void setUp() {
         smycke = new Smycke(TYP_AV_SMYCKE, METALL, ANTAL_ÄDELSTENAR);
     }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testConstructorShouldThrowIAEFORNonValidMetall() {
+      new Smycke(TYP_AV_SMYCKE,NotValidMetall,ANTAL_ÄDELSTENAR);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testConstructorShouldThrowIAEFORNonValidAntalÄdelstenar() {
+      new Smycke(TYP_AV_SMYCKE,METALL,NON_VALID_ANTAL_ÄDELSTENAR);
+    }
+    
 
     @Test
     public void testGetValue() {
