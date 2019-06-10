@@ -5,16 +5,9 @@
  */
 package se.moma.pryl.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import static org.hamcrest.CoreMatchers.hasItems;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import se.moma.pryl.model.interfaces.Pryl;
 
 /**
  *
@@ -23,9 +16,10 @@ import se.moma.pryl.model.interfaces.Pryl;
 public class PersonTest {
     
     
-    private List<Pryl> minaPrylar = null; 
+   // private List<Pryl> minaPrylar = null; 
     private Person person = null;
     private static final String NAMN_PÅ_PERSON = "Pelle";
+    private static final String NON_VALID_NAMN_PÅ_PERSON = "";
     private static final String NAMN_PÅ_PRYL = "googl";
     private static final int ANTAL = 10;
     private static final int PRIS = 100;
@@ -36,9 +30,14 @@ public class PersonTest {
     
     @Before
     public void setUp() {
-        person = new Person(NAMN_PÅ_PERSON, minaPrylar);
+        
+        person = new Person(NAMN_PÅ_PERSON);
     }
     
+    @Test(expected=IllegalArgumentException.class)
+    public void testConstructorShouldThrowIAEForNonValidNamn() {
+     person = new Person(NON_VALID_NAMN_PÅ_PERSON);
+    }
     
 
     @Test

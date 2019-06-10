@@ -23,12 +23,10 @@ public class Person {
      * Skapar en ny instans av <code>Person</code>.
      * 
      * @param namn Namn på <code>Person</code>.
-     * @param minaPrylar Instans av <code>List</code> av <code>Pryl</code>.
      */
-    public Person(String namn, List<Pryl> minaPrylar) {
+    public Person(String namn/*, List<Pryl> minaPrylar*/) {
       if (namn.equalsIgnoreCase("")) throw new IllegalArgumentException("Måste ange ett namn!");
       this.namn = namn;
-      this.minaPrylar = Objects.requireNonNull(minaPrylar, "minaPrylar");
       this.minaPrylar = new ArrayList<>();
     }
     
@@ -98,7 +96,7 @@ public class Person {
     
     
     public static void main(String[] args) {
-      Person person = new Person(NAMN_PÅ_PERSON, new ArrayList<>());
+      Person person = new Person(NAMN_PÅ_PERSON/*, new ArrayList<>()*/);
       person.läggTillPryl(new Aktie(NAMN, PRIS_PÅ_PRYL, ANTAL_PRYLAR));
       System.out.println(person);
     }
