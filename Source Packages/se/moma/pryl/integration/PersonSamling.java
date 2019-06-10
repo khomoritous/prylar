@@ -20,10 +20,8 @@ public class PersonSamling {
     /**
      * Skapar en instans av <code>PersonSamling</code>.
      * 
-     * @param minaPersoner Instans av <code>List</code> av <code>Person</code>.
      */
-    public PersonSamling(List<Person> minaPersoner) { 
-      this.minaPersoner = minaPersoner;
+    public PersonSamling() { 
       this.minaPersoner = new ArrayList<>();
     }
     
@@ -31,10 +29,11 @@ public class PersonSamling {
     /**
      * Lägger till instans av <code>Person</code> till <code>PersonSamling</code>. 
      * 
-     * @param py Instans av <code>Person</code>.
+     * @param person Instans av <code>Person</code>.
      */
-    public void laggTillPerson(Person py) {
-      minaPersoner.add(py);
+    public void läggTillPerson(Person person) {
+      Objects.requireNonNull(person);
+      minaPersoner.add(person);
     }
     
     
@@ -55,6 +54,7 @@ public class PersonSamling {
      * @return <code>True</code>, om <code>Person</code> hittats. <code>False</code>, annars.
      */
     public boolean hittaPerson(String namnPåPerson) {
+      Objects.requireNonNull(namnPåPerson);
       for(Person person: minaPersoner) {
         if(isPersonPresent(person, namnPåPerson)) {
           return true;
@@ -71,6 +71,7 @@ public class PersonSamling {
      * @return Sökt <code>Person</code>, <code>null</code> annars.
      */
     public Person hämtaPerson(String namnPåPerson) {
+      Objects.requireNonNull(namnPåPerson);
       for(Person person: minaPersoner) {
         if(isPersonPresent(person, namnPåPerson)) {
           return person;
@@ -86,7 +87,7 @@ public class PersonSamling {
      * 
      * @return Textsträngrepresentation av <code>Person</code> i <code>PersonSamling</code>.
      */
-    public String visaAlla() {
+    public String visaAllaPersoner() {
       StringBuilder stringBuilder = new StringBuilder();
       Formatter formatter = new Formatter(stringBuilder);
       for(Person person: minaPersoner) {
@@ -101,9 +102,10 @@ public class PersonSamling {
      * 
      * @return <code>Person</code> <code>Person</code> värdefulla samling av <code>Pryl</code>. 
      */
-    public Person hämtaRikaste() {
+    public Person hämtaRikastePerson() {
       minaPersoner.sort(new PersonVärdeComparator());
-      //minaPersoner.sort(comparing(Person::summaVärde));
+//      Comparator<Person> rikastePersonComparator = Comparator.comparing(Person::summaVärde);
+//      Collections.sort(minaPersoner,rikastePersonComparator);
       return minaPersoner.get(RIKASTE_PERSON);
     }
    
@@ -128,13 +130,14 @@ public class PersonSamling {
     
     
     public static void main(String[] args) {
-        List<Person> personLista = null;
-        PersonSamling personSamling = new PersonSamling(personLista);
-        List<Pryl> prylLista = null;
-        personSamling.laggTillPerson(new Person("Olle", prylLista));
-        personSamling.laggTillPerson(new Person("Pelle",prylLista));
+        //List<Person> personLista = null;
+        PersonSamling personSamling = new PersonSamling();
+        //List<Pryl> prylLista = null;
+        personSamling.läggTillPerson(new Person("Olle"));
+        personSamling.läggTillPerson(new Person("Pelle"));
+        
         //System.out.println(personSamling);
-        System.out.println(personSamling.visaAlla());
+        System.out.println(personSamling.visaAllaPersoner());
     }
 }
 

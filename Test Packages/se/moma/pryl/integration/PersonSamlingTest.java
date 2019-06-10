@@ -40,25 +40,25 @@ public class PersonSamlingTest {
     @Before
     public void setUp() {
        
-         personSamling = new PersonSamling(minaPersoner);
-         person = new Person(NAMN_PÅ_PERSON, minaPrylar);
+         personSamling = new PersonSamling();
+         person = new Person(NAMN_PÅ_PERSON);
        
     }
     
    
-
     @Test
-    public void testLaggTillPerson() {
-        personSamling.laggTillPerson(person);
+    public void testLäggTillPerson() {
+        personSamling.läggTillPerson(person);
         String result = personSamling.toString();
         assertTrue("Person har inget namn!", result.contains(NAMN_PÅ_PERSON));
     }
 
+    
     @Test
     public void testBörsKrasch() {
         pryl = new Aktie(NAMN_PÅ_AKTIE, ANTAL_AKTIER, PRIS_PÅ_AKTIER);
         person.läggTillPryl(pryl);
-        personSamling.laggTillPerson(person);
+        personSamling.läggTillPerson(person);
         personSamling.börsKrasch();
         int expResultat = pryl.getVärde();
         int resultat = person.summaVärde();
@@ -68,34 +68,54 @@ public class PersonSamlingTest {
 
     @Test
     public void testHittaPerson() {
-        personSamling.laggTillPerson(person);
+        personSamling.läggTillPerson(person);
         assertTrue("Hittade ingen person med det namnet!", personSamling.hittaPerson(NAMN_PÅ_PERSON));
     }
+    
+    
+    @Test(expected=NullPointerException.class)
+    public void testHittaPersonShouldThrowNPEForNonValidPerson() {
+     personSamling = new PersonSamling();
+     personSamling.hittaPerson(null);
+    }
+    
+    
+    @Test(expected=NullPointerException.class)
+    public void testLäggTillPersonShouldThrowNPEForNonValidPerson() {
+     personSamling = new PersonSamling();
+     personSamling.läggTillPerson(null);
+    }
+    
+    @Test(expected=NullPointerException.class)
+    public void testHämtaPersonShouldThrowNPEForNonValidPerson() {
+     personSamling = new PersonSamling();
+     personSamling.hämtaPerson(null);
+    }
+    
 
     @Test
     public void testHämtaPerson() {
-        personSamling.laggTillPerson(person);
+        personSamling.läggTillPerson(person);
         assertEquals(person, personSamling.hämtaPerson(NAMN_PÅ_PERSON));
  
     }
 
     @Test
-    public void testVisaAlla() {
-        personSamling.laggTillPerson(person);
-        String expResult = personSamling.visaAlla();
+    public void testVisaAllaPersoner() {
+        personSamling.läggTillPerson(person);
+        String expResult = personSamling.visaAllaPersoner();
         String result = person.getNamn();
         assertTrue("Den här personen finns inte i samlingen!", expResult.contains(result));
 
     }
 
     @Test
-    public void testHämtaRikaste() {
-        List<Pryl> minaPrylarTvå = null;
-        Person rikastePerson = new Person(NAMN_PÅ_RIKASTE_PERSON, minaPrylarTvå);
+    public void testHämtaRikastePerson() {
+        Person rikastePerson = new Person(NAMN_PÅ_RIKASTE_PERSON);
         rikastePerson.läggTillPryl(new Aktie(NAMN_PÅ_DYRASTE_AKTIE, ANTAL_AKTIER_PÅ_RIKASTE_PERSON, PRIS_PÅ_AKTIE_FÖR_RIKASTE));
-        personSamling.laggTillPerson(person);
-        personSamling.laggTillPerson(rikastePerson);
-        assertEquals(rikastePerson, personSamling.hämtaRikaste());
+        personSamling.läggTillPerson(person);
+        personSamling.läggTillPerson(rikastePerson);
+        assertEquals(rikastePerson, personSamling.hämtaRikastePerson());
         
         
     }
