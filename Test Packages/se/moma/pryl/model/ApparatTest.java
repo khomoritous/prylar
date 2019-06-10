@@ -18,16 +18,28 @@ public class ApparatTest {
     private Apparat apparat = null;
     private static final String NAMN = "Tandborste";
     private static final int PRIS = 10;
+    private static final int NON_VALID_PRIS = 0;
     private static final int SLITAGE = 8;
+    private static final int NON_VALID_SLITAGE = 0;
     private static final int SLITAGE_FAKTOR = 10;
     
     @Before
     public void setUp() {
         apparat = new Apparat(NAMN, PRIS, SLITAGE);
     }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testConstructorShouldThrowIAEFORNonValidPris() {
+     apparat = new Apparat(NAMN, NON_VALID_PRIS, SLITAGE);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testConstructorShouldThrowIAEFORNonValidSlitage() {
+     apparat = new Apparat(NAMN, NON_VALID_PRIS, NON_VALID_SLITAGE);
+    }
 
     @Test
-    public void testSomeMethod() {
+    public void testVärdePåApparat() {
         assertEquals((SLITAGE  / SLITAGE_FAKTOR) * PRIS, apparat.värde());
     }
     
