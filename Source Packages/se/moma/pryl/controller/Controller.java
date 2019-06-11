@@ -8,7 +8,6 @@ package se.moma.pryl.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import se.moma.pryl.integration.PersonSamling;
 import se.moma.pryl.model.Person;
 import se.moma.pryl.model.factory.PrylFactory;
@@ -37,7 +36,7 @@ public class Controller {
      * @param prylFactory För att skapa <code>Pryl</code>.
      */
     public Controller(PersonSamling personSamling, PrylFactory prylFactory) {
-      this.personSamling  = new PersonSamling(personLista);
+      this.personSamling  = new PersonSamling();
       this.prylFactory = prylFactory;      
     } 
    
@@ -49,8 +48,7 @@ public class Controller {
      */
     public void skapaPerson(String namnPåNyPerson) {
       if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerad!");
-        List<Pryl> personPrylar = null;
-        personSamling.laggTillPerson(skapaPersonInstans(namnPåNyPerson, personPrylar));
+        personSamling.läggTillPerson(new Person(namnPåNyPerson));
     }
 
     
@@ -77,7 +75,7 @@ public class Controller {
      * @return <code>PersonSamling</code>
      */
     public String visaPersonSamling() {
-      return personSamling.visaAlla();
+      return personSamling.visaAllaPersoner();
     }
     
     
@@ -87,21 +85,10 @@ public class Controller {
      * @return Rikaste <code>Person</code>.
      */
     public Person visaRikastePerson() {
-      return personSamling.hämtaRikaste();
+      return personSamling.hämtaRikastePerson();
     }
     
-    //returnerar Person
-    private Person skapaPersonInstans(String namnPåNyPerson, List<Pryl> personPrylar) {
-      valideraPersonData(namnPåNyPerson);
-      return new Person(namnPåNyPerson, personPrylar);
-    }
     
-    //validerar data för Person
-    private void valideraPersonData(String namnPåNyPerson) throws IllegalArgumentException {
-      Objects.requireNonNull(namnPåNyPerson, "Måste ange ett namn!");
-        if (namnPåNyPerson instanceof String)
-          if (namnPåNyPerson.equals("")) throw new IllegalArgumentException("Måste ange att namn!");
-    }
     
     //är Person registrerad?
     private boolean isPersonRegistrerad(String namnpåperson){
@@ -110,14 +97,13 @@ public class Controller {
     
     
     public static void main(String[] args) {
-      List<Person> personLista = null;
+    
       PrylFactory prylFactory = null;
-      Controller controller = new Controller(new PersonSamling(personLista), prylFactory);
+      Controller controller = new Controller(new PersonSamling(), prylFactory);
       //skapa person
       controller.skapaPerson(NAMN);
-      //controller.skapaPerson("Kalle");
-        
-        //skapa pryl
+     
+      //skapa pryl
       Map<String, String> prylArgs = new HashMap<>();
       
       prylArgs.put("smycke", "ring");
@@ -125,7 +111,7 @@ public class Controller {
       prylArgs.put("ädelstenar", "10");
       controller.skapaPrylTillPerson(NAMN, prylArgs);
       
-      System.out.println(controller.visaPersonSamling());
       System.out.println(controller.visaRikastePerson());
+      System.out.println(controller.visaPersonSamling());
     }
 }

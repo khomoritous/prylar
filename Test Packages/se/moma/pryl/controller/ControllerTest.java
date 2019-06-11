@@ -30,19 +30,20 @@ public class ControllerTest {
     private PrylFactory prylfactory = null;
     private List<Person> personLista = null;
     private static final String NAMN_PÅ_PERSON = "Boris";
+    private static final String NON_VALID_NAMN = "Boris";
     
     @Before
     public void setUp() {
-        personSamling = new PersonSamling(personLista);
+        personSamling = new PersonSamling();
         controller = new Controller(personSamling, prylfactory);
     }
     
    
 
     @Test(expected = IllegalArgumentException.class)
-    public void testSkapaPerson_kastar_IllegalArgumentException_för_upptaget_namn() {
+    public void testSkapaPersonShouldThrowIAEForNonValidName() {
         controller.skapaPerson(NAMN_PÅ_PERSON);
-        controller.skapaPerson(NAMN_PÅ_PERSON);
+        controller.skapaPerson(NON_VALID_NAMN);
     }
     
     //ok test, kan göras bättre.
