@@ -34,31 +34,36 @@ public class ControllerTest {
     
     @Before
     public void setUp() {
-        personSamling = new PersonSamling();
-        controller = new Controller(personSamling, prylfactory);
+      personSamling = new PersonSamling();
+      controller = new Controller(personSamling, prylfactory);
     }
     
-   
+   @Test
+    public void testRegistreraNyPerson() {
+     // controller.registreraNyPerson(NAMN_PÅ_PERSON);
+     personSamling.läggTillPerson(new Person(NAMN_PÅ_PERSON));
+      assertTrue("Det finns ingen sådan person registrerad!", personSamling.hittaPerson(NAMN_PÅ_PERSON));
+    }
 
+    
     @Test(expected = IllegalArgumentException.class)
-    public void testSkapaPersonShouldThrowIAEForNonValidName() {
-        controller.skapaPerson(NAMN_PÅ_PERSON);
-        controller.skapaPerson(NON_VALID_NAMN);
+    public void testRegisteraNyPersonShouldThrowIAEForNonValidName() {
+      controller.registreraNyPerson(NAMN_PÅ_PERSON);
+      controller.registreraNyPerson(NON_VALID_NAMN);
     }
     
     //ok test, kan göras bättre.
     @Test
     public void testSkapaPrylTillPerson() {
-       
-        String namnPåPerson = NAMN_PÅ_PERSON;
-        Map<String, String> prylArgs = new HashMap<>();
-        prylArgs.put("smycke", "ring");
-        prylArgs.put("metall", "platina");
-        prylArgs.put("ädelstenar", "10");
-        controller.skapaPerson(NAMN_PÅ_PERSON);
-        controller.skapaPrylTillPerson(NAMN_PÅ_PERSON, prylArgs);
-        String resultat = controller.visaPersonSamling();
-        String expResultat = namnPåPerson;
+      String namnPåPerson = NAMN_PÅ_PERSON;
+      Map<String, String> prylArgs = new HashMap<>();
+      prylArgs.put("smycke", "ring");
+      prylArgs.put("metall", "platina");
+      prylArgs.put("ädelstenar", "10");
+      controller.registreraNyPerson(NAMN_PÅ_PERSON);
+      controller.skapaPrylTillPerson(NAMN_PÅ_PERSON, prylArgs);
+      String resultat = controller.visaPersonSamling();
+      String expResultat = namnPåPerson;
         
         assertTrue("Det finns ingen med det namnet!", resultat.contains(expResultat));
     } 

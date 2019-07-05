@@ -12,16 +12,18 @@ public class Main {
       List<Person> lista = null;
       PrylFactory prylFactory = null;
       Map<String, String> prylArgs = new HashMap<>();
-      PersonSamling personSamling = new PersonSamling(lista);
+      //PersonSamling personSamling = new PersonSamling(lista);
+      PersonSamling personSamling = new PersonSamling();
         
       Controller controller = new Controller(personSamling, prylFactory);
 	
       Scanner sc = new Scanner(System.in);
+      
       //SkapaPerson
       System.out.print("Namn på en person: ");
       String namn = sc.nextLine();
       prylArgs.put("namn", namn);
-      controller.skapaPerson(namn);
+      controller.registreraNyPerson(namn);
         
       //Skapa pryl
       System.out.println("Vad heter personen som ska äga prylen? ");
@@ -40,17 +42,17 @@ public class Main {
         prylArgs.put("metall", metall);
         prylArgs.put("ädelstenar", ädelstenar);
         controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
-        } else if (namnPåPryl.equalsIgnoreCase("Apparat")) {
-            System.out.print("Vilken sorts apparat? ");
-            String apparat = sc.nextLine();
-            System.out.print("Vad har apparaten för pris? ");
-            String pris = sc.nextLine();
-            System.out.print("Vad har apparaten för slitage? ");
-            String slitage = sc.nextLine();
-            prylArgs.put("apparat", apparat);
-            prylArgs.put("pris", pris);
-            prylArgs.put("slitage", slitage);
-            controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
+      } else if (namnPåPryl.equalsIgnoreCase("Apparat")) {
+          System.out.print("Vilken sorts apparat? ");
+          String apparat = sc.nextLine();
+          System.out.print("Vad har apparaten för pris? ");
+          String pris = sc.nextLine();
+          System.out.print("Vad har apparaten för slitage? ");
+          String slitage = sc.nextLine();
+          prylArgs.put("apparat", apparat);
+          prylArgs.put("pris", pris);
+          prylArgs.put("slitage", slitage);
+          controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
         } else if (namnPåPryl.equalsIgnoreCase("aktie")) {
             System.out.print("Vilken sort aktie? ");
             String aktieNamn = sc.nextLine();

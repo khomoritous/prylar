@@ -46,7 +46,7 @@ public class Controller {
      * 
      * @param namnPåNyPerson Namn på <code>Person</code>.
      */
-    public void skapaPerson(String namnPåNyPerson) {
+    public void registreraNyPerson(String namnPåNyPerson) {
       if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerad!");
         personSamling.läggTillPerson(new Person(namnPåNyPerson));
     }
@@ -101,7 +101,7 @@ public class Controller {
       PrylFactory prylFactory = null;
       Controller controller = new Controller(new PersonSamling(), prylFactory);
       //skapa person
-      controller.skapaPerson(NAMN);
+      controller.registreraNyPerson(NAMN);
      
       //skapa pryl
       Map<String, String> prylArgs = new HashMap<>();
@@ -111,7 +111,7 @@ public class Controller {
       prylArgs.put("ädelstenar", "10");
       controller.skapaPrylTillPerson(NAMN, prylArgs);
       
-      System.out.println(controller.visaRikastePerson());
+      System.out.println(controller.visaRikastePerson()+ "\n");
       System.out.println(controller.visaPersonSamling());
     }
 }
