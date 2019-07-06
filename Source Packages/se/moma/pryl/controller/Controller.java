@@ -59,13 +59,14 @@ public class Controller {
      * @param prylArgs 
      */
      public void skapaPrylTillPerson(String namnPåPerson, Map<String, String> prylArgs) {
-      if (isPersonRegistrerad(namnPåPerson)) {
-        Person person = personSamling.hämtaPerson(namnPåPerson);
-        prylFactory = PrylFactoryProducent.getFactory(prylArgs);
-        Pryl pryl = prylFactory.skapaPryl(prylArgs);
-        person.läggTillPryl(pryl);
-      } else
-          throw new IllegalArgumentException("Hittar ingen med det namnet!");
+      if (!isPersonRegistrerad(namnPåPerson)) {
+        throw new IllegalArgumentException("Hittar ingen med det namnet!");
+      } else {
+          Person person = personSamling.hämtaPerson(namnPåPerson);
+          prylFactory = PrylFactoryProducent.getFactory(prylArgs);
+          Pryl pryl = prylFactory.skapaPryl(prylArgs);
+          person.läggTillPryl(pryl);
+        }
      }
     
     
@@ -90,8 +91,13 @@ public class Controller {
     
     
     
-    //är Person registrerad?
-    private boolean isPersonRegistrerad(String namnpåperson){
+    /**
+     * Finns <code>Person</code> i <code>PersonSamling</code>
+     * 
+     * @param namnpåperson Anger namn på <code>Person</code> i <code>PersonSamling</code>.
+     * @return <code>True</code>, om <code>Person</code> finns i <code>PersonSamling</code>, <code>false</code> annars.
+     */
+    public boolean isPersonRegistrerad(String namnpåperson){
       return personSamling.hittaPerson(namnpåperson);
     }
     
