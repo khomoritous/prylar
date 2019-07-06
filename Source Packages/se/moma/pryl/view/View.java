@@ -138,7 +138,7 @@ public class View {
       }
       
       
-      public void valMeny() {
+      public void displayMeny() {
         System.out.print("\n"+"1-Skapa person \n" /* + "2-Skapa pryl \n" + "3-Visa alla\n"+"4-Visa rikaste \n"+"5-Visa viss person \n"+"6-B�rskrasch \n"+"7- Avsluta"*/);
 		    System.out.println();
       }
@@ -146,7 +146,9 @@ public class View {
       
      public void vyn() {
        for(;;) {
-         valMeny();
+         
+         try {
+         displayMeny();
          int kommando = Integer.parseInt(scanner.nextLine());
      
          switch(kommando) {
@@ -162,8 +164,11 @@ public class View {
              
          }
          
-                 
+         } catch(NumberFormatException nfe) {
+           System.out.println("Ange en siffra!");
+         }         
        }
+       
      }
       /*
       prylArgs.put("namn", namn);
