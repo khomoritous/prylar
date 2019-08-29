@@ -8,7 +8,8 @@ import java.util.Objects;
  * @author monde
  */
 public abstract class Pryl {
-    
+  
+  
     private String namn = null;
     
     /**
@@ -17,10 +18,11 @@ public abstract class Pryl {
      * @param namn Namn på <code>Pryl</code>.
      */
     public Pryl(String namn) {
-      Objects.requireNonNull(namn, "Måste ha ett namn!");
+      //Objects.requireNonNull(namn, "Måste ha ett namn!");
       if (namn.equalsIgnoreCase("")) throw new IllegalArgumentException("En pryl måste ha ett namn!");
 	    this.namn = namn;
     }
+    
     
     
     abstract protected int värde();
