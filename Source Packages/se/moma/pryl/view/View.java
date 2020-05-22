@@ -165,19 +165,21 @@ public class View {
              
              String namnPåPerson = scanner.nextLine();
              if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen registrerad med det namnet!");
-             System.out.print("Vad för sorts pryl ska skapas? ");
+             System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
      
              String namnPåPryl = scanner.nextLine();
+             System.out.println("");
              if (namnPåPryl.equalsIgnoreCase("Smycke")) {
                System.out.println("Vilket sorts smycke? ");
 	             String smycke  = scanner.nextLine();
 	             System.out.println("Vilken metall är smycket gjord av? ");
 	             String metall = scanner.nextLine();
 	             System.out.println("Antal ädelstenar? ");
-	             String ädelstenar = scanner.nextLine();
+	             String ädelStenar = scanner.nextLine();
+               
                prylArgs.put("smycke", smycke);
                prylArgs.put("metall", metall);
-               prylArgs.put("ädelstenar", ädelstenar);
+               prylArgs.put("ädelstenar",ädelStenar);
                controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
             } else if (namnPåPryl.equalsIgnoreCase("Apparat")) {
                  System.out.print("Vilken sorts apparat? ");
@@ -230,11 +232,11 @@ public class View {
 	      String smycke  = scanner.nextLine();
 	      System.out.print("Vilken metall är smycket gjord av? ");
 	      String metall = scanner.nextLine();
-	      System.out.print("Antal ädelstenar? ");
-	      String ädelstenar = scanner.nextLine();
+	      System.out.print("Antal ädelStenar? ");
+	      String ädelStenar = scanner.nextLine();
         prylArgs.put("smycke", smycke);
         prylArgs.put("metall", metall);
-        prylArgs.put("ädelstenar", ädelstenar);
+        prylArgs.put("ädelStenar", ädelStenar);
         controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
       } else if (namnPåPryl.equalsIgnoreCase("Apparat")) {
           System.out.print("Vilken sorts apparat? ");
