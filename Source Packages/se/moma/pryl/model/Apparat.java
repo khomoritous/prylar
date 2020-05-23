@@ -38,8 +38,8 @@ public class Apparat extends Pryl {
      * @return Värde på <code>Apparat</code>.
      */
     @Override
-    public int värde() {
-	    return (getSlitage() / SLITAGE_FAKTOR) * getPris();
+    public double värde() {
+	    return getSlitage() / SLITAGE_FAKTOR /*getPris()*/;
     }
     
     
@@ -64,7 +64,9 @@ public class Apparat extends Pryl {
     
     
     public static void main(String[] args) {
-      System.out.println(new Apparat("dator", PRIS_PÅ_APPARAT, SLITAGE_PÅ_APPARAT));
+      Apparat apparat = new Apparat("dator", PRIS_PÅ_APPARAT, SLITAGE_PÅ_APPARAT);
+      System.out.println(apparat.värde());
+      
     }
 
     

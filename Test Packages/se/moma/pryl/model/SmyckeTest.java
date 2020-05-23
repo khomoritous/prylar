@@ -46,13 +46,13 @@ public class SmyckeTest {
 
     @Test
     public void testGetValue() {
-        assertEquals((ÄDELSTEN_VÄRDE * ANTAL_ÄDELSTENAR) + 700, smycke.värde());
+        assertEquals((ÄDELSTEN_VÄRDE * ANTAL_ÄDELSTENAR) + 700, smycke.värde(), 0.1);
     }
    
     @Test
     public void testGetValueWhenGold() {
         guldSmycke = new Smycke(TYP_AV_SMYCKE,METALL_GULD, ANTAL_ÄDELSTENAR);
-        assertEquals((ÄDELSTEN_VÄRDE * ANTAL_ÄDELSTENAR ) + GULDFAKTOR, guldSmycke.värde());
+        assertEquals((ÄDELSTEN_VÄRDE * ANTAL_ÄDELSTENAR ) + GULDFAKTOR, guldSmycke.värde(), 0.1);
     }
 
     

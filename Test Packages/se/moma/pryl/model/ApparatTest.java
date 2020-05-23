@@ -40,7 +40,7 @@ public class ApparatTest {
 
     @Test
     public void testVärdePåApparat() {
-        assertEquals((SLITAGE  / SLITAGE_FAKTOR) * PRIS, apparat.värde());
+        assertEquals((SLITAGE  / SLITAGE_FAKTOR) * PRIS, apparat.värde(), 0.1);
     }
     
 }

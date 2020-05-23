@@ -45,7 +45,7 @@ public class Smycke extends Pryl {
      * @return Värdet på ett <code>Smycke</code>.
      */
     @Override
-    public int värde() {
+    public double värde() {
 	    if(getMetall().equalsIgnoreCase(GULD)) {
 		    return (VÄRDE * getÄdelstenar()) + GULDFAKTOR;
       }
@@ -58,7 +58,7 @@ public class Smycke extends Pryl {
      */
     @Override
     public String toString() {
-      return String.format("namn: %s, metall: %s, antal ädelstenar: %d, värde: %d", super.toString(),getMetall(),getÄdelstenar(), värde());
+      return String.format("namn: %s, metall: %s, antal ädelstenar: %d, värde: %f", super.toString(),getMetall(),getÄdelstenar(), värde());
     }
     
     

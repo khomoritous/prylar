@@ -42,13 +42,13 @@ public class AktieTest {
 
     @Test
     public void testVärdeOfAktie() {
-        assertEquals(PRIS * ANTAL, aktie.värde());
+        assertEquals(PRIS * ANTAL, aktie.värde(), 0.1);
     }
     
     @Test
     public void testSetPrisTillNoll() {
         aktie.setPrisTillNoll();
-        assertEquals("Priset på aktien sattes inte till noll!",0, aktie.getVärde());
+        assertEquals("Priset på aktien sattes inte till noll!",0, aktie.getVärde(), 0.1);
     }
     
    

@@ -60,9 +60,9 @@ public class PersonSamlingTest {
         person.läggTillPryl(pryl);
         personSamling.läggTillPerson(person);
         personSamling.börsKrasch();
-        int expResultat = pryl.getVärde();
-        int resultat = person.summaVärde();
-        assertEquals(expResultat, resultat);
+        double expResultat = pryl.getVärde();
+        double resultat = person.summaVärde();
+        assertEquals(expResultat, resultat, 0.1);
     }
     
 

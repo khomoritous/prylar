@@ -91,7 +91,7 @@ public class PersonSamling {
       StringBuilder stringBuilder = new StringBuilder();
       Formatter formatter = new Formatter(stringBuilder);
       for(Person person: minaPersoner) {
-        formatter.format("person: %s, totalsumma: %d \n", person.getNamn(), person.summaVärde());
+        formatter.format("person: %s, totalsumma: %f \n", person.getNamn(), person.summaVärde());
       }
       return stringBuilder.toString();
     }

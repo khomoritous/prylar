@@ -37,7 +37,7 @@ public class Aktie extends Pryl {
      * @return Värde på <code>Aktie</code>.
      */
     @Override
-    public int värde() {
+    public double värde() {
       return antal*pris;
     }
     
@@ -53,7 +53,7 @@ public class Aktie extends Pryl {
      */
     @Override
     public String toString() { 
-      return String.format("namn: %s, antal: %d, pris: %d, värde: %d", super.toString(), getAntal(), getPris(), värde());
+      return String.format("namn: %s, antal: %d, pris: %d, värde: %f", super.toString(), getAntal(), getPris(), värde());
     }
     
     

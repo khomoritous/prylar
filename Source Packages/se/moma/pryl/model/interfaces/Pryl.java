@@ -25,14 +25,14 @@ public abstract class Pryl {
     
     
     
-    abstract protected int värde();
+    abstract protected double värde();
     
     /**
      * En <code>Pryl</code> har ett värde.
      * 
      * @return Värde på <code>Pryl</code>.
      */
-    public int getVärde() {
+    public double getVärde() {
       return värde();
     }
     
