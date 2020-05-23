@@ -24,7 +24,7 @@ public class Person {
      * 
      * @param namn Namn på <code>Person</code>.
      */
-    public Person(String namn/*, List<Pryl> minaPrylar*/) {
+    public Person(String namn) {
       if (namn.equalsIgnoreCase("")) throw new IllegalArgumentException("Måste ange ett namn!");
       this.namn = namn;
       this.minaPrylar = new ArrayList<>();
@@ -89,15 +89,16 @@ public class Person {
       stringBuilder.append("\n");
       for(Pryl pryl: minaPrylar) {
         stringBuilder.append(pryl.toString());
-        stringBuilder.append(",");
+        stringBuilder.append("," + "\n");
       }
       return stringBuilder.toString();
     }
     
     
     public static void main(String[] args) {
-      Person person = new Person(NAMN_PÅ_PERSON/*, new ArrayList<>()*/);
+      Person person = new Person(NAMN_PÅ_PERSON);
       person.läggTillPryl(new Aktie(NAMN, PRIS_PÅ_PRYL, ANTAL_PRYLAR));
+      person.läggTillPryl(new Apparat("rost", 1000, 2));
       System.out.println(person);
     }
 

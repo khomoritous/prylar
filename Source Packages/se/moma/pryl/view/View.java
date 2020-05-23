@@ -139,7 +139,7 @@ public class View {
       
       
       public void displayMeny() {
-        System.out.print("\n"+"1-Skapa person \n" + "2-Skapa pryl \n" /*+ "3-Visa alla\n"+"4-Visa rikaste \n"+"5-Visa viss person \n"+"6-B�rskrascannerh \n"+"7- Avsluta"*/);
+        System.out.print("\n"+"1-Skapa person \n" + "2-Skapa pryl \n" + "3-Visa alla\n" /*+"4-Visa rikaste \n"+"5-Visa viss person \n"+"6-B�rskrascannerh \n"+"7- Avsluta"*/);
 		    System.out.println();
       }
 	
@@ -148,69 +148,75 @@ public class View {
        for(;;) {
          
          try {
-         displayMeny();
-         int kommando = Integer.parseInt(scanner.nextLine());
+          displayMeny();
+          int kommando = Integer.parseInt(scanner.nextLine());
      
-         switch(kommando) {
-           case 1:
-             //SkapaPerson
-             System.out.print("Namn på en person: ");
-             String namn = scanner.nextLine();
-             controller.registreraNyPerson(namn);
-           break;
-           case 2:
+          switch(kommando) {
+            case 1:
+              //SkapaPerson
+              System.out.print("Namn på en person: ");
+              String namn = scanner.nextLine();
+              controller.registreraNyPerson(namn);
+            break;
+            case 2:
              
-             //Skapa pryl
-             System.out.println("Vad heter personen som ska äga prylen? ");
+              //Skapa pryl
+              System.out.println("Vad heter personen som ska äga prylen? ");
              
-             String namnPåPerson = scanner.nextLine();
-             if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen registrerad med det namnet!");
-             System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
+              String namnPåPerson = scanner.nextLine();
+              if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen registrerad med det namnet!");
+              System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
      
-             String namnPåPryl = scanner.nextLine();
-             System.out.println("");
-             if (namnPåPryl.equalsIgnoreCase("Smycke")) {
-               System.out.println("Vilket sorts smycke? ");
-	             String smycke  = scanner.nextLine();
-	             System.out.println("Vilken metall är smycket gjord av? ");
-	             String metall = scanner.nextLine();
-	             System.out.println("Antal ädelstenar? ");
-	             String ädelStenar = scanner.nextLine();
+              String namnPåPryl = scanner.nextLine();
+              System.out.println("");
+              if (namnPåPryl.equalsIgnoreCase("Smycke")) {
+                System.out.println("Vilket sorts smycke? ");
+	              String smycke  = scanner.nextLine();
+	              System.out.println("Vilken metall är smycket gjord av? ");
+	              String metall = scanner.nextLine();
+	              System.out.println("Antal ädelstenar? ");
+	              String ädelStenar = scanner.nextLine();
                
-               prylArgs.put("smycke", smycke);
-               prylArgs.put("metall", metall);
-               prylArgs.put("ädelstenar",ädelStenar);
-               controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
-            } else if (namnPåPryl.equalsIgnoreCase("Apparat")) {
+                prylArgs.put("smycke", smycke);
+                prylArgs.put("metall", metall);
+                prylArgs.put("ädelstenar",ädelStenar);
+                controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
+             } else if (namnPåPryl.equalsIgnoreCase("Apparat")) {
                  System.out.print("Vilken sorts apparat? ");
                  String apparat = scanner.nextLine();
                  System.out.print("Vad har apparaten för pris? ");
                  String pris = scanner.nextLine();
                  System.out.print("Vad har apparaten för slitage? ");
                  String slitage = scanner.nextLine();
+                 
                  prylArgs.put("apparat", apparat);
                  prylArgs.put("pris", pris);
                  prylArgs.put("slitage", slitage);
                  controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
-            } else if (namnPåPryl.equalsIgnoreCase("aktie")) {
-                System.out.print("Vilken sort aktie? ");
-                String aktieNamn = scanner.nextLine();
-                System.out.print("Antal aktier? ");
-                String antal = scanner.nextLine();
-                System.out.println("Pris på aktie? ");
-                String pris = scanner.nextLine();
-                prylArgs.put("namn", aktieNamn);
-                prylArgs.put("antal", antal);
-                prylArgs.put("pris", pris);
-                controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
+             } else if (namnPåPryl.equalsIgnoreCase("aktie")) {
+                 System.out.print("Vilken sort aktie? ");
+                 String aktieNamn = scanner.nextLine();
+                 System.out.print("Antal aktier? ");
+                 String antal = scanner.nextLine();
+                 System.out.println("Pris på aktie? ");
+                 String pris = scanner.nextLine();
+                 
+                 prylArgs.put("namn", aktieNamn);
+                 prylArgs.put("antal", antal);
+                 prylArgs.put("pris", pris);
+                 controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
              } else {
                  throw new IllegalArgumentException(namnPåPryl + " finns inte!");
                }
-             
+             break;
+            case 3:
+              System.out.println(controller.visaPersonSamling());
+              
+              break;
              default:
                System.out.println("Felaktigt kommando! Försök igen!");
              
-         }
+          }
          
          } catch(NumberFormatException nfe) {
              System.out.println("Ange en siffra!");

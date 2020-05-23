@@ -48,7 +48,7 @@ public class Apparat extends Pryl {
      */
     @Override
     public String toString() {
-      return String.format("namn: %s, pris: %d, slitage: %d", super.toString(),getPris(), getSlitage(), värde());
+      return String.format("namn: %s, pris: %d, slitage: %d, värde: %d", super.toString(),getPris(), getSlitage(), värde());
     }
     
     
