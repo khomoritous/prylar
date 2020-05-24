@@ -21,7 +21,7 @@ public class ApparatTest {
     private static final int NON_VALID_PRIS = 0;
     private static final int SLITAGE = 8;
     private static final int NON_VALID_SLITAGE = 0;
-    private static final int SLITAGE_FAKTOR = 10;
+    private static final int VÄRDE = 8;
     
     @Before
     public void setUp() {
@@ -40,7 +40,7 @@ public class ApparatTest {
 
     @Test
     public void testVärdePåApparat() {
-        assertEquals((SLITAGE  / SLITAGE_FAKTOR) * PRIS, apparat.värde(), 0.1);
+        assertEquals(VÄRDE, apparat.värde(), 0.1);
     }
     
 }

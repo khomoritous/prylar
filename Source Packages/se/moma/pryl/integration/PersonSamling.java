@@ -3,6 +3,9 @@ package se.moma.pryl.integration;
 import se.moma.pryl.model.Person;
 import java.util.*;
 import static java.util.Comparator.comparing;
+import se.moma.pryl.model.Aktie;
+import se.moma.pryl.model.Apparat;
+import se.moma.pryl.model.Smycke;
 import se.moma.pryl.model.interfaces.Pryl;
 import se.moma.pryl.util.PersonVärdeComparator;
 
@@ -91,7 +94,7 @@ public class PersonSamling {
       StringBuilder stringBuilder = new StringBuilder();
       Formatter formatter = new Formatter(stringBuilder);
       for(Person person: minaPersoner) {
-        formatter.format("person: %s, totalsumma: %f \n", person.getNamn(), person.summaVärde());
+        formatter.format("person: %s, totalsumma: %.1f \n", person.getNamn(), person.summaVärde());
       }
       return stringBuilder.toString();
     }
@@ -132,9 +135,20 @@ public class PersonSamling {
     public static void main(String[] args) {
         //List<Person> personLista = null;
         PersonSamling personSamling = new PersonSamling();
-        //List<Pryl> prylLista = null;
-        personSamling.läggTillPerson(new Person("Olle"));
-        personSamling.läggTillPerson(new Person("Pelle"));
+        //List<Pryl> prylLista = null
+        Person olle = new Person("Olle");
+        Person pelle = new Person("Pelle");
+        personSamling.läggTillPerson(olle);
+        personSamling.läggTillPerson(pelle);
+        olle.läggTillPryl(new Smycke("ring", "guld", 1));
+        olle.läggTillPryl(new Apparat("brödost", 500, 2));
+        olle.läggTillPryl(new Aktie("googl", 10, 150));
+        
+        
+        pelle.läggTillPryl(new Smycke("halsband","platina", 1));
+        pelle.läggTillPryl(new Apparat("ugn", 2000, 3));
+        pelle.läggTillPryl(new Aktie("Ikea", 15, 50));
+        
         
         //System.out.println(personSamling);
         System.out.println(personSamling.visaAllaPersoner());

@@ -9,10 +9,10 @@ import se.moma.pryl.model.interfaces.Pryl;
  */
 public class Apparat extends Pryl {
     
-    private final int pris;
+    private final double pris;
     private final int slitage;
-    private static final int SLITAGE_FAKTOR = 10;
-    private static final int PRIS_PÅ_APPARAT = 5000;
+    private static final double SLITAGE_FAKTOR = 10;
+    private static final double PRIS_PÅ_APPARAT = 5000;
     private static final int SLITAGE_PÅ_APPARAT = 6;
     
     
@@ -23,7 +23,7 @@ public class Apparat extends Pryl {
      * @param pris Pris på <code>Apparat</code>.
      * @param slitage Slitage på <code>Apparat</code>.
      */
-    public Apparat(String namn, int pris, int slitage) {
+    public Apparat(String namn, double pris, int slitage) {
 	    super(namn);
       if (pris <= 0) throw new IllegalArgumentException("Ange pris större än 0!");
 	    this.pris = pris;
@@ -33,13 +33,13 @@ public class Apparat extends Pryl {
 
     
     /**
-     * Beräknar värde på <code>Apparat</code>.
+     * Beräknar värde på <code>Appa-rat</code>.
      * 
      * @return Värde på <code>Apparat</code>.
      */
     @Override
     public double värde() {
-	    return getSlitage() / SLITAGE_FAKTOR /*getPris()*/;
+	    return getPris() * (getSlitage() / SLITAGE_FAKTOR);
     }
     
     
@@ -48,11 +48,11 @@ public class Apparat extends Pryl {
      */
     @Override
     public String toString() {
-      return String.format("namn: %s, pris: %d, slitage: %d, värde: %d", super.toString(),getPris(), getSlitage(), värde());
+      return String.format("namn: %s, pris: %.1f, slitage: %d, värde: %.1f", super.toString(),getPris(), getSlitage(), värde());
     }
     
     
-    private int getPris() {
+    private double getPris() {
       return pris;
     }
 
@@ -65,7 +65,7 @@ public class Apparat extends Pryl {
     
     public static void main(String[] args) {
       Apparat apparat = new Apparat("dator", PRIS_PÅ_APPARAT, SLITAGE_PÅ_APPARAT);
-      System.out.println(apparat.värde());
+      System.out.println(apparat);
       
     }
 

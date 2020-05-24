@@ -99,7 +99,7 @@ public class Person {
       Person person = new Person(NAMN_PÅ_PERSON);
       person.läggTillPryl(new Aktie(NAMN, PRIS_PÅ_PRYL, ANTAL_PRYLAR));
       person.läggTillPryl(new Apparat("rost", 1000, 2));
-     // System.out.println(person);
+      System.out.println(person);
     }
 
 }

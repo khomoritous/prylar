@@ -58,7 +58,7 @@ public class PersonTest {
     @Test
     public void testSummaVärde() {
         person.läggTillPryl(new Aktie(NAMN_PÅ_PRYL,ANTAL, PRIS));
-        assertEquals(ANTAL * PRIS, person.summaVärde(), 0.1);
+        assertEquals(1000, person.summaVärde(), 0.1);
        
     }
 
@@ -68,7 +68,7 @@ public class PersonTest {
         person.läggTillPryl(new Smycke("Halsband", "Platina", ANTAL_ÄDELSTENAR));
         person.setAktierTillNoll();
         
-        assertEquals("Aktier har inte satts till noll!", VÄRDE * ANTAL_ÄDELSTENAR + ÄDELSTENFAKTOR, person.summaVärde(), 0.1);
+        assertEquals("Aktier har inte satts till noll!", 5700, person.summaVärde(), 0.1);
         
         
     }

@@ -108,16 +108,26 @@ public class Controller {
       Controller controller = new Controller(new PersonSamling(), prylFactory);
       //skapa person
       controller.registreraNyPerson(NAMN);
+      
+      controller.registreraNyPerson("Pelle");
      
       //skapa pryl
       Map<String, String> prylArgs = new HashMap<>();
-      
+      Map<String, String> prylArgs1 = new HashMap<>();
+       
       prylArgs.put("smycke", "ring");
       prylArgs.put("metall", "platina");
       prylArgs.put("ädelstenar", "10");
       controller.skapaPrylTillPerson(NAMN, prylArgs);
       
-      System.out.println(controller.visaRikastePerson()+ "\n");
+      prylArgs1.put("apparat", "brödrost");
+      prylArgs1.put("pris", "500");
+      prylArgs1.put("slitage", "3");
+      
+      controller.skapaPrylTillPerson("Pelle", prylArgs1);
+      
+      
+      //System.out.println(controller.visaRikastePerson()+ "\n");
       System.out.println(controller.visaPersonSamling());
     }
 }

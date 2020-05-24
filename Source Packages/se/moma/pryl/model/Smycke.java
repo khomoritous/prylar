@@ -58,7 +58,7 @@ public class Smycke extends Pryl {
      */
     @Override
     public String toString() {
-      return String.format("namn: %s, metall: %s, antal ädelstenar: %d, värde: %f", super.toString(),getMetall(),getÄdelstenar(), värde());
+      return String.format("namn: %s, metall: %s, antal ädelstenar: %d, värde: %.1f", super.toString(),getMetall(),getÄdelstenar(), värde());
     }
     
     

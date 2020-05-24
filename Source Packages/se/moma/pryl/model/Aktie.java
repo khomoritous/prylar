@@ -53,7 +53,7 @@ public class Aktie extends Pryl {
      */
     @Override
     public String toString() { 
-      return String.format("namn: %s, antal: %d, pris: %d, värde: %f", super.toString(), getAntal(), getPris(), värde());
+      return String.format("namn: %s, antal: %d, pris: %d, värde: %.1f", super.toString(), getAntal(), getPris(), värde());
     }
     
     
