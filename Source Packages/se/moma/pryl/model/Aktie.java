@@ -14,7 +14,7 @@ public class Aktie extends Pryl {
     private int pris; 
     private static final String NAMN_PÅ_AKTIE = "googl"; 
     private static final int ANTAL_AKTIER = 100;
-    private static final int PRIS_PÅ_AKTIE = 1000;
+    private static final int PRIS_PÅ_AKTIE = 10;
     
     /**
      * Skapar en ny <code>Aktie</code> instans.

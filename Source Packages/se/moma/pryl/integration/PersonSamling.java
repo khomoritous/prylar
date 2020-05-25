@@ -16,8 +16,7 @@ import se.moma.pryl.util.PersonVärdeComparator;
  */
 public class PersonSamling {
 
-    private List<Person> minaPersoner = null;
-    private static final int RIKASTE_PERSON = 0;
+    private Map<Person, PrylSamling> personSamling = null;
    
    
     /**
@@ -25,30 +24,19 @@ public class PersonSamling {
      * 
      */
     public PersonSamling() { 
-      this.minaPersoner = new ArrayList<>();
+      personSamling = new HashMap<>();
     }
     
     
     /**
-     * Lägger till instans av <code>Person</code> till <code>PersonSamling</code>. 
+     * Lägger till instans av <code>Person</code> till <code>PersonSamling</code>.
      * 
-     * @param person Instans av <code>Person</code>.
+     * @param nyPerson Instans av <code>Person</code>.
      */
-    public void läggTillPerson(Person person) {
-      Objects.requireNonNull(person);
-      minaPersoner.add(person);
+    public void läggTillPerson(Person nyPerson) {
+      if (nyPerson == null) throw new IllegalArgumentException("Inget nullobjekt tillåts!");
+      personSamling.put(nyPerson, new PrylSamling());
     }
-    
-    
-    /**
-     * Sätter <code>Pryl</code> av typ <code>Aktie</code> till noll.
-     */
-    public void börsKrasch() {
-      for(Person person: minaPersoner) {
-        person.setAktierTillNoll();
-      }
-    }
-    
     
     /**
      * Hittar registrerad <code>Person</code> i <code>PersonSamling</code>.
@@ -65,6 +53,19 @@ public class PersonSamling {
       }
       return false;
     }
+    
+    
+    
+    /**
+     * Sätter värdet av <code>Aktie</code> till noll.
+     */
+    public void börsKrasch() {
+      for(Person person: minaPersoner) {
+        person.setAktierTillNoll();
+      }
+    }
+    
+    
     
    
     /**
@@ -138,8 +139,10 @@ public class PersonSamling {
         //List<Pryl> prylLista = null
         Person olle = new Person("Olle");
         Person pelle = new Person("Pelle");
+        
         personSamling.läggTillPerson(olle);
         personSamling.läggTillPerson(pelle);
+        
         olle.läggTillPryl(new Smycke("ring", "guld", 1));
         olle.läggTillPryl(new Apparat("brödost", 500, 2));
         olle.läggTillPryl(new Aktie("googl", 10, 150));

@@ -27,6 +27,8 @@ public class Controller {
     private PrylFactory prylFactory = null;
     private static final String NAMN = "Kalle";
     
+    private Map<String, String> prylArgs = new HashMap<>();
+    
     
     
     /**
@@ -62,6 +64,7 @@ public class Controller {
       if (!isPersonRegistrerad(namnPåPerson)) {
         throw new IllegalArgumentException("Hittar ingen med det namnet!");
       } else {
+          this.prylArgs = prylArgs;
           Person person = personSamling.hämtaPerson(namnPåPerson);
           prylFactory = PrylFactoryProducent.getFactory(prylArgs);
           Pryl pryl = prylFactory.skapaPryl(prylArgs);

@@ -30,29 +30,29 @@ public class SmyckeTest {
     
     @Before
     public void setUp() {
-        smycke = new Smycke(TYP_AV_SMYCKE, METALL, ANTAL_ÄDELSTENAR);
+      smycke = new Smycke(TYP_AV_SMYCKE, METALL, ANTAL_ÄDELSTENAR);
     }
     
     @Test(expected=IllegalArgumentException.class)
-    public void testConstructorShouldThrowIAEFORNonValidMetall() {
+    public void testConstructorShouldThrowIAEForNonValidMetall() {
       new Smycke(TYP_AV_SMYCKE,NotValidMetall,ANTAL_ÄDELSTENAR);
     }
     
     @Test(expected=IllegalArgumentException.class)
-    public void testConstructorShouldThrowIAEFORNonValidAntalÄdelstenar() {
+    public void testConstructorShouldThrowIAEForNonValidAntalÄdelstenar() {
       new Smycke(TYP_AV_SMYCKE,METALL,NON_VALID_ANTAL_ÄDELSTENAR);
     }
     
 
     @Test
     public void testGetValue() {
-        assertEquals((ÄDELSTEN_VÄRDE * ANTAL_ÄDELSTENAR) + 700, smycke.värde(), 0.1);
+      assertEquals((ÄDELSTEN_VÄRDE * ANTAL_ÄDELSTENAR) + 700, smycke.värde(), 0.1);
     }
    
     @Test
     public void testGetValueWhenGold() {
-        guldSmycke = new Smycke(TYP_AV_SMYCKE,METALL_GULD, ANTAL_ÄDELSTENAR);
-        assertEquals((ÄDELSTEN_VÄRDE * ANTAL_ÄDELSTENAR ) + GULDFAKTOR, guldSmycke.värde(), 0.1);
+      guldSmycke = new Smycke(TYP_AV_SMYCKE,METALL_GULD, ANTAL_ÄDELSTENAR);
+      assertEquals((ÄDELSTEN_VÄRDE * ANTAL_ÄDELSTENAR ) + GULDFAKTOR, guldSmycke.värde(), 0.1);
     }
 
     

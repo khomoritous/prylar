@@ -30,12 +30,12 @@ public class AktieTest {
     }
     
     @Test(expected=IllegalArgumentException.class)
-    public void testConstructorShouldThrowIAEFORNonValidAntalAktier() {
+    public void testConstructorShouldThrowIAEForNonValidAntalAktier() {
       new Aktie(NAMN,NON_VALID_ANTAL, PRIS);
     }
     
     @Test(expected=IllegalArgumentException.class)
-    public void testConstructorShouldThrowIAEFORNonValidPris() {
+    public void testConstructorShouldThrowIAEForNonValidPris() {
       new Aktie(NAMN,ANTAL, NON_VALID_PRIS);
     }
     
@@ -48,7 +48,7 @@ public class AktieTest {
     @Test
     public void testSetPrisTillNoll() {
         aktie.setPrisTillNoll();
-        assertEquals("Priset på aktien sattes inte till noll!",0, aktie.getVärde(), 0.1);
+        assertEquals("Priset på aktien sattes inte till noll!",VÄRDE, aktie.värde(), 0.1);
     }
     
    

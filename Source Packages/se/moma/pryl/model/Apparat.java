@@ -14,6 +14,7 @@ public class Apparat extends Pryl {
     private static final double SLITAGE_FAKTOR = 10;
     private static final double PRIS_PÅ_APPARAT = 5000;
     private static final int SLITAGE_PÅ_APPARAT = 6;
+    private static final String NAMN_PÅ_APPARAT = "dator";
     
     
     /**
@@ -33,7 +34,7 @@ public class Apparat extends Pryl {
 
     
     /**
-     * Beräknar värde på <code>Appa-rat</code>.
+     * Beräknar värde på <code>Apparat</code>.
      * 
      * @return Värde på <code>Apparat</code>.
      */
@@ -64,7 +65,7 @@ public class Apparat extends Pryl {
     
     
     public static void main(String[] args) {
-      Apparat apparat = new Apparat("dator", PRIS_PÅ_APPARAT, SLITAGE_PÅ_APPARAT);
+      Apparat apparat = new Apparat(NAMN_PÅ_APPARAT, PRIS_PÅ_APPARAT, SLITAGE_PÅ_APPARAT);
       System.out.println(apparat);
       
     }

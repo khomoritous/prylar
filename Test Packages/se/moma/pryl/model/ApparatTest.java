@@ -29,18 +29,18 @@ public class ApparatTest {
     }
     
     @Test(expected=IllegalArgumentException.class)
-    public void testConstructorShouldThrowIAEFORNonValidPris() {
+    public void testConstructorShouldThrowIAEForNonValidPris() {
      apparat = new Apparat(NAMN, NON_VALID_PRIS, SLITAGE);
     }
     
     @Test(expected=IllegalArgumentException.class)
-    public void testConstructorShouldThrowIAEFORNonValidSlitage() {
+    public void testConstructorShouldThrowIAEForNonValidSlitage() {
      apparat = new Apparat(NAMN, NON_VALID_PRIS, NON_VALID_SLITAGE);
     }
 
     @Test
     public void testVärdePåApparat() {
-        assertEquals(VÄRDE, apparat.värde(), 0.1);
+      assertEquals(VÄRDE, apparat.värde(), 0.1);
     }
     
 }

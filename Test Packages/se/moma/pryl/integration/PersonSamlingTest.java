@@ -104,9 +104,7 @@ public class PersonSamlingTest {
     public void testVisaAllaPersoner() {
         personSamling.läggTillPerson(person);
         String expResult = personSamling.visaAllaPersoner();
-        String result = person.getNamn();
-        assertTrue("Den här personen finns inte i samlingen!", expResult.contains(result));
-
+        assertTrue("Den här personen finns inte i samlingen!", expResult.contains(NAMN_PÅ_PERSON));
     }
 
     @Test
@@ -119,15 +117,5 @@ public class PersonSamlingTest {
         
         
     }
-//
-//    @Test
-//    public void testToString() {
-//        System.out.println("toString");
-//        PersonSamling instance = null;
-//        String expResult = "";
-//        String result = instance.toString();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-//    
+
 }

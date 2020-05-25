@@ -6,6 +6,7 @@
 package se.moma.pryl.model.factory;
 
 import static java.lang.Integer.parseInt;
+import java.util.HashMap;
 import java.util.Map;
 import se.moma.pryl.model.Smycke;
 import se.moma.pryl.model.interfaces.Pryl;
@@ -17,7 +18,7 @@ import se.moma.pryl.model.interfaces.Pryl;
  */
 public class SmyckeFactory implements PrylFactory {
 
-    
+    Map<String, String> argsMap = new HashMap<>();
     /**
      * Skapar en <code>Pryl</code>.
      * 
@@ -26,6 +27,7 @@ public class SmyckeFactory implements PrylFactory {
      */
     @Override
     public Pryl skapaPryl(Map<String, String> argsMap) {
+      this.argsMap = argsMap;
       return new Smycke(argsMap.get("smycke"), argsMap.get("metall"), parseInt(argsMap.get("ädelstenar")));
     }
 

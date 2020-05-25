@@ -12,7 +12,7 @@ public class Main {
       Map<String, String> prylArgs = null;
       Scanner scanner = null;
       PrylFactory prylFactory = null;
-      View view = null;
+      View view;
       view = new View(prylArgs, new Controller(new PersonSamling(), prylFactory), scanner);
       
       view.vyn();

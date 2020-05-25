@@ -19,7 +19,7 @@ public class Smycke extends Pryl {
     private static final int GULDFAKTOR = 2000;
     private static final int ÄDELSTENFAKTOR = 700;
     private static final int VÄRDE = 500;
-    private static final int ANTAL_VÄRDESTENAR = 100;
+    private static final int ANTAL_ÄDELSTENAR = 2;
     private static final String GULD = "guld";
     
     
@@ -48,8 +48,8 @@ public class Smycke extends Pryl {
     public double värde() {
 	    if(getMetall().equalsIgnoreCase(GULD)) {
 		    return (VÄRDE * getÄdelstenar()) + GULDFAKTOR;
-      }
-	    return (VÄRDE * getÄdelstenar()) + ÄDELSTENFAKTOR;
+      } else 
+	        return (VÄRDE * getÄdelstenar()) + ÄDELSTENFAKTOR;
     }
     
     
@@ -58,7 +58,7 @@ public class Smycke extends Pryl {
      */
     @Override
     public String toString() {
-      return String.format("namn: %s, metall: %s, antal ädelstenar: %d, värde: %.1f", super.toString(),getMetall(),getÄdelstenar(), värde());
+      return String.format("namn: %s, metall: %s, antal ädelstenar: %d, värde: %.1f", super.toString(), getMetall(), getÄdelstenar(), värde());
     }
     
     
@@ -73,6 +73,6 @@ public class Smycke extends Pryl {
     
     
     public static void main(String[] args) {
-      System.out.println(new Smycke(NAMN, METALL, ANTAL_VÄRDESTENAR));
+      System.out.println(new Smycke(NAMN, METALL, ANTAL_ÄDELSTENAR));
     }
 }

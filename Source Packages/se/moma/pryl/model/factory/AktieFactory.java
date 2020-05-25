@@ -6,6 +6,7 @@
 package se.moma.pryl.model.factory;
 
 import static java.lang.Integer.parseInt;
+import java.util.HashMap;
 import java.util.Map;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.interfaces.Pryl;
@@ -16,7 +17,7 @@ import se.moma.pryl.model.interfaces.Pryl;
  * @author monde
  */
 public class AktieFactory implements PrylFactory {
-    
+  Map<String, String> argsMap = new HashMap<>();
     
     /**
      * Skapar en <code>Pryl</code>.
@@ -26,6 +27,7 @@ public class AktieFactory implements PrylFactory {
      */
     @Override
     public Pryl skapaPryl(Map<String, String> argsMap) {
+      this.argsMap = argsMap;
       return new Aktie(argsMap.get("aktie"), parseInt(argsMap.get("antal")), parseInt(argsMap.get("pris")));
     }
     

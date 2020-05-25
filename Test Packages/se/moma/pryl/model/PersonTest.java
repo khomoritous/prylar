@@ -46,39 +46,4 @@ public class PersonTest {
         
     }
 
-    @Test
-    public void testLäggTillPryl() {
-        person.läggTillPryl(new Aktie(NAMN_PÅ_PRYL,ANTAL, PRIS));
-        System.out.println(person);
-        String result = person.toString();
-        
-        assertTrue("Pryl har inget namn!",result.contains("googl"));
-    }
-
-    @Test
-    public void testSummaVärde() {
-        person.läggTillPryl(new Aktie(NAMN_PÅ_PRYL,ANTAL, PRIS));
-        assertEquals(1000, person.summaVärde(), 0.1);
-       
-    }
-
-    @Test
-    public void testSetAktier() {
-        person.läggTillPryl(new Aktie(NAMN_PÅ_PRYL,ANTAL, PRIS));
-        person.läggTillPryl(new Smycke("Halsband", "Platina", ANTAL_ÄDELSTENAR));
-        person.setAktierTillNoll();
-        
-        assertEquals("Aktier har inte satts till noll!", 5700, person.summaVärde(), 0.1);
-        
-        
-    }
-
-//    @Test
-//    public void testToString() {
-//        person.läggTillPryl(py);
-//        String result = instance.toString();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-    
 }
