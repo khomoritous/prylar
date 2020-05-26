@@ -65,7 +65,7 @@ public class Controller {
         throw new IllegalArgumentException("Hittar ingen med det namnet!");
       } else {
           this.prylArgs = prylArgs;
-          Person person = personSamling.hämtaPerson(namnPåPerson);
+          Person person = personSamling.hämtaPrylSamlingTillPerson(namnPåPerson);
           prylFactory = PrylFactoryProducent.getFactory(prylArgs);
           Pryl pryl = prylFactory.skapaPryl(prylArgs);
           person.läggTillPryl(pryl);
