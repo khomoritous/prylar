@@ -2,12 +2,9 @@ package se.moma.pryl.integration;
 
 import se.moma.pryl.model.Person;
 import java.util.*;
-import static java.util.Comparator.comparing;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
 import se.moma.pryl.model.Smycke;
-import se.moma.pryl.model.interfaces.Pryl;
-import se.moma.pryl.util.PersonVärdeComparator;
 
 /**
  *  Skapar en <code>PersonSamling</code> av <code>Person</code>.
@@ -34,10 +31,28 @@ public class PersonSamling {
      * @param nyPerson Instans av <code>Person</code>.
      */
     public void läggTillPerson(String nyttNamn) {
-      if (nyttNamn.equals("") || nyttNamn == null) throw new IllegalArgumentException("Måste skriva namn på person!");
+      Objects.requireNonNull(nyttNamn,"Inget nullobjekt tillåts!");
+      if (nyttNamn.equals("")) throw new IllegalArgumentException("Måste skriva namn på person!");
       Person nyPerson = new Person(nyttNamn);
       personSamling.put(nyPerson, new PrylSamling());
-    }
+    } 
+    
+    
+     /**
+     * Hittar registrerad <code>Person</code> i <code>PersonSamling</code>.
+     * 
+     * @param namnPåPerson Namn på <code>Person</code> 
+     * @return <code>True</code>, om <code>Person</code> hittats <code>False</code> annars.
+     */
+     public boolean hittaPerson(String namnPåPerson) {
+       Objects.requireNonNull(namnPåPerson, "Inget nullobjekt tillåts!");
+       if (namnPåPerson.equals("")) throw new IllegalArgumentException("Måste skriva namn på person!");
+       if (personSamling.containsKey(new Person(namnPåPerson)))
+         return true;
+       return false;
+     }
+    
+    
     
     /**
      * Hämtar <code>Person</code> i <code>PersonSamling</code>.
@@ -47,28 +62,13 @@ public class PersonSamling {
      */
     public PrylSamling hämtaPrylSamlingTillPerson(String namnPåPerson) {
       Objects.requireNonNull(namnPåPerson,"Inget nullobjekt tillåts!");
+      if (namnPåPerson.equals("")) throw new IllegalArgumentException("Måste skriva namn på person!");
       PrylSamling prylSamling = null;
       if (hittaPerson(namnPåPerson)) 
         prylSamling = personSamling.get(new Person(namnPåPerson));
       return prylSamling;
     }
       
-    
-    
-    /**
-     * Hittar registrerad <code>Person</code> i <code>PersonSamling</code>.
-     * 
-     * @param namnPåPerson Namn på <code>Person</code> 
-     * @return <code>True</code>, om <code>Person</code> hittats <code>False</code> annars.
-     */
-     public boolean hittaPerson(String namnPåPerson) {
-       Objects.requireNonNull(namnPåPerson, "Inget nullobjekt tillåts!");
-       if (personSamling.containsKey(new Person(namnPåPerson)))
-         return true;
-       return false;
-     }
-    
-    
     
     /**
      * Sätter värdet av <code>Aktie</code> till noll.
@@ -86,12 +86,12 @@ public class PersonSamling {
 
     
     /**
-     * Visar alla <code>Person</code> i <code>PersonSamling</code> med namn och värde på samling av <code>Pryl</code>.
+     * Visar alla <code>Person</code> i <code>PersonSamling</code> med namn och värde på <code>PrylSamling</code> av <code>Pryl</code>.
      * 
      * @return Textsträngrepresentation av <code>Person</code> i <code>PersonSamling</code>.
      */
-//    public String visaAllaPersoner() {
-//      StringBuilder stringBuilder = new StringBuilder();
+ //    public String visaAllaPersoner() {
+//       StringBuilder stringBuilder = new StringBuilder();
 //      Formatter formatter = new Formatter(stringBuilder);
 //      for(Person person: minaPersoner) {
 //        formatter.format("person: %s, totalsumma: %.1f \n", person.getNamn(), person.summaVärde());
@@ -138,6 +138,13 @@ public class PersonSamling {
         personSamling.läggTillPerson("Pelle");
         
         System.out.println(personSamling.hittaPerson("Pelle"));
+        
+        personSamling.hämtaPrylSamlingTillPerson("Pelle").läggTillPryl(new Smycke("halsband","platina", 2));
+        personSamling.hämtaPrylSamlingTillPerson("Pelle").läggTillPryl(new Aktie("googl", 10, 10));
+        personSamling.hämtaPrylSamlingTillPerson("Pelle").läggTillPryl(new Apparat("ugn", 1000, 3));
+        
+        
+        System.out.println(personSamling.hämtaPrylSamlingTillPerson("Pelle"));
     }
 }
 

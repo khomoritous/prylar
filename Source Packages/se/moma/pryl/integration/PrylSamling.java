@@ -63,6 +63,7 @@ public class PrylSamling {
     
     
     /**
+     * En textrepresentation av <code>PrylSamling</code>.
      * 
      * @return En samling av <code>Pryl</code>. 
      */

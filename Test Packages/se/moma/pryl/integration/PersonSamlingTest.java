@@ -13,7 +13,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import se.moma.pryl.model.Aktie;
+import se.moma.pryl.model.Apparat;
 import se.moma.pryl.model.Person;
+import se.moma.pryl.model.Smycke;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
@@ -49,6 +51,59 @@ public class PersonSamlingTest {
         assertTrue("Den här personen finns inte samlingen!", personSamling.hittaPerson(NAMN_PÅ_PERSON));
     }
     
+    @Test(expected=NullPointerException.class)
+    public void testLäggTillPersonShouldThrowNPEForNonValidPerson() {
+      personSamling.läggTillPerson(null);
+    }
+    
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testLäggTillPersonShouldThrowIAEForNonValidPerson() {
+      personSamling.läggTillPerson("");
+    }
+    
+    
+    
+    @Test(expected=NullPointerException.class)
+    public void testHittaPersonShouldThrowNPEForNonValidPerson() {
+      personSamling.hittaPerson(null);
+    }
+    
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testHittaPersonShouldThrowIAEForNonValidPerson() {
+      personSamling.hittaPerson("");
+    }
+    
+    
+    @Test
+    public void testPrylSamlingTillPerson() {
+      personSamling.läggTillPerson(NAMN_PÅ_PERSON);
+      
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Smycke("halsband","platina", 2));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Aktie("googl", 10, 10));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Apparat("ugn", 1000, 3));
+      
+      String result = personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).toString();
+      
+      assertTrue("Den här personen har ingen samling!", result.contains("googl"));
+    }
+    
+    
+    @Test(expected=NullPointerException.class)
+    public void testHämtaPrylSamlingTillPersonShouldThrowNPEForNonValidPerson() {
+      personSamling.hämtaPrylSamlingTillPerson(null);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testHämtaPrylSamlingTillPersonShouldThrowIEAForNonValidPerson() {
+      personSamling.hämtaPrylSamlingTillPerson("");
+    }
+    
+
+   
+    
+   
     /*
     
     @Test
@@ -63,25 +118,12 @@ public class PersonSamlingTest {
     }
     
 
-    @Test
-    public void testHittaPerson() {
-        personSamling.läggTillPerson(person);
-        assertTrue("Hittade ingen person med det namnet!", personSamling.hittaPerson(NAMN_PÅ_PERSON));
-    }
     
     
-    @Test(expected=NullPointerException.class)
-    public void testHittaPersonShouldThrowNPEForNonValidPerson() {
-     personSamling = new PersonSamling();
-     personSamling.hittaPerson(null);
-    }
+   
     
     
-    @Test(expected=NullPointerException.class)
-    public void testLäggTillPersonShouldThrowNPEForNonValidPerson() {
-     personSamling = new PersonSamling();
-     personSamling.läggTillPerson(null);
-    }
+   
     
     @Test(expected=NullPointerException.class)
     public void testHämtaPersonShouldThrowNPEForNonValidPerson() {
