@@ -2,7 +2,7 @@ package se.moma.pryl.integration;
 
 import se.moma.pryl.model.Person;
 import java.util.*;
-import java.util.stream.Stream;
+import static java.util.stream.Collectors.toMap;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
 import se.moma.pryl.model.Smycke;
@@ -26,11 +26,10 @@ public class PersonSamling {
       personSamling = new HashMap<>();
     }
     
-    
     /**
      * Lägger till instans av <code>Person</code> till <code>PersonSamling</code>.
      * 
-     * @param nyPerson Instans av <code>Person</code>.
+     * @param nyttNamn Namn på <code>Person</code>.
      */
     public void läggTillPerson(String nyttNamn) {
       Objects.requireNonNull(nyttNamn,"Inget nullobjekt tillåts!");
@@ -80,22 +79,17 @@ public class PersonSamling {
     }
     
     
-    
     /**
      * Hämtar <code>Person</code> med mest värdefulla samling av <code>Pryl</code> i <code>PersonSamling</code>.
      * 
      * @return <code>Person</code> <code>Person</code> värdefulla samling av <code>Pryl</code>. 
      */
     public void hämtaRikastePerson() {
-     Map<Person, PrylSamling> sorterad = new TreeMap<>(new Comparator<Person>() {
-        @Override
-        public int compare(Person p1, Person p2) {
-          PrylSamling sam1 = personSamling.get(p1);
-          PrylSamling sam2 = personSamling.get(p2);
-          return sam1.compareTo(sam2);
-        }
-      });
-     sorterad.putAll(personSamling);
+     Map<Person, PrylSamling> sorterad = personSamling.entrySet()
+             .stream()
+             .sorted(Map.Entry.<Person, PrylSamling>comparingByValue(new PrylSamlingComparator()).reversed())
+             .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1,e2) -> e1, LinkedHashMap::new));
+     
     }
    
     
@@ -104,14 +98,14 @@ public class PersonSamling {
      * 
      * @return Textsträngrepresentation av <code>Person</code> i <code>PersonSamling</code>.
      */
-     public String visaAllaPersoner() {
+   /*  public String visaAllaPersoner() {
       StringBuilder stringBuilder = new StringBuilder();
       Formatter formatter = new Formatter(stringBuilder);
       personSamling.entrySet().forEach(entry -> entry.toString());
       
       formatter.format("person: %s, totalsumma: %.1f \n", person.getNamn(), person.summaVärde());
       
-    }
+    } */
    
 
   
@@ -125,12 +119,12 @@ public class PersonSamling {
       Formatter formatterPerson = new Formatter(stringBuilderPerson);
       StringBuilder stringBuilderPrylSamling = new StringBuilder();
       Formatter formatterPrylSamling = new Formatter(stringBuilderPrylSamling);
-      for(Person person: personSamling.keySet()) {
+      personSamling.keySet().forEach((person) -> {
         formatterPerson.format("person: %s\n", person.getNamn());
-      }
-      for (PrylSamling prylSamling: personSamling.values()) {
+      });
+      personSamling.values().forEach((prylSamling) -> {
         formatterPrylSamling.format("prylsamling -> %s\n", prylSamling.toString());
-      }
+      });
       
       return stringBuilderPerson.toString() + "\n" + stringBuilderPrylSamling.toString();
     }
