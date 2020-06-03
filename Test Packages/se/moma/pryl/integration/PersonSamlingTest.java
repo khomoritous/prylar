@@ -29,6 +29,7 @@ public class PersonSamlingTest {
     private List<Pryl> minaPrylar = null;
     private Person person = null;
     private Pryl pryl = null;
+    
     private static final String NAMN_PÅ_PERSON = "Ludde";
     private static final int ANTAL_AKTIER = 10;
     private static final int PRIS_PÅ_AKTIER = 100;
@@ -47,8 +48,8 @@ public class PersonSamlingTest {
    
     @Test
     public void testLäggTillPerson() {
-        personSamling.läggTillPerson(NAMN_PÅ_PERSON);
-        assertTrue("Den här personen finns inte samlingen!", personSamling.hittaPerson(NAMN_PÅ_PERSON));
+      personSamling.läggTillPerson(NAMN_PÅ_PERSON);
+      assertTrue("Den här personen finns inte samlingen!", personSamling.isPersonRegistrerad(NAMN_PÅ_PERSON));
     }
     
     @Test(expected=NullPointerException.class)
@@ -66,18 +67,32 @@ public class PersonSamlingTest {
     
     @Test(expected=NullPointerException.class)
     public void testHittaPersonShouldThrowNPEForNonValidPerson() {
-      personSamling.hittaPerson(null);
+      personSamling.isPersonRegistrerad(null);
     }
     
     
     @Test(expected=IllegalArgumentException.class)
     public void testHittaPersonShouldThrowIAEForNonValidPerson() {
-      personSamling.hittaPerson("");
+      personSamling.isPersonRegistrerad("");
+    }
+    
+    @Test(expected=NullPointerException.class)
+    public void testHämtaPersonShouldThrowNPEForNonValidPerson() {
+     personSamling = new PersonSamling();
+     personSamling.hämtaPrylSamlingTillPerson(null);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testHämtaPersonShouldThrowIEAForNonValidPerson() {
+     personSamling = new PersonSamling();
+     personSamling.hämtaPrylSamlingTillPerson("");
     }
     
     
+    
+    
     @Test
-    public void testPrylSamlingTillPerson() {
+    public void testHämtaPrylSamlingTillPerson() {
       personSamling.läggTillPerson(NAMN_PÅ_PERSON);
       
       personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Smycke("halsband","platina", 2));
@@ -85,7 +100,6 @@ public class PersonSamlingTest {
       personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Apparat("ugn", 1000, 3));
       
       String result = personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).toString();
-      
       assertTrue("Den här personen har ingen samling!", result.contains("googl"));
     }
     
@@ -99,22 +113,35 @@ public class PersonSamlingTest {
     public void testHämtaPrylSamlingTillPersonShouldThrowIEAForNonValidPerson() {
       personSamling.hämtaPrylSamlingTillPerson("");
     }
-    
-
    
-    
-   
-    /*
     
     @Test
     public void testBörsKrasch() {
-        pryl = new Aktie(NAMN_PÅ_AKTIE, ANTAL_AKTIER, PRIS_PÅ_AKTIER);
-        person.läggTillPryl(pryl);
-        personSamling.läggTillPerson(person);
-        personSamling.börsKrasch();
-        double expResultat = pryl.getVärde();
-        double resultat = person.summaVärde();
-        assertEquals(expResultat, resultat, 0.1);
+      //given:
+      personSamling.läggTillPerson(NAMN_PÅ_PERSON);
+      
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Smycke("halsband","platina", 2));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Aktie("googl", 10, 10));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Apparat("ugn", 1000, 3));
+      
+      System.out.println(personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).summaVärde());
+      
+      personSamling.läggTillPerson("Pelle");
+      
+      personSamling.hämtaPrylSamlingTillPerson("Pelle").läggTillPryl(new Smycke("ring","guld", 4));
+      personSamling.hämtaPrylSamlingTillPerson("Pelle").läggTillPryl(new Aktie("AAPL", 10, 10));
+      personSamling.hämtaPrylSamlingTillPerson("Pelle").läggTillPryl(new Apparat("skärm", 1500, 4));
+      
+       
+      
+      //when:
+      personSamling.börsKrasch();
+        
+      //then:
+      assertEquals(2000, personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).summaVärde(), 0.1);
+      
+      //and then:
+      assertEquals(4600, personSamling.hämtaPrylSamlingTillPerson("Pelle").summaVärde(), 0.1);
     }
     
 
@@ -125,19 +152,10 @@ public class PersonSamlingTest {
     
    
     
-    @Test(expected=NullPointerException.class)
-    public void testHämtaPersonShouldThrowNPEForNonValidPerson() {
-     personSamling = new PersonSamling();
-     personSamling.hämtaPrylSamlingTillPerson(null);
-    }
+    
     
 
-    @Test
-    public void testHämtaPerson() {
-        personSamling.läggTillPerson(person);
-        assertEquals(person, personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON));
- 
-    }
+   /*
 
     @Test
     public void testVisaAllaPersoner() {

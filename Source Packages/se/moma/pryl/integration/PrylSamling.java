@@ -17,7 +17,7 @@ import se.moma.pryl.model.interfaces.Pryl;
  *
  * @author monde
  */
-public class PrylSamling {
+public class PrylSamling implements Comparable<PrylSamling>{
   
   private List<Pryl> prylar = null;
   
@@ -61,6 +61,9 @@ public class PrylSamling {
       }
     }   
     
+    public int compareTo(PrylSamling o) {
+      return (int) (o.summaVärde() - this.summaVärde());
+    }
     
     /**
      * En textrepresentation av <code>PrylSamling</code>.
@@ -92,6 +95,10 @@ public class PrylSamling {
       System.out.println(ollesprylar);
       System.out.println(kallesprylar);
       
-      System.out.println(ollesprylar.summaVärde());
+      System.out.println("Värdet av Olles prylar: " + ollesprylar.summaVärde());
+      
+      System.out.println("Värdet av Kalles prylar: " + kallesprylar.summaVärde());
     }
+
+  
 }

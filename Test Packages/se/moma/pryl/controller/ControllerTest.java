@@ -42,7 +42,7 @@ public class ControllerTest {
     public void testRegistreraNyPerson() {
      // controller.registreraNyPerson(NAMN_PÅ_PERSON);
      personSamling.läggTillPerson(new Person(NAMN_PÅ_PERSON));
-      assertTrue("Det finns ingen sådan person registrerad!", personSamling.hittaPerson(NAMN_PÅ_PERSON));
+      assertTrue("Det finns ingen sådan person registrerad!", personSamling.isPersonRegistrerad(NAMN_PÅ_PERSON));
     }
 
     

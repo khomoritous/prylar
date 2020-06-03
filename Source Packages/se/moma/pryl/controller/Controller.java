@@ -101,7 +101,7 @@ public class Controller {
      * @return <code>True</code>, om <code>Person</code> finns i <code>PersonSamling</code>, <code>false</code> annars.
      */
     public boolean isPersonRegistrerad(String namnpåperson){
-      return personSamling.hittaPerson(namnpåperson);
+      return personSamling.isPersonRegistrerad(namnpåperson);
     }
     
     
