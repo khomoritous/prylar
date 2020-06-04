@@ -75,7 +75,7 @@ public class PersonSamling {
      * Sätter värdet av <code>Aktie</code> till noll.
      */
     public void börsKrasch() {
-     personSamling.values().forEach(aktie -> aktie.setAktierTillNoll());
+      personSamling.values().forEach(aktie -> aktie.setAktierTillNoll());
     }
     
     
@@ -84,12 +84,12 @@ public class PersonSamling {
      * 
      * @return <code>Person</code> <code>Person</code> värdefulla samling av <code>Pryl</code>. 
      */
-    public void hämtaRikastePerson() {
+    public Map<Person, PrylSamling> hämtaRikastePerson() {
      Map<Person, PrylSamling> sorterad = personSamling.entrySet()
              .stream()
              .sorted(Map.Entry.<Person, PrylSamling>comparingByValue(new PrylSamlingComparator()).reversed())
              .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1,e2) -> e1, LinkedHashMap::new));
-     
+     return sorterad;
     }
    
     
@@ -164,7 +164,7 @@ public class PersonSamling {
       
       System.out.println(personSamling);
       
-      personSamling.hämtaRikastePerson();
+      System.out.println(personSamling.hämtaRikastePerson());
       
       System.out.println(personSamling);    
        
