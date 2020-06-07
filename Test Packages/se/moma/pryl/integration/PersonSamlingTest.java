@@ -5,18 +5,12 @@
  */
 package se.moma.pryl.integration;
 
-import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
-import se.moma.pryl.model.Person;
 import se.moma.pryl.model.Smycke;
-import se.moma.pryl.model.interfaces.Pryl;
 
 /**
  *
@@ -25,19 +19,14 @@ import se.moma.pryl.model.interfaces.Pryl;
 public class PersonSamlingTest {
     
     private PersonSamling personSamling = null;
-    private List<Person> minaPersoner = null;
-    private List<Pryl> minaPrylar = null;
-    private Person person = null;
-    private Pryl pryl = null;
+   
     
     private static final String NAMN_PÅ_PERSON = "Ludde";
     private static final int ANTAL_AKTIER = 10;
-    private static final int PRIS_PÅ_AKTIER = 100;
-    private static final String NAMN_PÅ_AKTIE = "googl";
-    private static final int ANTAL_AKTIER_PÅ_RIKASTE_PERSON = 1000;
-    private static final int PRIS_PÅ_AKTIE_FÖR_RIKASTE = 1000;
-    private static final String NAMN_PÅ_RIKASTE_PERSON = "Stig";
-    private static final String NAMN_PÅ_DYRASTE_AKTIE = "aapl";
+    private static final int PRIS_PÅ_AKTIER = 10;
+    private static final int PRIS_PÅ_APPARAT = 1000;
+    private static final int SLITAGE = 3;
+    private static final int ANTAL_ÄDELSTENAR = 2;
    
     
     @Before
@@ -78,14 +67,14 @@ public class PersonSamlingTest {
     
     @Test(expected=NullPointerException.class)
     public void testHämtaPersonShouldThrowNPEForNonValidPerson() {
-     personSamling = new PersonSamling();
-     personSamling.hämtaPrylSamlingTillPerson(null);
+      personSamling = new PersonSamling();
+      personSamling.hämtaPrylSamlingTillPerson(null);
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void testHämtaPersonShouldThrowIEAForNonValidPerson() {
-     personSamling = new PersonSamling();
-     personSamling.hämtaPrylSamlingTillPerson("");
+      personSamling = new PersonSamling();
+      personSamling.hämtaPrylSamlingTillPerson("");
     }
     
     
@@ -95,9 +84,9 @@ public class PersonSamlingTest {
     public void testHämtaPrylSamlingTillPerson() {
       personSamling.läggTillPerson(NAMN_PÅ_PERSON);
       
-      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Smycke("halsband","platina", 2));
-      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Aktie("googl", 10, 10));
-      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Apparat("ugn", 1000, 3));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Smycke("halsband", "platina", ANTAL_ÄDELSTENAR));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Aktie("googl", ANTAL_AKTIER, PRIS_PÅ_AKTIER));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Apparat("ugn", PRIS_PÅ_APPARAT, SLITAGE));
       
       String result = personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).toString();
       assertTrue("Den här personen har ingen samling!", result.contains("googl"));
@@ -145,25 +134,15 @@ public class PersonSamlingTest {
     }
     
 
-    
-    
-   
-    
-    
-   
-    
-    
-    
-
-   /*
-
     @Test
     public void testVisaAllaPersoner() {
-        personSamling.läggTillPerson(person);
+        personSamling.läggTillPerson("Pelle");
+        personSamling.läggTillPerson("Ludde");
         String expResult = personSamling.visaAllaPersoner();
-        assertTrue("Den här personen finns inte i samlingen!", expResult.contains(NAMN_PÅ_PERSON));
+        assertTrue("Den här personen finns inte i samlingen!", expResult.contains("Pelle"));
     }
-
+    
+/*
     @Test
     public void testHämtaRikastePerson() {
         Person rikastePerson = new Person(NAMN_PÅ_RIKASTE_PERSON);
