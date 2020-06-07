@@ -95,18 +95,19 @@ public class PersonSamling {
    
     
     /**
-     * Visar alla <code>Person</code> i <code>PersonSamling</code> med namn och värde på <code>PrylSamling</code> av <code>Pryl</code>.
+     * Visar alla <code>Person</code> i <code>PersonSamling</code> med namn och totala värde på <code>PrylSamling</code>.
      * 
-     * @return Textsträngrepresentation av <code>Person</code> i <code>PersonSamling</code>.
+     * @return <code>Person</code> i <code>PersonSamling</code>.
      */
-   /*  public String visaAllaPersoner() {
+     public String visaAllaPersoner() {
       StringBuilder stringBuilder = new StringBuilder();
       Formatter formatter = new Formatter(stringBuilder);
-      personSamling.entrySet().forEach(entry -> entry.toString());
+      for (Map.Entry<Person, PrylSamling> entry : personSamling.entrySet()) {
+        formatter.format("person: %s, totalsumma: %.1f \n", entry.getKey().getNamn(), entry.getValue().summaVärde());  
+      }
       
-      formatter.format("person: %s, totalsumma: %.1f \n", person.getNamn(), person.summaVärde());
-      
-    } */
+      return stringBuilder.toString();
+    } 
    
 
   
@@ -160,7 +161,9 @@ public class PersonSamling {
       
       System.out.println(personSamling.hämtaRikastePerson());
       
-      System.out.println(personSamling);    
+      System.out.println(personSamling);  
+      
+      System.out.println(personSamling.visaAllaPersoner());
        
     }
 }
