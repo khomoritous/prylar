@@ -72,7 +72,7 @@ public class PersonSamling {
       
     
     /**
-     * Sätter värdet av <code>Aktie</code> till noll.
+     * Sätter värdet av <code>Aktie</code> i <code>PrylSamling</code> till noll.
      */
     public void börsKrasch() {
       personSamling.values().forEach(aktie -> aktie.setAktierTillNoll());
@@ -80,9 +80,10 @@ public class PersonSamling {
     
     
     /**
-     * Hämtar <code>Person</code> med mest värdefulla samling av <code>Pryl</code> i <code>PersonSamling</code>.
+     * Visar <code>Person</code> med mest värdefulla <code>PersonSamling</code> i 
+     * nedstigande ordning. Ex. input {värde=1000,värde=500,värde=2000} -> {värde=2000,värde=1000,värde=500} som output.
      * 
-     * @return <code>Person</code> <code>Person</code> värdefulla samling av <code>Pryl</code>. 
+     * @return <code>Map<Person, PrylSamling></code> sorterad i nedstigande ordning med avseende på värde,{nyckel -> värde}.
      */
     public Map<Person, PrylSamling> hämtaRikastePerson() {
      Map<Person, PrylSamling> sorterad = personSamling.entrySet()
@@ -115,18 +116,11 @@ public class PersonSamling {
      */
     @Override
     public String toString() {
-      StringBuilder stringBuilderPerson = new StringBuilder();
-      Formatter formatterPerson = new Formatter(stringBuilderPerson);
-      StringBuilder stringBuilderPrylSamling = new StringBuilder();
-      Formatter formatterPrylSamling = new Formatter(stringBuilderPrylSamling);
-      personSamling.keySet().forEach((person) -> {
-        formatterPerson.format("person: %s\n", person.getNamn());
+      StringBuilder stringBuilder = new StringBuilder();
+      personSamling.entrySet().forEach((entry) -> {
+        stringBuilder.append(entry.getKey().toString()).append(" -> ").append(entry.getValue().toString());
       });
-      personSamling.values().forEach((prylSamling) -> {
-        formatterPrylSamling.format("prylsamling -> %s\n", prylSamling.toString());
-      });
-      
-      return stringBuilderPerson.toString() + "\n" + stringBuilderPrylSamling.toString();
+      return stringBuilder.toString();
     }
 
     
