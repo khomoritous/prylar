@@ -5,11 +5,13 @@
  */
 package se.moma.pryl.integration;
 
+import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
+import se.moma.pryl.model.Person;
 import se.moma.pryl.model.Smycke;
 
 /**
@@ -109,11 +111,11 @@ public class PersonSamlingTest {
       //given:
       personSamling.läggTillPerson(NAMN_PÅ_PERSON);
       
-      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Smycke("halsband","platina", 2));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Smycke("halsband","platina", ANTAL_ÄDELSTENAR));
       personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Aktie("googl", 10, 10));
       personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Apparat("ugn", 1000, 3));
       
-      System.out.println(personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).summaVärde());
+      //System.out.println(personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).summaVärde());
       
       personSamling.läggTillPerson("Pelle");
       
@@ -142,15 +144,32 @@ public class PersonSamlingTest {
         assertTrue("Den här personen finns inte i samlingen!", expResult.contains("Pelle"));
     }
     
-/*
-    @Test
+/
+   /* @Test
     public void testHämtaRikastePerson() {
-        Person rikastePerson = new Person(NAMN_PÅ_RIKASTE_PERSON);
-        rikastePerson.läggTillPryl(new Aktie(NAMN_PÅ_DYRASTE_AKTIE, ANTAL_AKTIER_PÅ_RIKASTE_PERSON, PRIS_PÅ_AKTIE_FÖR_RIKASTE));
-        personSamling.läggTillPerson(person);
-        personSamling.läggTillPerson(rikastePerson);
-        assertEquals(rikastePerson, personSamling.hämtaRikastePerson());
+       //given:
+      personSamling.läggTillPerson(NAMN_PÅ_PERSON);
+      
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Smycke("halsband","platina", ANTAL_ÄDELSTENAR));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Aktie("googl", 10, 10));
+      personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).läggTillPryl(new Apparat("ugn", 1000, 3));
+      
+      //System.out.println(personSamling.hämtaPrylSamlingTillPerson(NAMN_PÅ_PERSON).summaVärde());
+      
+      personSamling.läggTillPerson("Pelle");
+      
+      personSamling.hämtaPrylSamlingTillPerson("Pelle").läggTillPryl(new Smycke("ring","guld", 4));
+      personSamling.hämtaPrylSamlingTillPerson("Pelle").läggTillPryl(new Aktie("AAPL", 10, 10));
+      personSamling.hämtaPrylSamlingTillPerson("Pelle").läggTillPryl(new Apparat("skärm", 1500, 4));
+      
+       
+      
+      //when:
+      Map<Person, PrylSamling> sorterad = personSamling.hämtaRikastePerson();
         
+      //then:
+      assertThat();
+      
         
     } */
 

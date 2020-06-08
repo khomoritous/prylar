@@ -18,11 +18,12 @@ public class Person {
     /**
      * Skapar en ny instans av <code>Person</code>.
      * 
-     * @param namn Namn på <code>Person</code>.
+     * @param namnPåPerson Namn på <code>Person</code>.
      */
-    public Person(String namn) {
-      if (namn.equals("")) throw new IllegalArgumentException("Måste ange ett namn!");
-      this.namn = namn;
+    public Person(String namnPåPerson) {
+      Objects.requireNonNull(namnPåPerson, "null");
+      if (namnPåPerson.equals("")) throw new IllegalArgumentException("Måste ange ett namn!");
+      this.namn = namnPåPerson;
     }
     
     
@@ -33,14 +34,12 @@ public class Person {
       return namn;
     }
     
+    @Override
     public String toString() {
       return getNamn();
     }
     
-    public static void main(String[] args) {
-      Person person = new Person("Olle");
-      System.out.println(person);
-    }
+   
 
   @Override
   public int hashCode() {
@@ -66,6 +65,15 @@ public class Person {
     }
     return true;
   }
+  
+   public static void main(String[] args) {
+      Person person = new Person("Olle");
+      System.out.println(person);
+      Person person1 = new Person("Olle");
+      Person person2 = new Person("Pelle");
+      
+      assert person.equals(person1);
+   }
 
 }
 

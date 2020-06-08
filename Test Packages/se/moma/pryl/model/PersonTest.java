@@ -30,20 +30,26 @@ public class PersonTest {
     
     @Before
     public void setUp() {
-        
-        person = new Person(NAMN_PÅ_PERSON);
+      person = new Person(NAMN_PÅ_PERSON);
     }
     
-    @Test(expected=IllegalArgumentException.class)
-    public void testConstructorShouldThrowIAEForNonValidNamn() {
-     person = new Person(NON_VALID_NAMN_PÅ_PERSON);
-    }
     
 
     @Test
     public void testGetNamn() {
-        assertEquals(NAMN_PÅ_PERSON, person.getNamn());
-        
+      assertEquals(NAMN_PÅ_PERSON, person.getNamn());
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testConstructorShouldThrowIAEForNonValidNamn() {
+      person = new Person(NON_VALID_NAMN_PÅ_PERSON);
+    }
+    
+    @Test
+    public void testSammaNamnGerEqualObjekt() {
+      Person person1 = new Person(NAMN_PÅ_PERSON);
+     // Person person2 = new Person("Ludde");
+      assertTrue("Två olika objekt!", person.equals(person1));
     }
 
 }
