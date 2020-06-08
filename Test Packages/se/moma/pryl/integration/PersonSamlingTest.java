@@ -144,7 +144,7 @@ public class PersonSamlingTest {
         assertTrue("Den här personen finns inte i samlingen!", expResult.contains("Pelle"));
     }
     
-/
+
    /* @Test
     public void testHämtaRikastePerson() {
        //given:

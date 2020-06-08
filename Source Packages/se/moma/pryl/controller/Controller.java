@@ -11,7 +11,7 @@ import java.util.Map;
 import se.moma.pryl.integration.PersonSamling;
 import se.moma.pryl.model.Person;
 import se.moma.pryl.model.factory.PrylFactory;
-import se.moma.pryl.model.factory.PrylFactoryProducent;
+import se.moma.pryl.model.factory.PrylFactory;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
@@ -37,7 +37,7 @@ public class Controller {
      * @param personSamling Samling för instanser av <code>Person</code>.
      * @param prylFactory För att skapa <code>Pryl</code>.
      */
-    public Controller(PersonSamling personSamling, PrylFactory prylFactory) {
+    public Controller(PersonSamling personSamling) {
       this.personSamling  = new PersonSamling();
       this.prylFactory = prylFactory;      
     } 
@@ -50,7 +50,7 @@ public class Controller {
      */
     public void registreraNyPerson(String namnPåNyPerson) {
       if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerad!");
-        personSamling.läggTillPerson(new Person(namnPåNyPerson));
+        personSamling.läggTillPerson(namnPåNyPerson);
     }
 
     
@@ -66,7 +66,7 @@ public class Controller {
       } else {
           this.prylArgs = prylArgs;
           Person person = personSamling.hämtaPrylSamlingTillPerson(namnPåPerson);
-          prylFactory = PrylFactoryProducent.getFactory(prylArgs);
+          prylFactory = PrylFactory.getFactory(prylArgs);
           Pryl pryl = prylFactory.skapaPryl(prylArgs);
           person.läggTillPryl(pryl);
         }
@@ -95,10 +95,10 @@ public class Controller {
     
     
     /**
-     * Finns <code>Person</code> i <code>PersonSamling</code>
+     * Finns <code>Person</code>  i <code>PersonSamling</code>.
      * 
-     * @param namnpåperson Anger namn på <code>Person</code> i <code>PersonSamling</code>.
-     * @return <code>True</code>, om <code>Person</code> finns i <code>PersonSamling</code>, <code>false</code> annars.
+     * @param namnpåperson Namn på <code>Person</code> i <code>PersonSamling</code>.
+     * @return <code>True</code>, om <code>Person</code> finns i <code>PersonSamling</code>, <code>False</code> annars.
      */
     public boolean isPersonRegistrerad(String namnpåperson){
       return personSamling.isPersonRegistrerad(namnpåperson);
@@ -107,30 +107,14 @@ public class Controller {
     
     public static void main(String[] args) {
     
-      PrylFactory prylFactory = null;
-      Controller controller = new Controller(new PersonSamling(), prylFactory);
+      PersonSamling personSamling = null;
+      Controller controller = new Controller(personSamling);
       //skapa person
-      controller.registreraNyPerson(NAMN);
-      
       controller.registreraNyPerson("Pelle");
+      assert controller.isPersonRegistrerad("Pelle");
      
-      //skapa pryl
-      Map<String, String> prylArgs = new HashMap<>();
-      Map<String, String> prylArgs1 = new HashMap<>();
-       
-      prylArgs.put("smycke", "ring");
-      prylArgs.put("metall", "platina");
-      prylArgs.put("ädelstenar", "10");
-      controller.skapaPrylTillPerson(NAMN, prylArgs);
-      
-      prylArgs1.put("apparat", "brödrost");
-      prylArgs1.put("pris", "500");
-      prylArgs1.put("slitage", "3");
-      
-      controller.skapaPrylTillPerson("Pelle", prylArgs1);
       
       
-      //System.out.println(controller.visaRikastePerson()+ "\n");
-      System.out.println(controller.visaPersonSamling());
+     
     }
 }
