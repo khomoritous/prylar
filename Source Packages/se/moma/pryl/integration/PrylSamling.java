@@ -31,7 +31,7 @@ public class PrylSamling implements Comparable<PrylSamling>{
      * @param nyPryl Instans av <code>Pryl</code>.
      */
     public void läggTillPryl(Pryl nyPryl) {
-      if (nyPryl == null) throw new IllegalArgumentException("Inget nullobjekts tillåts!");
+      if (nyPryl == null) throw new IllegalArgumentException("Inget nullobjekt tillåts!");
       prylar.add(nyPryl);
     }
     
