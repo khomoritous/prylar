@@ -5,13 +5,9 @@
  */
 package se.moma.pryl.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import se.moma.pryl.integration.PersonSamling;
@@ -27,6 +23,7 @@ public class ControllerTest {
     
     private Controller controller = null;
     private PersonSamling personSamling = null;
+    private Map<String, String> prylArgs = null;
     private PrylFactory prylfactory = null;
     private List<Person> personLista = null;
     private static final String NAMN_PÅ_PERSON = "Boris";
@@ -35,23 +32,23 @@ public class ControllerTest {
     @Before
     public void setUp() {
       personSamling = new PersonSamling();
-      controller = new Controller(personSamling, prylfactory);
+      controller = new Controller(personSamling, prylArgs);
     }
     
    @Test
     public void testRegistreraNyPerson() {
-     // controller.registreraNyPerson(NAMN_PÅ_PERSON);
-     personSamling.läggTillPerson(new Person(NAMN_PÅ_PERSON));
-      assertTrue("Det finns ingen sådan person registrerad!", personSamling.isPersonRegistrerad(NAMN_PÅ_PERSON));
+      controller.registreraNyPerson("Pelle");
+      assertTrue("Det finns ingen sådan person registrerad!", controller.isPersonRegistrerad("Pelle"));
     }
 
     
     @Test(expected = IllegalArgumentException.class)
     public void testRegisteraNyPersonShouldThrowIAEForNonValidName() {
-      controller.registreraNyPerson(NAMN_PÅ_PERSON);
-      controller.registreraNyPerson(NON_VALID_NAMN);
+      controller.registreraNyPerson("Pelle");
+      controller.registreraNyPerson("Pelle");
     }
     
+    /*
     //ok test, kan göras bättre.
     @Test
     public void testSkapaPrylTillPerson() {
@@ -67,5 +64,5 @@ public class ControllerTest {
         
         assertTrue("Det finns ingen med det namnet!", resultat.contains(expResultat));
     } 
-    
+    */
 }
