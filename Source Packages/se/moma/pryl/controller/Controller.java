@@ -24,7 +24,7 @@ import se.moma.pryl.model.interfaces.Pryl;
 public class Controller {
     
     private PersonSamling personSamling = null;
-    private Map<String, String> prylArgs = null;
+    private Map<String, String> prylArgs = new HashMap<>();
     
     
     
@@ -36,7 +36,7 @@ public class Controller {
      */
     public Controller(PersonSamling personSamling,Map<String, String> prylArgs) {
       this.personSamling  = new PersonSamling();     
-      this.prylArgs = new HashMap<>();
+     // this.prylArgs = new HashMap<>();
       this.prylArgs = prylArgs;
     } 
    

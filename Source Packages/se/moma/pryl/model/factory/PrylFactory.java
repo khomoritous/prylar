@@ -26,7 +26,7 @@ public class PrylFactory {
     public static Pryl getPryl(String namnPåPryl, Map<String, String> map) {
      try {
         if (namnPåPryl.equalsIgnoreCase("smycke")) 
-          return new Smycke(map.get("namn"),map.get("metall"), Integer.parseInt(map.get("ädelstenar")));
+          return new Smycke(map.get("namn"), map.get("metall"), parseInt(map.get("ädelstenar")));
         else if (namnPåPryl.equalsIgnoreCase("aktie"))
             return new Aktie(map.get("namn"), parseInt(map.get("antal")), parseInt(map.get("pris")));
         else if (namnPåPryl.equalsIgnoreCase("apparat"))

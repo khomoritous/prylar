@@ -124,16 +124,15 @@ public class View {
  */  
   
      
-      PrylFactory prylFactory = null;
-      Map<String, String> prylArgs = null;
+    //  PrylFactory prylFactory = null;
+      Map<String, String> prylArgs = new HashMap<>();
       Controller controller = null;
 	    Scanner scanner = null;
       
-      public View(Map<String, String> prylArgs, Controller controller, Scanner scanneranner) {
+      public View(Map<String, String> prylArgs, Controller controller, Scanner scanner) {
         this.prylArgs = prylArgs;
-        this.prylArgs = new HashMap<>();
         this.controller = controller;
-        this.scanner = scanneranner;
+        this.scanner = scanner;
         this.scanner = new Scanner(System.in);
       }
       
@@ -154,7 +153,7 @@ public class View {
           switch(kommando) {
             case 1:
               //SkapaPerson
-              System.out.print("Namn på en person: ");
+              System.out.print("Namn på person: ");
               String namn = scanner.nextLine();
               controller.registreraNyPerson(namn);
             break;
@@ -167,9 +166,9 @@ public class View {
               if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen registrerad med det namnet!");
               System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
      
-              String namnPåPryl = scanner.nextLine();
+              String typAvPryl = scanner.nextLine();
               System.out.println("");
-              if (namnPåPryl.equalsIgnoreCase("Smycke")) {
+              if (typAvPryl.equalsIgnoreCase("Smycke")) {
                 System.out.print("Vilket sorts smycke? ");
 	              String smycke  = scanner.nextLine();
                 System.out.println("");
@@ -179,11 +178,11 @@ public class View {
 	              System.out.print("Antal ädelstenar? ");
 	              String ädelStenar = scanner.nextLine();
                
-                prylArgs.put("smycke", smycke);
+                prylArgs.put("namn", smycke);
                 prylArgs.put("metall", metall);
                 prylArgs.put("ädelstenar",ädelStenar);
-                controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
-             } else if (namnPåPryl.equalsIgnoreCase("Apparat")) {
+                controller.skapaPrylTillPerson(namnPåPerson, "smycke");
+             } else if (typAvPryl.equalsIgnoreCase("Apparat")) {
                  System.out.print("Vilken sorts apparat? ");
                  String apparat = scanner.nextLine();
                  System.out.println("");
@@ -193,11 +192,11 @@ public class View {
                  System.out.print("Vad har apparaten för slitage? ");
                  String slitage = scanner.nextLine();
                  
-                 prylArgs.put("apparat", apparat);
+                 prylArgs.put("namn", apparat);
                  prylArgs.put("pris", pris);
                  prylArgs.put("slitage", slitage);
-                 controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
-             } else if (namnPåPryl.equalsIgnoreCase("Aktie")) {
+                 controller.skapaPrylTillPerson(namnPåPerson, "apparat");
+             } else if (typAvPryl.equalsIgnoreCase("Aktie")) {
                  System.out.print("Vilken sort aktie? ");
                  String aktieNamn = scanner.nextLine();
                  System.out.println("");
@@ -210,13 +209,13 @@ public class View {
                  prylArgs.put("namn", aktieNamn);
                  prylArgs.put("antal", antal);
                  prylArgs.put("pris", pris);
-                 controller.skapaPrylTillPerson(namnPåPerson, prylArgs);
+                 controller.skapaPrylTillPerson(namnPåPerson, "aktie");
              } else {
-                 throw new IllegalArgumentException(namnPåPryl + " finns inte!");
+                 throw new IllegalArgumentException(typAvPryl + " finns inte!");
                }
              break;
             case 3:
-              System.out.println(controller.visaPersonSamling());
+              System.out.println(controller.toString());
               
               break;
              default:
