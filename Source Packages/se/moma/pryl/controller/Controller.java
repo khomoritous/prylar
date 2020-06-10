@@ -96,6 +96,10 @@ public class Controller {
       return personSamling.isPersonRegistrerad(namnpåperson);
     }
     
+    public String toString() {
+      return personSamling.toString();
+    }
+    
     
     private Map<String, String> getPrylArgs() {
       return prylArgs;
@@ -153,6 +157,8 @@ public class Controller {
       
       controller.skapaPrylTillPerson("Ludde", "aktie");
       System.out.println(controller.visaPersonSamling());
+      
+      System.out.println(controller.toString());
       
     }
 

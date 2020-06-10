@@ -5,6 +5,7 @@
  */
 package se.moma.pryl.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.Before;
@@ -32,37 +33,37 @@ public class ControllerTest {
     @Before
     public void setUp() {
       personSamling = new PersonSamling();
+      prylArgs = new HashMap<>();
       controller = new Controller(personSamling, prylArgs);
+      controller.registreraNyPerson("Pelle");
     }
     
    @Test
     public void testRegistreraNyPerson() {
-      controller.registreraNyPerson("Pelle");
       assertTrue("Det finns ingen sådan person registrerad!", controller.isPersonRegistrerad("Pelle"));
     }
 
     
     @Test(expected = IllegalArgumentException.class)
     public void testRegisteraNyPersonShouldThrowIAEForNonValidName() {
-      controller.registreraNyPerson("Pelle");
+      //controller.registreraNyPerson("Pelle");
       controller.registreraNyPerson("Pelle");
     }
     
-    /*
-    //ok test, kan göras bättre.
+    
     @Test
     public void testSkapaPrylTillPerson() {
-      String namnPåPerson = NAMN_PÅ_PERSON;
-      Map<String, String> prylArgs = new HashMap<>();
-      prylArgs.put("smycke", "ring");
+     
+     
+      prylArgs.put("namn", "ring");
       prylArgs.put("metall", "platina");
       prylArgs.put("ädelstenar", "10");
-      controller.registreraNyPerson(NAMN_PÅ_PERSON);
-      controller.skapaPrylTillPerson(NAMN_PÅ_PERSON, prylArgs);
-      String resultat = controller.visaPersonSamling();
-      String expResultat = namnPåPerson;
+      
+      controller.skapaPrylTillPerson("Pelle", "smycke");
+      String resultat = controller.toString();
+      String expResultat = "ring";
         
-        assertTrue("Det finns ingen med det namnet!", resultat.contains(expResultat));
+      assertTrue("Det finns inget smycke med det namnet!", resultat.contains(expResultat));
     } 
-    */
+    
 }
