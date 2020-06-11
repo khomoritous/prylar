@@ -62,6 +62,11 @@ public class Controller {
       if (!isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Hittar ingen med det namnet!");
       personSamling.hämtaPrylSamlingTillPerson(namnPåPerson).läggTillPryl(PrylFactory.getPryl(namnPåPryl, getPrylArgs()));
      }
+     
+     public PrylSamling hämtaPrylSamling(String hämtaPerson) {
+       if (!isPersonRegistrerad(hämtaPerson)) throw new IllegalArgumentException("Hittar ingen med det namnet!");
+       return personSamling.hämtaPrylSamlingTillPerson(hämtaPerson);
+     }
 
   
     
@@ -95,20 +100,23 @@ public class Controller {
     public boolean isPersonRegistrerad(String namnpåperson){
       return personSamling.isPersonRegistrerad(namnpåperson);
     }
-    
+    /**
+     * 
+     * 
+     * @return Textsträng av <code>PersonSamling</code>. 
+     */
+    @Override
     public String toString() {
       return personSamling.toString();
     }
     
-    
+    //getter, returnerar prylargument i prylArgs.
     private Map<String, String> getPrylArgs() {
       return prylArgs;
     }
     
     
-   
-    
-    
+   //Test
     public static void main(String[] args) {
       
       Map<String, String> prylArgs = new HashMap<>();
@@ -159,6 +167,8 @@ public class Controller {
       System.out.println(controller.visaPersonSamling());
       
       System.out.println(controller.toString());
+      
+      System.out.println(controller.hämtaPrylSamling("Pelle"));
       
     }
 

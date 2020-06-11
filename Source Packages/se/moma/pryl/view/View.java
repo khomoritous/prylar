@@ -138,7 +138,7 @@ public class View {
       
       
       public void displayMeny() {
-        System.out.print("\n"+"1-Skapa person \n" + "2-Skapa pryl \n" + "3-Visa alla\n" /*+"4-Visa rikaste \n"+"5-Visa viss person \n"+"6-B�rskrascannerh \n"+"7- Avsluta"*/);
+        System.out.print("\n"+"1-Skapa person \n" + "2-Skapa pryl \n" + "3-Visa alla\n" +"4-Visa rikaste \n" +"5-Visa viss person \n"/*+"6-B�rskrascannerh \n"+"7- Avsluta"*/);
 		    System.out.println();
       }
 	
@@ -167,7 +167,7 @@ public class View {
               System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
      
               String typAvPryl = scanner.nextLine();
-              System.out.println("");
+              System.out.println();
               if (typAvPryl.equalsIgnoreCase("Smycke")) {
                 System.out.print("Vilket sorts smycke? ");
 	              String smycke  = scanner.nextLine();
@@ -177,6 +177,7 @@ public class View {
                 System.out.println("");
 	              System.out.print("Antal ädelstenar? ");
 	              String ädelStenar = scanner.nextLine();
+                System.out.println();
                
                 prylArgs.put("namn", smycke);
                 prylArgs.put("metall", metall);
@@ -191,6 +192,7 @@ public class View {
                  System.out.println("");
                  System.out.print("Vad har apparaten för slitage? ");
                  String slitage = scanner.nextLine();
+                 System.out.println();
                  
                  prylArgs.put("namn", apparat);
                  prylArgs.put("pris", pris);
@@ -199,12 +201,13 @@ public class View {
              } else if (typAvPryl.equalsIgnoreCase("Aktie")) {
                  System.out.print("Vilken sort aktie? ");
                  String aktieNamn = scanner.nextLine();
-                 System.out.println("");
+                 System.out.println();
                  System.out.print("Antal aktier? ");
                  String antal = scanner.nextLine();
-                 System.out.println("");
+                 System.out.println();
                  System.out.print("Pris på aktie? ");
                  String pris = scanner.nextLine();
+                 System.out.println();
                  
                  prylArgs.put("namn", aktieNamn);
                  prylArgs.put("antal", antal);
@@ -216,10 +219,20 @@ public class View {
              break;
             case 3:
               System.out.println(controller.toString());
-              
               break;
-             default:
-               System.out.println("Felaktigt kommando! Försök igen!");
+            case 4: 
+              //String namnPåRikastePerson = scanner.nextLine();
+		          System.out.println(controller.visaRikastePerson());
+              System.out.println();
+			        break;
+            case 5:
+			        System.out.print("Skriv ett namn: ");
+			        String hämtaPerson = scanner.nextLine();
+              System.out.println();
+			        System.out.println(controller.hämtaPrylSamling(hämtaPerson));
+			        break;
+            default:
+              System.out.println("Felaktigt kommando! Försök igen!");
              
           }
          
