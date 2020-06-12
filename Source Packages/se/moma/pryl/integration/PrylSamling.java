@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
-import se.moma.pryl.model.Person;
 import se.moma.pryl.model.Smycke;
 import se.moma.pryl.model.interfaces.Pryl;
 
@@ -61,6 +60,7 @@ public class PrylSamling implements Comparable<PrylSamling>{
       }
     }   
     
+    @Override
     public int compareTo(PrylSamling o) {
       return (int) (o.summaVärde() - this.summaVärde());
     }

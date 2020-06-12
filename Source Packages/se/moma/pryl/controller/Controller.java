@@ -68,7 +68,15 @@ public class Controller {
        return personSamling.hämtaPrylSamlingTillPerson(hämtaPerson);
      }
 
-  
+     
+     /**
+      * Sätter värdet av <code>Aktie</code> i samtliga <code>PrylSamling</code> 
+      * till noll. 
+      * 
+      */
+     public void börsKraschFörPrylSamling() {
+       personSamling.börsKrasch();
+     }
     
     
     /**
@@ -169,6 +177,10 @@ public class Controller {
       System.out.println(controller.toString());
       
       System.out.println(controller.hämtaPrylSamling("Pelle"));
+      
+      controller.börsKraschFörPrylSamling();
+      
+      System.out.println(controller);
       
     }
 

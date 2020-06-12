@@ -138,7 +138,7 @@ public class View {
       
       
       public void displayMeny() {
-        System.out.print("\n"+"1-Skapa person \n" + "2-Skapa pryl \n" + "3-Visa alla\n" +"4-Visa rikaste \n" +"5-Visa viss person \n"/*+"6-B�rskrascannerh \n"+"7- Avsluta"*/);
+        System.out.print("\n"+"1-Skapa person \n" + "2-Skapa pryl \n" + "3-Visa alla\n" +"4-Visa rikaste \n" +"5-Visa viss person \n"+"6-Börskrasch \n"/*+"7- Avsluta"*/);
 		    System.out.println();
       }
 	
@@ -231,6 +231,10 @@ public class View {
               System.out.println();
 			        System.out.println(controller.hämtaPrylSamling(hämtaPerson));
 			        break;
+            case 6:
+			          controller.börsKraschFörPrylSamling();
+			          System.out.println(controller.toString());
+			          break;
             default:
               System.out.println("Felaktigt kommando! Försök igen!");
              
