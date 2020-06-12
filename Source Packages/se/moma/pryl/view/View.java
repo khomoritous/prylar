@@ -8,13 +8,9 @@ package se.moma.pryl.view;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import se.moma.pryl.controller.Controller;
-import se.moma.pryl.integration.PersonSamling;
-import se.moma.pryl.model.Person;
-import se.moma.pryl.model.factory.PrylFactory;
 
 /**
  *
@@ -122,7 +118,6 @@ public class View {
               System.out.println(controller.toString());
               break;
             case 4: 
-              //String namnPåRikastePerson = scanner.nextLine();
 		          System.out.println(controller.visaRikastePerson());
               System.out.println();
 			        break;
@@ -134,7 +129,6 @@ public class View {
 			        break;
             case 6:
 			        controller.börsKraschFörPrylSamling();
-			          //System.out.println(controller.toString());
 			        break;
             case 7:
               System.out.println("Hej då!");
