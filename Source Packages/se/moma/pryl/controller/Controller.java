@@ -6,14 +6,11 @@
 package se.moma.pryl.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import se.moma.pryl.integration.PersonSamling;
 import se.moma.pryl.integration.PrylSamling;
 import se.moma.pryl.model.Person;
 import se.moma.pryl.model.factory.PrylFactory;
-import se.moma.pryl.model.factory.PrylFactory;
-import se.moma.pryl.model.interfaces.Pryl;
 
 /**
  * Är en <code>Controller</code>. Använder sig av <code>PersonSamling</code> för att skapa
@@ -27,16 +24,14 @@ public class Controller {
     private Map<String, String> prylArgs = new HashMap<>();
     
     
-    
-    /**
-     * Skapar en instans av <code>Controller</code>.
-     * 
-     * @param personSamling Samling för instanser av <code>Person</code>.
-     * @param prylFactory För att skapa <code>Pryl</code>.
-     */
+   /**
+    * Skapar en instans av <code>Controller</code>.
+    * 
+    * @param personSamling Samling av <code>Person</code>er som har <code>Pryl</code>ar.
+    * @param prylArgs Argument till <code>Pryl</code>ar som ska läggas i <code>PrylSamling</code>.
+    */
     public Controller(PersonSamling personSamling,Map<String, String> prylArgs) {
       this.personSamling  = new PersonSamling();     
-     // this.prylArgs = new HashMap<>();
       this.prylArgs = prylArgs;
     } 
    
@@ -63,6 +58,13 @@ public class Controller {
       personSamling.hämtaPrylSamlingTillPerson(namnPåPerson).läggTillPryl(PrylFactory.getPryl(namnPåPryl, getPrylArgs()));
      }
      
+     
+     /**
+      * Hämtar <code>PrylSamling</code> till <code>Person</code>.
+      * 
+      * @param hämtaPerson Namn på <code>Person</code> med <code>PrylSamling</code>.
+      * @return En <code>Person</code>s  <code>PrylSamling</code>.
+      */
      public PrylSamling hämtaPrylSamling(String hämtaPerson) {
        if (!isPersonRegistrerad(hämtaPerson)) throw new IllegalArgumentException("Hittar ingen med det namnet!");
        return personSamling.hämtaPrylSamlingTillPerson(hämtaPerson);
@@ -70,7 +72,7 @@ public class Controller {
 
      
      /**
-      * Sätter värdet av <code>Aktie</code> i samtliga <code>PrylSamling</code> 
+      * Sätter värdet av <code>Aktie</code> i samtliga <code>Person</code>ers <code>PrylSamling</code>ar 
       * till noll. 
       * 
       */
@@ -80,9 +82,9 @@ public class Controller {
     
     
     /**
-     * Visar <code>PersonSamling</code> med <code>Person</code> och samling av <code>Pryl</code>.
+     * Visar <code>Person</code>s <code>PrylSamling</code>s totala värde.
      * 
-     * @return <code>PersonSamling</code>
+     * @return <code>PrylSamling</code>s totala värde.
      */
     public String visaPersonSamling() {
       return personSamling.visaAllaPersoner();
@@ -90,9 +92,9 @@ public class Controller {
     
     
     /**
-     * Visar rikaste <code>Person</code> i <code>PersonSamling</code>.
+     * Visar rikaste <code>Person</code>s i <code>PrylSamling</code>.
      * 
-     * @return Rikaste <code>Person</code>.
+     * @return Alla <code>PrylSamling</code>ar.
      */
     public Map<Person, PrylSamling> visaRikastePerson() {
       return personSamling.hämtaRikastePerson();
@@ -103,15 +105,15 @@ public class Controller {
      * Finns <code>Person</code>  i <code>PersonSamling</code>?
      * 
      * @param namnpåperson Namn på <code>Person</code> i <code>PersonSamling</code>.
-     * @return <code>True</code>, om <code>Person</code> finns i <code>PersonSamling</code>, <code>False</code> annars.
+     * @return <code>True</code>, om <code>Person</code> finns, <code>false</code> annars.
      */
     public boolean isPersonRegistrerad(String namnpåperson){
       return personSamling.isPersonRegistrerad(namnpåperson);
     }
+    
+    
     /**
-     * 
-     * 
-     * @return Textsträng av <code>PersonSamling</code>. 
+     * @return Textsträngsrepresentation av <code>PersonSamling</code>. 
      */
     @Override
     public String toString() {
@@ -124,14 +126,11 @@ public class Controller {
     }
     
     
-   //Test
+   
     public static void main(String[] args) {
       
       Map<String, String> prylArgs = new HashMap<>();
 
-      
-      
-    
       PersonSamling personSamling = null;
       Controller controller = new Controller(personSamling, prylArgs);
       //skapa person
