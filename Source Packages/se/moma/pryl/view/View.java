@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import se.moma.pryl.controller.Controller;
+import se.moma.pryl.model.exception.ValideringsException;
 
 /**
  *
@@ -55,7 +56,7 @@ public class View {
               controller.registreraNyPerson(namn);
             break;
             case 2:
-             
+             try {
               //Skapa pryl
               System.out.print("Vad heter personen som ska äga prylen? ");
              
@@ -113,6 +114,9 @@ public class View {
              } else {
                  throw new IllegalArgumentException(typAvPryl + " finns inte!");
                }
+             }catch(IllegalArgumentException iae) {
+                throw new ValideringsException("Är argument rätt ifyllda? ", iae);
+              }
              break;
             case 3:
               System.out.println(controller.toString());

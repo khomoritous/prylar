@@ -9,7 +9,6 @@ import static java.lang.Integer.parseInt;
 import static java.lang.Double.parseDouble;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
 import se.moma.pryl.model.Smycke;

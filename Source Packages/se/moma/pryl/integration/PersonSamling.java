@@ -48,9 +48,8 @@ public class PersonSamling {
      public boolean isPersonRegistrerad(String namnPåPerson) {
        Objects.requireNonNull(namnPåPerson, "Inget nullobjekt tillåts!");
        if (namnPåPerson.equals("")) throw new IllegalArgumentException("Måste skriva namn på person!");
-       if (personSamling.containsKey(new Person(namnPåPerson)))
-         return true;
-       return false;
+       return personSamling.containsKey(new Person(namnPåPerson));
+         
      }
     
     

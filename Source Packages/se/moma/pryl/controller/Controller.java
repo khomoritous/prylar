@@ -11,6 +11,7 @@ import se.moma.pryl.integration.PersonSamling;
 import se.moma.pryl.integration.PrylSamling;
 import se.moma.pryl.model.Person;
 import se.moma.pryl.model.factory.PrylFactory;
+import se.moma.pryl.model.exception.ValideringsException;
 
 /**
  * Är en <code>Controller</code>. Använder sig av <code>PersonSamling</code> för att skapa
@@ -53,7 +54,7 @@ public class Controller {
      * @param namnPåPerson
      * @param prylArgs 
      */
-     public void skapaPrylTillPerson(String namnPåPerson, String namnPåPryl) {
+     public void skapaPrylTillPerson(String namnPåPerson, String namnPåPryl) throws ValideringsException {
       if (!isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Hittar ingen med det namnet!");
       personSamling.hämtaPrylSamlingTillPerson(namnPåPerson).läggTillPryl(PrylFactory.getPryl(namnPåPryl, getPrylArgs()));
      }
