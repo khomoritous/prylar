@@ -22,19 +22,16 @@ import se.moma.pryl.model.interfaces.Pryl;
 public class PrylFactory {
     //private static Map<String, String>  map = new HashMap<>();
     
-    public static Pryl getPryl(String namnPåPryl, Map<String, String> map) {
-     try {
+    public static Pryl getPryl(String namnPåPryl, Map<String, String> map) throws NumberFormatException {
+      
         if (namnPåPryl.equalsIgnoreCase("smycke")) 
           return new Smycke(map.get("namn"), map.get("metall"), parseInt(map.get("ädelstenar")));
         else if (namnPåPryl.equalsIgnoreCase("aktie"))
-            return new Aktie(map.get("namn"), parseInt(map.get("antal")), parseInt(map.get("pris")));
+          return new Aktie(map.get("namn"), parseInt(map.get("antal")), parseInt(map.get("pris")));
         else if (namnPåPryl.equalsIgnoreCase("apparat"))
           return new Apparat(map.get("namn"), parseDouble(map.get("pris")), parseInt(map.get("slitage")));
-        else throw new IllegalArgumentException("Den prylen finns inte!");
-      } catch(NumberFormatException nfe) {
-          System.out.println(nfe + " ingen pryl skapades.");
-      }
-      return null;
+     
+       return null;
     }
     
     public static void main(String[] args) {

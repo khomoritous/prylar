@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Scanner;
 import se.moma.pryl.controller.Controller;
 import se.moma.pryl.model.exception.ValideringsException;
+import se.moma.pryl.util.ErrorMessageHandler;
 
 /**
  *
@@ -22,10 +23,12 @@ public class View {
       private Map<String, String> prylArgs = new HashMap<>();
       private Controller controller = null;
 	    private Scanner scanner = null;
+      private ErrorMessageHandler errorMsgHandler = null;
       
       public View(Map<String, String> prylArgs, Controller controller, Scanner scanner) {
         this.prylArgs = prylArgs;
         this.controller = controller;
+        errorMsgHandler = new ErrorMessageHandler();
         this.scanner = scanner;
         this.scanner = new Scanner(System.in);
       }
@@ -58,29 +61,29 @@ public class View {
             case 2:
              try {
               //Skapa pryl
-              System.out.print("Vad heter personen som ska äga prylen? ");
+               System.out.print("Vad heter personen som ska äga prylen? ");
              
-              String namnPåPerson = scanner.nextLine().trim();
-              if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen registrerad med det namnet!");
-              System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
+               String namnPåPerson = scanner.nextLine().trim();
+               if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen registrerad med det namnet!");
+               System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
      
-              String typAvPryl = scanner.nextLine().trim();
-              System.out.println();
-              if (typAvPryl.equalsIgnoreCase("Smycke")) {
-                System.out.print("Vilket sorts smycke? ");
-	              String smycke  = scanner.nextLine().trim();
-                System.out.println();
-	              System.out.print("Vilken metall är smycket gjord av? ");
-	              String metall = scanner.nextLine().trim();
-                System.out.println();
-	              System.out.print("Antal ädelstenar? ");
-	              String ädelStenar = scanner.nextLine().trim();
-                System.out.println();
+               String typAvPryl = scanner.nextLine().trim();
+               System.out.println();
+               if (typAvPryl.equalsIgnoreCase("Smycke")) {
+                 System.out.print("Vilket sorts smycke? ");
+	               String smycke  = scanner.nextLine().trim();
+                 System.out.println();
+	               System.out.print("Vilken metall är smycket gjord av? ");
+	               String metall = scanner.nextLine().trim();
+                 System.out.println();
+	               System.out.print("Antal ädelstenar? Ange en siffra. ");
+	               String ädelStenar = scanner.nextLine().trim();
+                 System.out.println();
                
-                prylArgs.put("namn", smycke);
-                prylArgs.put("metall", metall);
-                prylArgs.put("ädelstenar",ädelStenar);
-                controller.skapaPrylTillPerson(namnPåPerson, "smycke");
+                 prylArgs.put("namn", smycke);
+                 prylArgs.put("metall", metall);
+                 prylArgs.put("ädelstenar",ädelStenar);
+                 controller.skapaPrylTillPerson(namnPåPerson, "smycke");
              } else if (typAvPryl.equalsIgnoreCase("Apparat")) {
                  System.out.print("Vilken sorts apparat? ");
                  String apparat = scanner.nextLine().trim();
@@ -111,12 +114,12 @@ public class View {
                  prylArgs.put("antal", antal);
                  prylArgs.put("pris", pris);
                  controller.skapaPrylTillPerson(namnPåPerson, "aktie");
-             } else {
-                 throw new IllegalArgumentException(typAvPryl + " finns inte!");
+               } 
+             }catch(NumberFormatException nfe) {
+                errorMsgHandler.showErrorMsg(nfe.getMessage() + " skapades ingen pryl. Är argument rätt ifyllda?");
+              }catch(Exception ex) {
+                 errorMsgHandler.showErrorMsg(ex.getMessage());
                }
-             }catch(IllegalArgumentException iae) {
-                throw new ValideringsException("Är argument rätt ifyllda? ", iae);
-              }
              break;
             case 3:
               System.out.println(controller.toString());
@@ -143,8 +146,10 @@ public class View {
           }
          
          } catch(NumberFormatException nfe) {
-             System.out.println(nfe + " ange en siffra!");
-         }         
+             System.out.println(nfe.getMessage());
+           } catch(Exception ex) {
+               System.out.println(ex.getMessage());
+           }         
        }
        
      }
