@@ -55,7 +55,7 @@ public class Controller {
      * @param prylArgs 
      */
      public void skapaPrylTillPerson(String namnPåPerson, String namnPåPryl) throws NumberFormatException {
-      if (!isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Hittar ingen med det namnet!");
+     // if (!isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Hittar ingen med det namnet!");
       personSamling.hämtaPrylSamlingTillPerson(namnPåPerson).läggTillPryl(PrylFactory.getPryl(namnPåPryl, getPrylArgs()));
      }
      

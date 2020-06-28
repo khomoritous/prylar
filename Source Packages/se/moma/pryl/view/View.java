@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import se.moma.pryl.controller.Controller;
-import se.moma.pryl.model.exception.ValideringsException;
 import se.moma.pryl.util.ErrorMessageHandler;
 
 /**
@@ -59,19 +58,20 @@ public class View {
               controller.registreraNyPerson(namn);
             break;
             case 2:
+            String typAvPryl = "";
              try {
               //Skapa pryl
                System.out.print("Vad heter personen som ska äga prylen? ");
              
                String namnPåPerson = scanner.nextLine().trim();
-               if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen registrerad med det namnet!");
-               System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
+               if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen med det namnet registrerat!"); 
+                 System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
      
-               String typAvPryl = scanner.nextLine().trim();
-               System.out.println();
+                 typAvPryl = scanner.nextLine().trim();
+               
                if (typAvPryl.equalsIgnoreCase("Smycke")) {
                  System.out.print("Vilket sorts smycke? ");
-	               String smycke  = scanner.nextLine().trim();
+	               String smycke  = scanner.nextLine();
                  System.out.println();
 	               System.out.print("Vilken metall är smycket gjord av? ");
 	               String metall = scanner.nextLine().trim();

@@ -18,8 +18,8 @@ public abstract class Pryl {
      * @param namn Namn på <code>Pryl</code>.
      */
     public Pryl(String namn) {
-      //Objects.requireNonNull(namn, "Måste ha ett namn!");
-      if (namn.equalsIgnoreCase("")) throw new IllegalArgumentException("En pryl måste ha ett namn!");
+      Objects.requireNonNull(namn, "Inga nullobjekt tillåts!");
+      if (namn.equals("")) throw new IllegalArgumentException("En pryl måste ha ett namn!");
 	    this.namn = namn;
     }
     
@@ -36,12 +36,16 @@ public abstract class Pryl {
       return värde();
     }
     
+    private String getNamn() {
+      return namn;
+    }
+    
     /**
      * @return Textsträngrepresentation av <code>Pryl</code>.
      */
     @Override
     public String toString() {
-      return ""+ namn; 
+      return ""+ getNamn(); 
     }
 }
 

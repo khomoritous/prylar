@@ -32,7 +32,7 @@ public class Smycke extends Pryl {
      */
     public Smycke(String namn, String metall, int ädelstenar) {
 	    super(namn);
-      if (metall.equalsIgnoreCase("")) throw new IllegalArgumentException("Måste ange metall på smycke!");
+      if (metall.equals("")) throw new IllegalArgumentException("Måste ange metall på smycke!");
 	    this.metall = metall;
       if (ädelstenar < 0) throw new IllegalArgumentException("Antal ädelstenar får inte vara negativt!");
 	    this.ädelstenar = ädelstenar;
@@ -48,8 +48,9 @@ public class Smycke extends Pryl {
     public double värde() {
 	    if(getMetall().equalsIgnoreCase(GULD)) {
 		    return (VÄRDE * getÄdelstenar()) + GULDFAKTOR;
-      } else 
+      } else { 
 	        return (VÄRDE * getÄdelstenar()) + ÄDELSTENFAKTOR;
+        }
     }
     
     
@@ -74,5 +75,7 @@ public class Smycke extends Pryl {
     
     public static void main(String[] args) {
       System.out.println(new Smycke(NAMN, METALL, ANTAL_ÄDELSTENAR));
+      
+     // System.out.println(new Smycke("ring", "silver", -1));
     }
 }
