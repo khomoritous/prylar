@@ -15,7 +15,7 @@ public class Smycke extends Pryl {
     private int ädelstenar;
     
     private static final String METALL = "platina";
-    private static final String NAMN = "pä3lan";
+    private static final String NAMN = "pärlan";
     private static final int GULDFAKTOR = 2000;
     private static final int ÄDELSTENFAKTOR = 700;
     private static final int VÄRDE = 500;

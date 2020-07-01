@@ -15,7 +15,7 @@ public abstract class Pryl {
     private String namn = null;
     private String patt = "^[A-ZÅÄÖa-zåäö]+$";
     private Pattern p = Pattern.compile(patt);
-    //compile(patt, Pattern.UNICODE_CHARACTER_CLASS)
+   
     
     /**
      * Skapar namn för <code>Pryl</code>.
@@ -27,6 +27,7 @@ public abstract class Pryl {
       if (namn.equals("")) throw new IllegalArgumentException("En pryl måste ha ett namn!");
       Matcher m = p.matcher(namn);
       if (!m.find()) throw new IllegalArgumentException(namn + "...ett namn på en pryl måste bestå av bokstäver!");
+      if (namn.length() > 10) throw new IllegalArgumentException("Ett namn får bestå av max tio bokstäver.");
       this.namn = namn;
     }
     
