@@ -26,7 +26,7 @@ public abstract class Pryl {
       Objects.requireNonNull(namn, "Inga nullobjekt tillåts!");
       if (namn.equals("")) throw new IllegalArgumentException("En pryl måste ha ett namn!");
       Matcher m = p.matcher(namn);
-      if (!m.find()) throw new IllegalArgumentException("Ett namn på en pryl måste bestå av bokstäver!");
+      if (!m.find()) throw new IllegalArgumentException(namn + "...ett namn på en pryl måste bestå av bokstäver!");
       this.namn = namn;
     }
     
