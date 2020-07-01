@@ -71,7 +71,7 @@ public class View {
                
                if (typAvPryl.equalsIgnoreCase("Smycke")) {
                  System.out.print("Vilket sorts smycke? ");
-	               String smycke  = scanner.nextLine();
+	               String smycke  = scanner.nextLine().trim();
                  System.out.println();
 	               System.out.print("Vilken metall är smycket gjord av? ");
 	               String metall = scanner.nextLine().trim();
@@ -146,9 +146,11 @@ public class View {
           }
          
          } catch(NumberFormatException nfe) {
-             System.out.println(nfe.getMessage());
+             //System.out.println(nfe.getMessage());
+             errorMsgHandler.showErrorMsg(nfe.getMessage());
            } catch(Exception ex) {
-               System.out.println(ex.getMessage());
+              // System.out.println(ex.getMessage());
+               errorMsgHandler.showErrorMsg(ex.getMessage());
            }         
        }
        

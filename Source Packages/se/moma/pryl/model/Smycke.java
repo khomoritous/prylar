@@ -76,6 +76,6 @@ public class Smycke extends Pryl {
     public static void main(String[] args) {
       System.out.println(new Smycke(NAMN, METALL, ANTAL_ÄDELSTENAR));
       
-     // System.out.println(new Smycke("ring", "silver", -1));
+      //System.out.println(new Smycke("ring", "silver", -1));
     }
 }
