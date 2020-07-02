@@ -1,6 +1,8 @@
 package se.moma.pryl.model;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
@@ -22,6 +24,9 @@ public class Smycke extends Pryl {
     private static final int ANTAL_ÄDELSTENAR = 2;
     private static final String GULD = "guld";
     
+    private String patt = "^[A-ZÅÄÖa-zåäö]+$";
+    private Pattern p = Pattern.compile(patt);
+    
     
     /**
      * Skapar ny <code>Smycke</code> instans.
@@ -33,6 +38,9 @@ public class Smycke extends Pryl {
     public Smycke(String namn, String metall, int ädelstenar) {
 	    super(namn);
       if (metall.equals("")) throw new IllegalArgumentException("Måste ange metall på smycke!");
+      Matcher m = p.matcher(metall);
+      if (!m.find()) throw new IllegalArgumentException(metall + "...ett namn på en metall måste bestå av bokstäver!");
+      if (metall.length() > 15) throw new IllegalArgumentException("Ett namn får bestå av max 15 bokstäver.");
 	    this.metall = metall;
       if (ädelstenar < 0) throw new IllegalArgumentException("Antal ädelstenar får inte vara negativt!");
 	    this.ädelstenar = ädelstenar;
