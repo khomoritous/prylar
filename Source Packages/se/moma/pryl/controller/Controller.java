@@ -44,7 +44,7 @@ public class Controller {
      */
     public void registreraNyPerson(String namnPåNyPerson) {
       if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerad!");
-        personSamling.läggTillPerson(namnPåNyPerson);
+      personSamling.läggTillPerson(namnPåNyPerson);
     }
 
     
@@ -55,8 +55,7 @@ public class Controller {
      * @param prylArgs 
      */
      public void skapaPrylTillPerson(String namnPåPerson, String namnPåPryl) throws NumberFormatException {
-     // if (!isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Hittar ingen med det namnet!");
-      personSamling.hämtaPrylSamlingTillPerson(namnPåPerson).läggTillPryl(PrylFactory.getPryl(namnPåPryl, getPrylArgs()));
+       personSamling.hämtaPrylSamlingTillPerson(namnPåPerson).läggTillPryl(PrylFactory.getPryl(namnPåPryl, getPrylArgs()));
      }
      
      
@@ -77,7 +76,7 @@ public class Controller {
       * till noll. 
       * 
       */
-     public void börsKraschFörPrylSamling() {
+     public void börsKraschFörSamtligaPrylSamlingar() {
        personSamling.börsKrasch();
      }
     
@@ -93,7 +92,10 @@ public class Controller {
     
     
     /**
-     * Visar rikaste <code>Person</code>s i <code>PrylSamling</code>.
+     * Sorterar och visar rikaste <code>Person</code>s  <code>PrylSamling</code> i nedstigande ordning. 
+     * 
+     * Till exempel [Olle,smycke->värde=10], [Pelle,aktie->värde=100] blir [Pelle,aktie->värde=100], 
+     * [Olle, smycke->värde=10] 
      * 
      * @return Alla <code>PrylSamling</code>ar.
      */
@@ -178,7 +180,7 @@ public class Controller {
       
       System.out.println(controller.hämtaPrylSamling("Pelle"));
       
-      controller.börsKraschFörPrylSamling();
+      controller.börsKraschFörSamtligaPrylSamlingar();
       
       System.out.println(controller);
       

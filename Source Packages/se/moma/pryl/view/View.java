@@ -135,7 +135,7 @@ public class View {
 			        System.out.println(controller.hämtaPrylSamling(hämtaPerson));
 			        break;
             case 6:
-			        controller.börsKraschFörPrylSamling();
+			        controller.börsKraschFörSamtligaPrylSamlingar();
 			        break;
             case 7:
               System.out.println("Hej då!");
