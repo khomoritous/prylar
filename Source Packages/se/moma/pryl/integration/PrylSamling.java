@@ -7,6 +7,7 @@ package se.moma.pryl.integration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
 import se.moma.pryl.model.Smycke;
@@ -30,7 +31,7 @@ public class PrylSamling implements Comparable<PrylSamling>{
      * @param nyPryl Instans av <code>Pryl</code>.
      */
     public void läggTillPryl(Pryl nyPryl) {
-      if (nyPryl == null) throw new IllegalArgumentException("Inget nullobjekt tillåts!");
+      Objects.requireNonNull(nyPryl, "Inget nullobjekt tillåts!");
       prylar.add(nyPryl);
     }
     
