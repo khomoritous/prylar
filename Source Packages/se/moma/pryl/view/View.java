@@ -146,10 +146,10 @@ public class View {
           }
          
          } catch(NumberFormatException nfe) {
-             //System.out.println(nfe.getMessage());
+             
              errorMsgHandler.showErrorMsg(nfe.getMessage());
            } catch(Exception ex) {
-              // System.out.println(ex.getMessage());
+              
                errorMsgHandler.showErrorMsg(ex.getMessage());
            }         
        }

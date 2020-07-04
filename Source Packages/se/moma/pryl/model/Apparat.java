@@ -18,11 +18,17 @@ public class Apparat extends Pryl {
     
     
     /**
-     * Skapar en ny instans av <code>Apparat</code>.
+     * Skapar en ny instans av <code>Apparat</code>. Pris måste större eller lika med 0. Slitage måste
+     * vara större eller lika med 0. 
+     * 
+     * 
      * 
      * @param namn Namn på <code>Apparat</code>.
      * @param pris Pris på <code>Apparat</code>.
      * @param slitage Slitage på <code>Apparat</code>.
+     * 
+     * @throws IllegalArgumentException om pris är mindre eller lika med 0, om slitage är mindre 
+     * eller lika med 0.
      */
     public Apparat(String namn, double pris, int slitage) {
 	    super(namn);
@@ -40,7 +46,7 @@ public class Apparat extends Pryl {
      */
     @Override
     public double värde() {
-	    return getPris() * (getSlitage() / SLITAGE_FAKTOR);
+	    return (long) getPris() * (getSlitage() / SLITAGE_FAKTOR);
     }
     
     

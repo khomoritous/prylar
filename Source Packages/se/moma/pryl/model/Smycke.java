@@ -6,7 +6,8 @@ import java.util.regex.Pattern;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
- *  Skapar ett <code>Smycke</code> som består av en <code>metall</code> och <code>ädelstenar</code>.
+ *  Skapar ett <code>Smycke</code> som består av en metall, ädelstenar och ett namn.
+ *  Ärver från <code>Pryl</code>.
  * 
  *  @author monde
  */
@@ -29,14 +30,21 @@ public class Smycke extends Pryl {
     
     
     /**
-     * Skapar ny <code>Smycke</code> instans.
+     * Skapar ny <code>Smycke</code> instans. Metall får inte vara null. Måste ha ett namn. Måste bestå av max 15 tecken 
+     * som alla måste vara bokstäver. Ädelstenar får inte vara negativt. 
+     * 
+     * 
      * 
      * @param namn Namn på <code>Smycke</code>.
      * @param metall Namn på metall av <code>Smycke</code>
-     * @param ädelstenar Antal ädelstenar <code>Smycke</code> består av.
+     * @param ädelstenar Antal ädelstenar som <code>Smycke</code> består av.
+     * 
+     * @throws IllegalArgumentException om metall inte har ett namn, består av mer än 15 tecken som 
+     * inte är bokstäver och antal ädelstenar är mindre än 0.
      */
     public Smycke(String namn, String metall, int ädelstenar) {
 	    super(namn);
+      Objects.requireNonNull(metall, "Nullobjekt tillåts inte!");
       if (metall.equals("")) throw new IllegalArgumentException("Måste ange metall på smycke!");
       Matcher m = p.matcher(metall);
       if (!m.find()) throw new IllegalArgumentException(metall + "...ett namn på en metall måste bestå av bokstäver!");
@@ -55,9 +63,9 @@ public class Smycke extends Pryl {
     @Override
     public double värde() {
 	    if(getMetall().equalsIgnoreCase(GULD)) {
-		    return (VÄRDE * getÄdelstenar()) + GULDFAKTOR;
+		    return ((long) VÄRDE * getÄdelstenar()) + GULDFAKTOR;
       } else { 
-	        return (VÄRDE * getÄdelstenar()) + ÄDELSTENFAKTOR;
+	        return ((long) VÄRDE * getÄdelstenar()) + ÄDELSTENFAKTOR;
         }
     }
     

@@ -13,15 +13,20 @@ public class Aktie extends Pryl {
     private final int antal;
     private int pris; 
     private static final String NAMN_PÅ_AKTIE = "googl"; 
-    private static final int ANTAL_AKTIER = 100;
-    private static final int PRIS_PÅ_AKTIE = 10;
+    private static final int ANTAL_AKTIER = 1000000000;
+    private static final int PRIS_PÅ_AKTIE = 1000000000;
     
     /**
-     * Skapar en ny <code>Aktie</code> instans.
+     * Skapar en ny instans av <code>Aktie</code>. Antal måste vara större eller lika med 0. 
+     * Pris får inte vara negativt.
+     * 
+     *
      * 
      * @param namn Namn på <code>Aktie</code>.
      * @param antal Antal <code>Aktie</code>.
      * @param pris Pris på <code>Aktie</code>.
+     * 
+     * @throws IllegalArgumentException om antal är mindre eller lika med 0. Om pris är mindre än 0.
      */
     public Aktie(String namn, int antal, int pris) {
 	    super(namn);
@@ -38,7 +43,7 @@ public class Aktie extends Pryl {
      */
     @Override
     public double värde() {
-      return antal*pris;
+      return (long) antal*pris;
     }
     
     /**

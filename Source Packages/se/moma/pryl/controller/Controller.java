@@ -11,7 +11,6 @@ import se.moma.pryl.integration.PersonSamling;
 import se.moma.pryl.integration.PrylSamling;
 import se.moma.pryl.model.Person;
 import se.moma.pryl.model.factory.PrylFactory;
-import se.moma.pryl.model.exception.ValideringsException;
 
 /**
  * Är en <code>Controller</code>. Använder sig av <code>PersonSamling</code> för att skapa
@@ -28,8 +27,8 @@ public class Controller {
    /**
     * Skapar en instans av <code>Controller</code>.
     * 
-    * @param personSamling Samling av <code>Person</code>er som har <code>Pryl</code>ar.
-    * @param prylArgs Argument till <code>Pryl</code>ar som ska läggas i <code>PrylSamling</code>.
+    * @param personSamling Samling av personer som har en <code>PrylSamling</code>.
+    * @param prylArgs Argument till <code>Pryl</code> som ska läggas till <code>PrylSamling</code>.
     */
     public Controller(PersonSamling personSamling,Map<String, String> prylArgs) {
       this.personSamling  = new PersonSamling();     
@@ -38,9 +37,11 @@ public class Controller {
    
     
     /**
-     * Registrerar ny <code>Person</code>.
+     * Registrerar ny <code>Person</code>. Namn på person får inte redan vara registrerat. 
      * 
-     * @param namnPåNyPerson Namn på <code>Person</code>.
+     * @param namnPåNyPerson Namn på <code>Person</code> som ska registreras.
+     * 
+     * @throws IllegalArgumentException om namn på person redan är registrerat.
      */
     public void registreraNyPerson(String namnPåNyPerson) {
       if (isPersonRegistrerad(namnPåNyPerson)) throw new IllegalArgumentException(namnPåNyPerson + " finns redan registrerad!");
@@ -48,22 +49,27 @@ public class Controller {
     }
 
     
-    /**
-     * Skapar en <code>Pryl</code> till en <code>Person</code>.
-     * 
-     * @param namnPåPerson
-     * @param prylArgs 
-     */
+     /**
+      * Skapar <code>Pryl</code> till <code>Person</code>. 
+      * 
+      * @param namnPåPerson Namn på <code>Person</code> som ska äga prylen.
+      * @param namnPåPryl Namn på vilken typ av <code>Pryl</code> som ska försöka skapas. 
+      * 
+      * @throws NumberFormatException om det är fel på argumenten till <code>Pryl</code>. 
+      */
      public void skapaPrylTillPerson(String namnPåPerson, String namnPåPryl) throws NumberFormatException {
        personSamling.hämtaPrylSamlingTillPerson(namnPåPerson).läggTillPryl(PrylFactory.getPryl(namnPåPryl, getPrylArgs()));
      }
      
      
      /**
-      * Hämtar <code>PrylSamling</code> till <code>Person</code>.
+      * Hämtar <code>PrylSamling</code> till <code>Person</code>. Namnet på <code>Person</code> måste 
+      * redan vara registrerat. 
       * 
       * @param hämtaPerson Namn på <code>Person</code> med <code>PrylSamling</code>.
-      * @return En <code>Person</code>s  <code>PrylSamling</code>.
+      * @return En persons <code>PrylSamling</code>.
+      * 
+      * @throws IllegalArgumentException om namn på person inte är registrerat.
       */
      public PrylSamling hämtaPrylSamling(String hämtaPerson) {
        if (!isPersonRegistrerad(hämtaPerson)) throw new IllegalArgumentException("Hittar ingen med det namnet!");
@@ -72,8 +78,7 @@ public class Controller {
 
      
      /**
-      * Sätter värdet av <code>Aktie</code> i samtliga <code>Person</code>ers <code>PrylSamling</code>ar 
-      * till noll. 
+      * Sätter värdet av <code>Aktie</code> i samtliga personers prylsamlingar till 0. 
       * 
       */
      public void börsKraschFörSamtligaPrylSamlingar() {
@@ -82,9 +87,9 @@ public class Controller {
     
     
     /**
-     * Visar <code>Person</code>s <code>PrylSamling</code>s totala värde.
+     * Visar personers prylsamlingars totala värde.
      * 
-     * @return <code>PrylSamling</code>s totala värde.
+     * @return samliga personers prylsamlingars totala värde.
      */
     public String visaPersonSamling() {
       return personSamling.visaAllaPersoner();
@@ -92,12 +97,12 @@ public class Controller {
     
     
     /**
-     * Sorterar och visar rikaste <code>Person</code>s  <code>PrylSamling</code> i nedstigande ordning. 
+     * Sorterar och visar rikaste persons  <code>PrylSamling</code> i nedstigande ordning. 
      * 
      * Till exempel [Olle,smycke->värde=10], [Pelle,aktie->värde=100] blir [Pelle,aktie->värde=100], 
      * [Olle, smycke->värde=10] 
      * 
-     * @return Alla <code>PrylSamling</code>ar.
+     * @return Alla personers prylsamlingar.
      */
     public Map<Person, PrylSamling> visaRikastePerson() {
       return personSamling.hämtaRikastePerson();
