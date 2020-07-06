@@ -24,14 +24,10 @@ public class PrylFactory {
     
     public static Pryl getPryl(String namnPåPryl, Map<String, String> map) throws NumberFormatException {
       
-        if (namnPåPryl.equalsIgnoreCase("smycke")) 
-          return new Smycke(map.get("namn"), map.get("metall"), parseInt(map.get("ädelstenar")));
-        else if (namnPåPryl.equalsIgnoreCase("aktie"))
-          return new Aktie(map.get("namn"), parseInt(map.get("antal")), parseInt(map.get("pris")));
-        else if (namnPåPryl.equalsIgnoreCase("apparat"))
-          return new Apparat(map.get("namn"), parseDouble(map.get("pris")), parseInt(map.get("slitage")));
-     
-       return null;
+        if (namnPåPryl.equalsIgnoreCase("smycke")) return new Smycke(map.get("namn"), map.get("metall"), parseInt(map.get("ädelstenar")));
+        if (namnPåPryl.equalsIgnoreCase("aktie")) return new Aktie(map.get("namn"), parseInt(map.get("antal")), parseInt(map.get("pris")));
+        if (namnPåPryl.equalsIgnoreCase("apparat")) return new Apparat(map.get("namn"), parseDouble(map.get("pris")), parseInt(map.get("slitage")));
+      return null;
     }
     
     public static void main(String[] args) {

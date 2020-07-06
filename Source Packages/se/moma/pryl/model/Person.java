@@ -25,7 +25,7 @@ public class Person {
      * @param namnPåPerson Namn på <code>Person</code>.
      */
     public Person(String namnPåPerson) {
-      Objects.requireNonNull(namnPåPerson, "null");
+      Objects.requireNonNull(namnPåPerson, "nullobjekt tillåts inte!");
       if (namnPåPerson.equals("")) throw new IllegalArgumentException("Måste ange ett namn!");
       Matcher m = p.matcher(namnPåPerson);
       if (!m.find()) throw new IllegalArgumentException(namnPåPerson + "...ett namn på en person måste bestå av bokstäver!");
@@ -56,7 +56,12 @@ public class Person {
       return hash;
     }
 
-    
+    /**
+     * Kollar om två personer är lika med avseende på namn.
+     * 
+     * @param obj En <code>Person</code>.
+     * @return <code>True</code> om två personer är lika med avseende på namn, <code>false</code> annars.
+     */
     @Override
     public boolean equals(Object obj) {
       if (this == obj) {
