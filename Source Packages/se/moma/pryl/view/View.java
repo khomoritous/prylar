@@ -5,11 +5,18 @@
  */
 package se.moma.pryl.view;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import se.moma.pryl.controller.Controller;
 import se.moma.pryl.util.ErrorMessageHandler;
 
@@ -24,12 +31,21 @@ public class View {
 	    private Scanner scanner = null;
       private ErrorMessageHandler errorMsgHandler = null;
       
+      private final static Logger theLogger = LoggerFactory.getLogger(View.class);
+     // private static final String LOGG = "pryl-log.txt";
+    //  private PrintWriter loggfil = null;
+      
       public View(Map<String, String> prylArgs, Controller controller, Scanner scanner) {
         this.prylArgs = prylArgs;
         this.controller = controller;
         errorMsgHandler = new ErrorMessageHandler();
         this.scanner = scanner;
         this.scanner = new Scanner(System.in);
+//        try {
+//          loggfil = new PrintWriter(new FileWriter(new File(LOGG), true), true);
+//        } catch (IOException ex) {
+//          java.util.logging.Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+//        }
       }
       
       
@@ -56,6 +72,8 @@ public class View {
               String namn = scanner.nextLine().trim();
               System.out.println();
               controller.registreraNyPerson(namn);
+              
+              theLogger.info("Skapar person: " + namn);
             break;
             case 2:
             String typAvPryl = "";
@@ -84,6 +102,8 @@ public class View {
                  prylArgs.put("metall", metall);
                  prylArgs.put("ädelstenar",ädelStenar);
                  controller.skapaPrylTillPerson(namnPåPerson, "smycke");
+                 
+                 theLogger.info("Skapar smycke...");
              } else if (typAvPryl.equalsIgnoreCase("Apparat")) {
                  System.out.print("Vilken sorts apparat? ");
                  String apparat = scanner.nextLine().trim();
@@ -99,6 +119,8 @@ public class View {
                  prylArgs.put("pris", pris);
                  prylArgs.put("slitage", slitage);
                  controller.skapaPrylTillPerson(namnPåPerson, "apparat");
+                 
+                 theLogger.info("Skapar apparat...");
              } else if (typAvPryl.equalsIgnoreCase("Aktie")) {
                  System.out.print("Vilken sort aktie? ");
                  String aktieNamn = scanner.nextLine().trim();
@@ -114,11 +136,15 @@ public class View {
                  prylArgs.put("antal", antal);
                  prylArgs.put("pris", pris);
                  controller.skapaPrylTillPerson(namnPåPerson, "aktie");
+                 
+                 theLogger.info("Skapar aktie...");
                } 
              }catch(NumberFormatException nfe) {
                 errorMsgHandler.showErrorMsg(nfe.getMessage() + " skapades ingen pryl. Är argument rätt ifyllda?");
+                theLogger.error(nfe.getMessage() + " ingen pryl skapades", nfe);
               }catch(Exception ex) {
                  errorMsgHandler.showErrorMsg(ex.getMessage());
+                 theLogger.error(ex.getMessage());
                }
              break;
             case 3:
@@ -146,11 +172,11 @@ public class View {
           }
          
          } catch(NumberFormatException nfe) {
-             
              errorMsgHandler.showErrorMsg(nfe.getMessage());
+             theLogger.error(nfe.getMessage());
            } catch(Exception ex) {
-              
                errorMsgHandler.showErrorMsg(ex.getMessage());
+               theLogger.error(ex.getMessage());
            }         
        }
        
