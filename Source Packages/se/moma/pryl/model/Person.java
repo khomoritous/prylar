@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 
 /**
- * Skapar en <code>Person</code> som kan ha en <code>PrylSamling</code> av <code>Pryl</code>ar.
+ * Skapar en <code>Person</code> med namn.
  * 
  * @author monde
  */
