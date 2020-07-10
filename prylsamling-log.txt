@@ -1,0 +1,826 @@
+2020-jul-10 13:31:48,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:32:24,Exception was thrown: En pryl måste ha ett namn!
+java.lang.IllegalArgumentException: En pryl måste ha ett namn!
+	at se.moma.pryl.model.interfaces.Pryl.<init>(Pryl.java:35)
+	at se.moma.pryl.model.Smycke.<init>(Smycke.java:46)
+	at se.moma.pryl.model.factory.PrylFactory.getPryl(PrylFactory.java:27)
+	at se.moma.pryl.controller.Controller.skapaPrylTillPerson(Controller.java:61)
+	at se.moma.pryl.view.View.vyn(View.java:107)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:27,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:38:46,Exception was thrown: Det finns ingen med det namnet registrerat!
+java.lang.IllegalArgumentException: Det finns ingen med det namnet registrerat!
+	at se.moma.pryl.view.View.vyn(View.java:88)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:41:34,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:41:34,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:41:34,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:41:34,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:41:34,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:69)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:48:16,Exception was thrown: Det finns ingen med det namnet registrerat!
+java.lang.IllegalArgumentException: Det finns ingen med det namnet registrerat!
+	at se.moma.pryl.view.View.vyn(View.java:89)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:55:52,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:55:52,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:55:52,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:55:52,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:55:52,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:56:28,Exception was thrown: En pryl måste ha ett namn!
+java.lang.IllegalArgumentException: En pryl måste ha ett namn!
+	at se.moma.pryl.model.interfaces.Pryl.<init>(Pryl.java:35)
+	at se.moma.pryl.model.Smycke.<init>(Smycke.java:46)
+	at se.moma.pryl.model.factory.PrylFactory.getPryl(PrylFactory.java:27)
+	at se.moma.pryl.controller.Controller.skapaPrylTillPerson(Controller.java:61)
+	at se.moma.pryl.view.View.vyn(View.java:108)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 13:58:49,Exception was thrown: For input string: "tre"
+java.lang.NumberFormatException: For input string: "tre"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.model.factory.PrylFactory.getPryl(PrylFactory.java:27)
+	at se.moma.pryl.controller.Controller.skapaPrylTillPerson(Controller.java:61)
+	at se.moma.pryl.view.View.vyn(View.java:108)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:01,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:01:29,Exception was thrown: For input string: "tre"
+java.lang.NumberFormatException: For input string: "tre"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.model.factory.PrylFactory.getPryl(PrylFactory.java:27)
+	at se.moma.pryl.controller.Controller.skapaPrylTillPerson(Controller.java:61)
+	at se.moma.pryl.view.View.vyn(View.java:108)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:06:13,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:06:13,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:06:13,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:06:13,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:06:20,Exception was thrown: For input string: "Pelle"
+java.lang.NumberFormatException: For input string: "Pelle"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:05,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:05,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:05,Exception was thrown: No line found
+2020-jul-10 14:08:11,Exception was thrown: For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:08:22,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:15:30,Exception was thrown: For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:16:21,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:16:21,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 14:16:21,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:26:57,Exception was thrown: For input string: "Pelle"
+java.lang.NumberFormatException: For input string: "Pelle"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:27:24,Exception was thrown: Måste skriva namn på person!
+java.lang.IllegalArgumentException: Måste skriva namn på person!
+	at se.moma.pryl.integration.PersonSamling.isPersonRegistrerad(PersonSamling.java:50)
+	at se.moma.pryl.controller.Controller.isPersonRegistrerad(Controller.java:119)
+	at se.moma.pryl.controller.Controller.registreraNyPerson(Controller.java:47)
+	at se.moma.pryl.view.View.vyn(View.java:78)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:27:51,Exception was thrown: Det finns ingen med det namnet registrerat!
+java.lang.IllegalArgumentException: Det finns ingen med det namnet registrerat!
+	at se.moma.pryl.view.View.vyn(View.java:90)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:31:06,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:31:06,Exception was thrown: No line found
+2020-jul-10 18:31:17,Exception was thrown: For input string: "Pelle"
+java.lang.NumberFormatException: For input string: "Pelle"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:32:49,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:32:49,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:32:56,Exception was thrown: For input string: "Pelle"
+java.lang.NumberFormatException: For input string: "Pelle"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:33:51,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:33:51,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:33:51,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:33:51,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:33:51,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:33:51,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:33:51,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+2020-jul-10 18:34:37,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+2020-jul-10 18:35:06,Exception was thrown: En pryl måste ha ett namn!
+java.lang.IllegalArgumentException: En pryl måste ha ett namn!
+	at se.moma.pryl.model.interfaces.Pryl.<init>(Pryl.java:35)
+	at se.moma.pryl.model.Smycke.<init>(Smycke.java:46)
+	at se.moma.pryl.model.factory.PrylFactory.getPryl(PrylFactory.java:27)
+	at se.moma.pryl.controller.Controller.skapaPrylTillPerson(Controller.java:61)
+	at se.moma.pryl.view.View.vyn(View.java:109)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:36:24,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:37:41,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:37:41,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:38:12,Exception was thrown: No line found
+2020-jul-10 18:51:52,Exception was thrown: Uncompilable source code - exception java.lang.NumberFormatException has already been caught
+java.lang.RuntimeException: Uncompilable source code - exception java.lang.NumberFormatException has already been caught
+	at se.moma.pryl.view.View.vyn(View.java:83)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:53:37,Exception was thrown: No line found
+2020-jul-10 18:53:43,Exception was thrown: For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:54:07,Exception was thrown: For input string: "rew"
+java.lang.NumberFormatException: For input string: "rew"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.model.factory.PrylFactory.getPryl(PrylFactory.java:28)
+	at se.moma.pryl.controller.Controller.skapaPrylTillPerson(Controller.java:61)
+	at se.moma.pryl.view.View.vyn(View.java:109)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:00,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:20,Exception was thrown: For input string: "rew"
+java.lang.NumberFormatException: For input string: "rew"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.model.factory.PrylFactory.getPryl(PrylFactory.java:28)
+	at se.moma.pryl.controller.Controller.skapaPrylTillPerson(Controller.java:61)
+	at se.moma.pryl.view.View.vyn(View.java:109)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:55:38,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:70)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 18:57:44,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+2020-jul-10 19:08:50,Exception was thrown:  du måste välja pryl..smycke, aktie eller apparat
+java.lang.IllegalArgumentException:  du måste välja pryl..smycke, aktie eller apparat
+	at se.moma.pryl.view.View.vyn(View.java:144)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 19:21:56,Exception was thrown: For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.view.View.vyn(View.java:66)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 19:22:06,Exception was thrown:  du måste välja pryl..smycke, aktie eller apparat
+java.lang.IllegalArgumentException:  du måste välja pryl..smycke, aktie eller apparat
+	at se.moma.pryl.view.View.vyn(View.java:140)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-10 19:22:28,Exception was thrown: For input string: "tio"
+java.lang.NumberFormatException: For input string: "tio"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at se.moma.pryl.model.factory.PrylFactory.getPryl(PrylFactory.java:41)
+	at se.moma.pryl.controller.Controller.skapaPrylTillPerson(Controller.java:61)
+	at se.moma.pryl.view.View.vyn(View.java:139)
+	at se.moma.pryl.startup.Main.main(Main.java:16)

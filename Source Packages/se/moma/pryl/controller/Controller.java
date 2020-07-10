@@ -99,8 +99,8 @@ public class Controller {
     /**
      * Sorterar och visar rikaste persons  <code>PrylSamling</code> i nedstigande ordning. 
      * 
-     * Till exempel [Olle,smycke->värde=10], [Pelle,aktie->värde=100] blir [Pelle,aktie->värde=100], 
-     * [Olle, smycke->värde=10] 
+     * Till exempel {Olle,smycke->värde=10}, {Pelle,aktie->värde=100} blir {Pelle,aktie->värde=100}, 
+     * {Olle, smycke->värde=10} 
      * 
      * @return Alla personers prylsamlingar.
      */

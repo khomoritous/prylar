@@ -15,19 +15,33 @@ import se.moma.pryl.model.Smycke;
 import se.moma.pryl.model.interfaces.Pryl;
 
 /**
- * Returnerar olika factory av <code>Pryl</code>.
+ * Är en factory av <code>Pryl</code> som returnerar instans av <code>Smycke</code>, <code>Aktie</code> eller
+ * <code>Apparat</code>.
  * 
  * @author monde
  */
 public class PrylFactory {
-    //private static Map<String, String>  map = new HashMap<>();
     
+     /**
+     * Skapar en instans av <code>Pryl</code> antingen <code>Smycke</code>, <code>Aktie</code> eller 
+     * <code>Apparat</code>.
+     * 
+     * @param namnPåPryl Textsträng som är namn på <code>Pryl</code>.
+     * @param map Innehåller argument till <code>Pryl</code> som ska skapas.
+     * 
+     * @return Instans av <code>Smycke</code>, <code>Aktie</code> eller <code>Apparat</code>.
+     * 
+     * @throws NumberFormatException Om det är fel på argumenten till vald <code>Pryl</code> 
+     * och ingen <code>Pryl</code> skapades. 
+     */   
     public static Pryl getPryl(String namnPåPryl, Map<String, String> map) throws NumberFormatException {
-      
-        if (namnPåPryl.equalsIgnoreCase("smycke")) return new Smycke(map.get("namn"), map.get("metall"), parseInt(map.get("ädelstenar")));
-        if (namnPåPryl.equalsIgnoreCase("aktie")) return new Aktie(map.get("namn"), parseInt(map.get("antal")), parseInt(map.get("pris")));
-        if (namnPåPryl.equalsIgnoreCase("apparat")) return new Apparat(map.get("namn"), parseDouble(map.get("pris")), parseInt(map.get("slitage")));
-      return null;
+      if (namnPåPryl.equalsIgnoreCase("smycke")) 
+        return new Smycke(map.get("namn"), map.get("metall"), parseInt(map.get("ädelstenar")));
+      else if (namnPåPryl.equalsIgnoreCase("aktie")) 
+        return new Aktie(map.get("namn"), parseInt(map.get("antal")), parseInt(map.get("pris")));
+      else if (namnPåPryl.equalsIgnoreCase("apparat")) 
+        return new Apparat(map.get("namn"), parseDouble(map.get("pris")), parseInt(map.get("slitage")));
+      else return null;
     }
     
     public static void main(String[] args) {
@@ -52,6 +66,9 @@ public class PrylFactory {
       
       Pryl prylapparat = PrylFactory.getPryl("apparat", map);
       System.out.println(prylapparat);
+      
+      Pryl ingepryl = PrylFactory.getPryl("", map);
+      System.out.println(ingepryl);
       
      
     }

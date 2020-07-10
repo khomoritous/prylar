@@ -5,20 +5,18 @@
  */
 package se.moma.pryl.view;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.logging.Level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.moma.pryl.controller.Controller;
 import se.moma.pryl.util.ErrorMessageHandler;
+import se.moma.pryl.util.LogHandler;
 
 /**
  *
@@ -30,6 +28,7 @@ public class View {
       private Controller controller = null;
 	    private Scanner scanner = null;
       private ErrorMessageHandler errorMsgHandler = null;
+      private LogHandler logger = null;
       
       private final static Logger theLogger = LoggerFactory.getLogger(View.class);
      // private static final String LOGG = "pryl-log.txt";
@@ -41,11 +40,12 @@ public class View {
         errorMsgHandler = new ErrorMessageHandler();
         this.scanner = scanner;
         this.scanner = new Scanner(System.in);
-//        try {
-//          loggfil = new PrintWriter(new FileWriter(new File(LOGG), true), true);
-//        } catch (IOException ex) {
-//          java.util.logging.Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+          logger = new LogHandler();
+        } catch (IOException ex) {
+          System.out.println("Kan inte skapa loghandler. Avslutar...");
+          System.exit(1);
+        }
       }
       
       
@@ -62,48 +62,49 @@ public class View {
        for(;;) {
          
          try {
-          displayMeny();
-          int kommando = Integer.parseInt(scanner.nextLine().trim());
+           displayMeny();
+           int kommando = Integer.parseInt(scanner.nextLine().trim());
      
-          switch(kommando) {
-            case 1:
-              //SkapaPerson
-              System.out.print("Namn på person: ");
-              String namn = scanner.nextLine().trim();
-              System.out.println();
-              controller.registreraNyPerson(namn);
+           switch(kommando) {
+             case 1:
+               //SkapaPerson
+               System.out.print("Namn på person: ");
+               String namn = scanner.nextLine().trim();
+               System.out.println();
+               controller.registreraNyPerson(namn);
               
-              theLogger.info("Skapar person: " + namn);
-            break;
-            case 2:
-            String typAvPryl = "";
-             try {
-              //Skapa pryl
-               System.out.print("Vad heter personen som ska äga prylen? ");
+               
+              break;
+              case 2:
+                try {
+                String typAvPryl = "";
+            
+                //Skapa pryl
+                System.out.print("Vad heter personen som ska äga prylen? ");
              
-               String namnPåPerson = scanner.nextLine().trim();
-               if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen med det namnet registrerat!"); 
-                 System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
+                String namnPåPerson = scanner.nextLine().trim();
+                if (!controller.isPersonRegistrerad(namnPåPerson)) throw new IllegalArgumentException("Det finns ingen med det namnet registrerat!"); 
+                  System.out.print("Vad för sorts pryl ska skapas - smycke, apparat eller aktie? ");
      
-                 typAvPryl = scanner.nextLine().trim();
+                  typAvPryl = scanner.nextLine().trim();
                
-               if (typAvPryl.equalsIgnoreCase("Smycke")) {
-                 System.out.print("Vilket sorts smycke? ");
-	               String smycke  = scanner.nextLine().trim();
-                 System.out.println();
-	               System.out.print("Vilken metall är smycket gjord av? ");
-	               String metall = scanner.nextLine().trim();
-                 System.out.println();
-	               System.out.print("Antal ädelstenar? Ange en siffra. ");
-	               String ädelStenar = scanner.nextLine().trim();
-                 System.out.println();
+                if (typAvPryl.equalsIgnoreCase("Smycke")) {
+                  System.out.print("Vilket sorts smycke? ");
+	                String smycke  = scanner.nextLine().trim();
+                  System.out.println();
+	                System.out.print("Vilken metall är smycket gjord av? ");
+	                String metall = scanner.nextLine().trim();
+                  System.out.println();
+	                System.out.print("Antal ädelstenar? Ange en siffra. ");
+	                String ädelStenar = scanner.nextLine().trim();
+                  System.out.println();
                
-                 prylArgs.put("namn", smycke);
-                 prylArgs.put("metall", metall);
-                 prylArgs.put("ädelstenar",ädelStenar);
-                 controller.skapaPrylTillPerson(namnPåPerson, "smycke");
+                  prylArgs.put("namn", smycke);
+                  prylArgs.put("metall", metall);
+                  prylArgs.put("ädelstenar",ädelStenar);
+                  controller.skapaPrylTillPerson(namnPåPerson, "smycke");
                  
-                 theLogger.info("Skapar smycke...");
+                 
              } else if (typAvPryl.equalsIgnoreCase("Apparat")) {
                  System.out.print("Vilken sorts apparat? ");
                  String apparat = scanner.nextLine().trim();
@@ -120,7 +121,7 @@ public class View {
                  prylArgs.put("slitage", slitage);
                  controller.skapaPrylTillPerson(namnPåPerson, "apparat");
                  
-                 theLogger.info("Skapar apparat...");
+                 
              } else if (typAvPryl.equalsIgnoreCase("Aktie")) {
                  System.out.print("Vilken sort aktie? ");
                  String aktieNamn = scanner.nextLine().trim();
@@ -136,49 +137,51 @@ public class View {
                  prylArgs.put("antal", antal);
                  prylArgs.put("pris", pris);
                  controller.skapaPrylTillPerson(namnPåPerson, "aktie");
-                 
-                 theLogger.info("Skapar aktie...");
-               } 
-             }catch(NumberFormatException nfe) {
-                errorMsgHandler.showErrorMsg(nfe.getMessage() + " skapades ingen pryl. Är argument rätt ifyllda?");
-                theLogger.error(nfe.getMessage() + " ingen pryl skapades", nfe);
+               } else throw new IllegalArgumentException(typAvPryl + " du måste välja pryl..smycke, aktie eller apparat");
+             
+                }catch(NumberFormatException nfe) {
+                  errorMsgHandler.showErrorMsg(nfe.getMessage() + " skapades ingen pryl. Är alla argument rätt ifyllda?");
+                  logger.logException(nfe);
+                }catch(Exception ex) {
+                  errorMsgHandler.showErrorMsg(ex.getMessage());
+                  logger.logException(ex);
+              }
+              break;
+              case 3:
+                System.out.println(controller.toString());
+              break;
+              case 4: 
+		            System.out.println(controller.visaRikastePerson());
+                System.out.println();
+			        break;
+              case 5:
+			          System.out.print("Skriv ett namn: ");
+			          String hämtaPerson = scanner.nextLine().trim();
+                System.out.println();
+			          System.out.println(controller.hämtaPrylSamling(hämtaPerson));
+			        break;
+              case 6:
+			          controller.börsKraschFörSamtligaPrylSamlingar();
+			        break;
+              case 7:
+                System.out.println("Hej då!");
+			          System.exit(0);
+              break;
+              default:
+                System.out.println("Felaktigt kommando! Försök igen!");
+           }
+           
+            }catch(NumberFormatException nfe) {
+               errorMsgHandler.showErrorMsg(nfe.getMessage() + ". Du behöver använda dig av siffror för att komma åt menyn.");
+               logger.logException(nfe);
+             }catch(NoSuchElementException nse) {
+                errorMsgHandler.showErrorMsg(nse.getMessage());
+                logger.logException(nse);
               }catch(Exception ex) {
-                 errorMsgHandler.showErrorMsg(ex.getMessage());
-                 theLogger.error(ex.getMessage());
-               }
-             break;
-            case 3:
-              System.out.println(controller.toString());
-              break;
-            case 4: 
-		          System.out.println(controller.visaRikastePerson());
-              System.out.println();
-			        break;
-            case 5:
-			        System.out.print("Skriv ett namn: ");
-			        String hämtaPerson = scanner.nextLine().trim();
-              System.out.println();
-			        System.out.println(controller.hämtaPrylSamling(hämtaPerson));
-			        break;
-            case 6:
-			        controller.börsKraschFörSamtligaPrylSamlingar();
-			        break;
-            case 7:
-              System.out.println("Hej då!");
-			        System.exit(0);
-              break;
-            default:
-              System.out.println("Felaktigt kommando! Försök igen!");
-          }
-         
-         } catch(NumberFormatException nfe) {
-             errorMsgHandler.showErrorMsg(nfe.getMessage());
-             theLogger.error(nfe.getMessage());
-           } catch(Exception ex) {
-               errorMsgHandler.showErrorMsg(ex.getMessage());
-               theLogger.error(ex.getMessage());
-           }         
-       }
+                errorMsgHandler.showErrorMsg(ex.getMessage());
+                logger.logException(ex);
+              }         
+        }
        
      }
       
