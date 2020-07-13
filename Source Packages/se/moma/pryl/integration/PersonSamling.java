@@ -1,5 +1,6 @@
 package se.moma.pryl.integration;
 
+import java.io.Serializable;
 import se.moma.pryl.model.Person;
 import java.util.*;
 import static java.util.stream.Collectors.toMap;
@@ -13,7 +14,7 @@ import se.moma.pryl.util.PrylSamlingComparator;
  * 
  *  @author monde
  */
-public class PersonSamling {
+public class PersonSamling implements Serializable {
 
     private Map<Person, PrylSamling> personSamling = null;
    

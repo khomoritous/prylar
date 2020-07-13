@@ -5,6 +5,7 @@
  */
 package se.moma.pryl.integration;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +18,7 @@ import se.moma.pryl.model.interfaces.Pryl;
  *
  * @author monde
  */
-public class PrylSamling implements Comparable<PrylSamling>{
+public class PrylSamling implements Comparable<PrylSamling>, Serializable{
   
   private List<Pryl> prylar = null;
   

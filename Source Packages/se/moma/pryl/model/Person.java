@@ -1,5 +1,6 @@
 package se.moma.pryl.model;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,7 +11,7 @@ import java.util.regex.Pattern;
  * 
  * @author monde
  */
-public class Person {
+public class Person implements Serializable {
     
     private final String namn;
     private String patt = "^[A-ZÅÄÖa-zåäö]+$";

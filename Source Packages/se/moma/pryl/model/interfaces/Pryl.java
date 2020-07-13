@@ -1,5 +1,6 @@
 package se.moma.pryl.model.interfaces;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,7 +11,7 @@ import java.util.regex.Pattern;
  * 
  * @author monde
  */
-public abstract class Pryl {
+public abstract class Pryl implements Serializable {
   
   
     private String namn = null;
