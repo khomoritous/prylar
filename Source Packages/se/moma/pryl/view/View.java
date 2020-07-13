@@ -30,7 +30,7 @@ public class View {
       private ErrorMessageHandler errorMsgHandler = null;
       private LogHandler logger = null;
       
-      private final static Logger theLogger = LoggerFactory.getLogger(View.class);
+      //private final static Logger theLogger = LoggerFactory.getLogger(View.class);
      // private static final String LOGG = "pryl-log.txt";
     //  private PrintWriter loggfil = null;
       

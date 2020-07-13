@@ -1,5 +1,9 @@
 package se.moma.pryl.integration;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import se.moma.pryl.model.Person;
 import java.util.*;
@@ -7,6 +11,8 @@ import static java.util.stream.Collectors.toMap;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
 import se.moma.pryl.model.Smycke;
+import se.moma.pryl.util.ErrorMessageHandler;
+import se.moma.pryl.util.LogHandler;
 import se.moma.pryl.util.PrylSamlingComparator;
 
 /**
@@ -17,15 +23,52 @@ import se.moma.pryl.util.PrylSamlingComparator;
 public class PersonSamling implements Serializable {
 
     private Map<Person, PrylSamling> personSamling = null;
-   
+    private FileInputStream fil = null;
+    private ObjectInputStream in = null;
+    
+    private ErrorMessageHandler errorMsgHandler = null;
+    private LogHandler logger = null;
+      
+    
    
     /**
      * Skapar en instans av <code>PersonSamling</code>.
      * 
      */
     public PersonSamling() { 
-      personSamling = new HashMap<>();
+      try { 
+        logger = new LogHandler();
+        errorMsgHandler = new ErrorMessageHandler();
+      } catch (IOException ioe) {
+          System.out.println(ioe.getMessage() + "..det gick inte att skapa en logg...avslutar.");
+          System.exit(1);
+      } catch(Exception ex) {
+          System.out.println(ex.getMessage());
+          System.exit(2);
+      }
+         
+      try {
+        fil = new FileInputStream("personsamling.ser");
+        in = new ObjectInputStream(fil);
+        personSamling = (Map<Person, PrylSamling>)in.readObject();
+      }catch (FileNotFoundException fnfe) {
+         System.out.println(fnfe.getMessage() + "...det gick inte att hitta filen!"); 
+         logger.logException(fnfe);
+         personSamling = new HashMap<>();
+      }catch (IOException ioe) {
+         System.out.println(ioe.getMessage() + "..det gick inte att läsa eller skriva till fil!");
+         logger.logException(ioe);
+         System.exit(3);
+      }catch (ClassNotFoundException cfe) {
+         System.out.println(cfe.getMessage());
+         logger.logException(cfe);
+         System.exit(4);
+      }catch (Exception ex) {
+         logger.logException(ex);
+         System.exit(5);
+      }
     }
+    
     
     /**
      * Lägger till instans av <code>Person</code> till <code>PersonSamling</code>.
@@ -128,6 +171,7 @@ public class PersonSamling implements Serializable {
     
     public static void main(String[] args) {
       PersonSamling personSamling = new PersonSamling();
+      assert personSamling != null;
        
       personSamling.läggTillPerson("Pelle");
         
