@@ -2,11 +2,15 @@ package se.moma.pryl.integration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import se.moma.pryl.model.Person;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static java.util.stream.Collectors.toMap;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
@@ -23,11 +27,13 @@ import se.moma.pryl.util.PrylSamlingComparator;
 public class PersonSamling implements Serializable {
 
     private Map<Person, PrylSamling> personSamling = null;
-    private FileInputStream fil = null;
-    private ObjectInputStream in = null;
+    private FileInputStream inFil = null;
+    private ObjectInputStream inObj = null;
+    private FileOutputStream outFil = null;
+    private ObjectOutputStream outObj = null;
     
-    private ErrorMessageHandler errorMsgHandler = null;
-    private LogHandler logger = null;
+    //private ErrorMessageHandler errorMsgHandler = null;
+    private static LogHandler logger = null;
       
     
    
@@ -38,7 +44,7 @@ public class PersonSamling implements Serializable {
     public PersonSamling() { 
       try { 
         logger = new LogHandler();
-        errorMsgHandler = new ErrorMessageHandler();
+        //errorMsgHandler = new ErrorMessageHandler();
       } catch (IOException ioe) {
           System.out.println(ioe.getMessage() + "..det gick inte att skapa en logg...avslutar.");
           System.exit(1);
@@ -48,9 +54,9 @@ public class PersonSamling implements Serializable {
       }
          
       try {
-        fil = new FileInputStream("personsamling.ser");
-        in = new ObjectInputStream(fil);
-        personSamling = (Map<Person, PrylSamling>)in.readObject();
+        inFil = new FileInputStream("personsamling.ser");
+        inObj = new ObjectInputStream(inFil);
+        personSamling = (Map<Person, PrylSamling>)inObj.readObject();
       }catch (FileNotFoundException fnfe) {
          System.out.println(fnfe.getMessage() + "...det gick inte att hitta filen!"); 
          logger.logException(fnfe);
@@ -151,7 +157,20 @@ public class PersonSamling implements Serializable {
       
       return stringBuilder.toString();
     } 
-   
+     
+     /**
+      * Sparar <code>PersonSamling</code> till fil.
+      * 
+      * @throws FileNotFoundException Om fil inte finns. 
+      * @throws IOException Om det är problem med läsning eller skrivning till fil.
+      */
+     public void sparaPersonSamling() throws FileNotFoundException, IOException {
+       System.out.println("...skriver till fil...");
+       outFil = new FileOutputStream("personsamling.ser");
+       outObj = new ObjectOutputStream(outFil);
+       outObj.writeObject(personSamling);
+
+     }
 
   
     
@@ -208,6 +227,15 @@ public class PersonSamling implements Serializable {
       System.out.println(personSamling);  
       
       System.out.println(personSamling.visaAllaPersoner());
+      
+      try {
+        personSamling.sparaPersonSamling();
+      } catch (IOException ie) {
+        System.out.println(ie.getMessage());
+        logger.logException(ie);
+      }
+      PersonSamling personSamlingFil = new PersonSamling();
+      System.out.println(personSamlingFil);
        
     }
 }
