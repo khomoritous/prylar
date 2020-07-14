@@ -15,6 +15,7 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.moma.pryl.controller.Controller;
+import se.moma.pryl.integration.exceptions.PersistanceException;
 import se.moma.pryl.util.ErrorMessageHandler;
 import se.moma.pryl.util.LogHandler;
 
@@ -164,6 +165,15 @@ public class View {
 			          controller.börsKraschFörSamtligaPrylSamlingar();
 			        break;
               case 7:
+                try {
+                    controller.sparaPersonSamlingTillFil();
+                }catch(PersistanceException pe) {
+                   logger.logException(pe);
+                   errorMsgHandler.showErrorMsg("Filsystemet är inte tillgängligt för tillfället. Var god och försök senare.");
+                }catch(Exception ex) {
+                  logger.logException(ex);
+                }
+              
                 System.out.println("Hej då!");
 			          System.exit(0);
               break;

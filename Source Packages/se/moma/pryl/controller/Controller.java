@@ -5,10 +5,12 @@
  */
 package se.moma.pryl.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import se.moma.pryl.integration.PersonSamling;
 import se.moma.pryl.integration.PrylSamling;
+import se.moma.pryl.integration.exceptions.PersistanceException;
 import se.moma.pryl.model.Person;
 import se.moma.pryl.model.factory.PrylFactory;
 
@@ -118,6 +120,18 @@ public class Controller {
     public boolean isPersonRegistrerad(String namnpåperson){
       return personSamling.isPersonRegistrerad(namnpåperson);
     }
+    /**
+     * Sparar <code>PersonSamling</code> till fil. 
+     * 
+     * @throws PersistanceException Om det är något fel på fil eller åtkomst till fil.
+     */
+    public void sparaPersonSamlingTillFil() throws PersistanceException {
+      try {
+        personSamling.sparaPersonSamling();
+      } catch (IOException iex) {
+          throw new PersistanceException(iex);
+      }
+    }
     
     
     /**
@@ -142,8 +156,8 @@ public class Controller {
       PersonSamling personSamling = null;
       Controller controller = new Controller(personSamling, prylArgs);
       //skapa person
-      controller.registreraNyPerson("Pelle");
-      assert controller.isPersonRegistrerad("Pelle");
+//      controller.registreraNyPerson("Pelle");
+      assert controller.isPersonRegistrerad("Pelle") == true;
       
       System.out.println(controller.visaPersonSamling());
      // System.out.println(controller.getPrylArgs());
@@ -171,8 +185,8 @@ public class Controller {
       System.out.println(controller.visaPersonSamling());
       
       //Ny person
-      controller.registreraNyPerson("Ludde");
-      assert controller.isPersonRegistrerad("Ludde");
+     // controller.registreraNyPerson("Ludde");
+      assert controller.isPersonRegistrerad("Ludde") == true;
       
       prylArgs.put("namn", "AAPL");
       prylArgs.put("antal", "100");

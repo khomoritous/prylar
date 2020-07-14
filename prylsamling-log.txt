@@ -856,3 +856,38 @@ java.io.FileNotFoundException: personsamling.ser (Filen eller katalogen finns in
 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
 	at se.moma.pryl.integration.PersonSamling.<init>(PersonSamling.java:57)
 	at se.moma.pryl.integration.PersonSamling.main(PersonSamling.java:192)
+2020-jul-14 17:09:31,Exception was thrown: Pelle finns redan registrerad!
+java.lang.IllegalArgumentException: Pelle finns redan registrerad!
+	at se.moma.pryl.controller.Controller.registreraNyPerson(Controller.java:49)
+	at se.moma.pryl.view.View.vyn(View.java:75)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-14 17:11:47,Exception was thrown: Det finns ingen med det namnet registrerat!
+java.lang.IllegalArgumentException: Det finns ingen med det namnet registrerat!
+	at se.moma.pryl.view.View.vyn(View.java:87)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-14 17:12:03,Exception was thrown: Det finns ingen med det namnet registrerat!
+java.lang.IllegalArgumentException: Det finns ingen med det namnet registrerat!
+	at se.moma.pryl.view.View.vyn(View.java:87)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-14 17:13:21,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:67)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-14 17:13:32,Exception was thrown: Måste skriva namn på person!
+java.lang.IllegalArgumentException: Måste skriva namn på person!
+	at se.moma.pryl.integration.PersonSamling.isPersonRegistrerad(PersonSamling.java:99)
+	at se.moma.pryl.controller.Controller.isPersonRegistrerad(Controller.java:121)
+	at se.moma.pryl.controller.Controller.registreraNyPerson(Controller.java:49)
+	at se.moma.pryl.view.View.vyn(View.java:75)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-14 17:14:46,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:67)
+	at se.moma.pryl.startup.Main.main(Main.java:16)
+2020-jul-14 17:14:46,Exception was thrown: No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540)
+	at se.moma.pryl.view.View.vyn(View.java:67)
+	at se.moma.pryl.startup.Main.main(Main.java:16)

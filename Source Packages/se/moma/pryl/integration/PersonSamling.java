@@ -15,7 +15,6 @@ import static java.util.stream.Collectors.toMap;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
 import se.moma.pryl.model.Smycke;
-import se.moma.pryl.util.ErrorMessageHandler;
 import se.moma.pryl.util.LogHandler;
 import se.moma.pryl.util.PrylSamlingComparator;
 
@@ -236,6 +235,17 @@ public class PersonSamling implements Serializable {
       }
       PersonSamling personSamlingFil = new PersonSamling();
       System.out.println(personSamlingFil);
+      
+      personSamlingFil.läggTillPerson("Olle");
+      personSamlingFil.hämtaPrylSamlingTillPerson("Olle").läggTillPryl(new Smycke("ring", "koppar", 4));
+      System.out.println(personSamlingFil);
+      
+      try {
+        personSamling.sparaPersonSamling();
+      } catch (IOException ioe) {
+        System.out.println(ioe.getMessage());
+        logger.logException(ioe);
+      }
        
     }
 }
