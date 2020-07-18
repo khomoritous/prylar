@@ -12,8 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import se.moma.pryl.controller.Controller;
 import se.moma.pryl.integration.exceptions.PersistanceException;
 import se.moma.pryl.util.ErrorMessageHandler;

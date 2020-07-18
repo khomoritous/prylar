@@ -54,7 +54,7 @@ public class PersonSamling implements Serializable {
         inFil = new FileInputStream("personsamling.ser");
         inObj = new ObjectInputStream(inFil);
         personSamling = (Map<Person, PrylSamling>)inObj.readObject();
-        System.out.println("...hämtar från fil...");
+       // System.out.println("...hämtar från fil...");
       }catch (FileNotFoundException fnfe) {
          System.out.println(fnfe.getMessage() + "...det gick inte att hitta filen!"); 
          logger.logException(fnfe);
@@ -163,7 +163,7 @@ public class PersonSamling implements Serializable {
       * @throws IOException Om det är problem med läsning eller skrivning till fil.
       */
      public void sparaPersonSamling() throws FileNotFoundException, IOException {
-       System.out.println("...skriver till fil...");
+       //System.out.println("...skriver till fil...");
        outFil = new FileOutputStream("personsamling.ser");
        outObj = new ObjectOutputStream(outFil);
        outObj.writeObject(personSamling);
