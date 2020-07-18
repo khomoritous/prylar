@@ -168,8 +168,8 @@ public class View {
                 try {
                     controller.sparaPersonSamlingTillFil();
                 }catch(PersistanceException pe) {
-                   logger.logException(pe);
                    errorMsgHandler.showErrorMsg("Filsystemet är inte tillgängligt för tillfället. Var god och försök senare.");
+                   logger.logException(pe);
                 }catch(Exception ex) {
                   logger.logException(ex);
                 }

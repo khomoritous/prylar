@@ -9,8 +9,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import se.moma.pryl.model.Person;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import static java.util.stream.Collectors.toMap;
 import se.moma.pryl.model.Aktie;
 import se.moma.pryl.model.Apparat;
@@ -56,6 +54,7 @@ public class PersonSamling implements Serializable {
         inFil = new FileInputStream("personsamling.ser");
         inObj = new ObjectInputStream(inFil);
         personSamling = (Map<Person, PrylSamling>)inObj.readObject();
+        System.out.println("...hämtar från fil...");
       }catch (FileNotFoundException fnfe) {
          System.out.println(fnfe.getMessage() + "...det gick inte att hitta filen!"); 
          logger.logException(fnfe);
